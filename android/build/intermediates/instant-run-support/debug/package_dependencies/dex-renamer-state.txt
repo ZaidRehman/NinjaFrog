@@ -1,0 +1,25 @@
+#Sat Jul 08 19:20:16 IST 2017
+renamed.7=classes3.dex
+renamed.6=classes5.dex
+renamed.5=classes4.dex
+renamed.4=classes7.dex
+renamed.3=classes2.dex
+renamed.2=classes8.dex
+renamed.1=classes6.dex
+renamed.0=classes.dex
+base.7=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-backend-android-1.9.5_1019c8fcb346a0475500d12d5d9fc87003b12a19
+base.6=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-controllers-1.9.5_499744030310fb817688f68e888b4461353862f9
+base.5=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-box2d-1.9.5_d37695abbf8e59d310ae008a5b5b35bd4593f721
+base.4=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-freetype-1.9.5_3914dcfcad2c3b0d5e3a4af79e01d536bf704231
+base.3=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-1.9.5_9a79b6b000f6751b7b006e2f5f48d069c366cbfa
+base.2=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/2/tween-engine-api_d12360f90edc14e5d48e920bc9b959a318d598c3
+base.1=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-controllers-android-1.9.5_049d432abbbd0ca073fead2ddd81b101850e8222
+base.0=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/box2dlights-1.4_c003f02ee2ca4ac68ae6ce023de3559fd4a115ed
+file.7=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-backend-android-1.9.5_1019c8fcb346a0475500d12d5d9fc87003b12a19/classes.dex
+file.6=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-controllers-1.9.5_499744030310fb817688f68e888b4461353862f9/classes.dex
+file.5=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-box2d-1.9.5_d37695abbf8e59d310ae008a5b5b35bd4593f721/classes.dex
+file.4=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-freetype-1.9.5_3914dcfcad2c3b0d5e3a4af79e01d536bf704231/classes.dex
+file.3=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-1.9.5_9a79b6b000f6751b7b006e2f5f48d069c366cbfa/classes.dex
+file.2=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/2/tween-engine-api_d12360f90edc14e5d48e920bc9b959a318d598c3/classes.dex
+file.1=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-controllers-android-1.9.5_049d432abbbd0ca073fead2ddd81b101850e8222/classes.dex
+file.0=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10/box2dlights-1.4_c003f02ee2ca4ac68ae6ce023de3559fd4a115ed/classes.dex

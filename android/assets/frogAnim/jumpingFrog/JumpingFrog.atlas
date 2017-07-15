@@ -1,0 +1,174 @@
+
+JumpingFrog.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Ninja frog - jump0001
+  rotate: false
+  xy: 2, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0002
+  rotate: false
+  xy: 2, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0003
+  rotate: false
+  xy: 170, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0004
+  rotate: false
+  xy: 2, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0005
+  rotate: false
+  xy: 170, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0006
+  rotate: false
+  xy: 338, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0007
+  rotate: false
+  xy: 2, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0008
+  rotate: false
+  xy: 170, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0009
+  rotate: false
+  xy: 338, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0010
+  rotate: false
+  xy: 506, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0011
+  rotate: false
+  xy: 170, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0012
+  rotate: false
+  xy: 338, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0013
+  rotate: false
+  xy: 506, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0014
+  rotate: false
+  xy: 674, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0015
+  rotate: false
+  xy: 338, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0016
+  rotate: false
+  xy: 506, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0017
+  rotate: false
+  xy: 674, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0018
+  rotate: false
+  xy: 842, 761
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0019
+  rotate: false
+  xy: 506, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0020
+  rotate: false
+  xy: 674, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0021
+  rotate: false
+  xy: 842, 508
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0022
+  rotate: false
+  xy: 674, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0023
+  rotate: false
+  xy: 842, 255
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1
+Ninja frog - jump0024
+  rotate: false
+  xy: 842, 2
+  size: 166, 251
+  orig: 166, 251
+  offset: 0, 0
+  index: -1

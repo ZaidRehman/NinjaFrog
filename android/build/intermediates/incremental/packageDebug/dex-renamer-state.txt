@@ -1,0 +1,7 @@
+#Sat Jul 08 19:20:17 IST 2017
+base.0=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_868ca2bbf8b5c7db7ad2412b775a00ab95f6ee2b
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1a37a129b62e4d5ec94423c25ed3650a6e477c2c/classes.dex
+base.1=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1a37a129b62e4d5ec94423c25ed3650a6e477c2c
+file.0=/Users/qureshi/Documents/workspace/NinjaFrog/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_868ca2bbf8b5c7db7ad2412b775a00ab95f6ee2b/classes.dex
