@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 
 import static com.onmakers.ninjafrog.NinjaFrog.V_Height;
 import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
+import static com.onmakers.ninjafrog.manager.ParticleManager.initParticles;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_HEIGHT;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_HEIGHT;
@@ -100,6 +102,9 @@ public class W1L1 implements Screen {
     //Game Design
     private Texture topbar;
     private Sprite bottombar;
+
+    //particles
+    private ParticleEffect pe;
 
     public W1L1(NinjaFrog game) {
         this.game = game;
@@ -213,14 +218,21 @@ public class W1L1 implements Screen {
         atlasFallingFrog = game.manager.get("frogAnim/fallingFrog/fallingFrog.atlas", TextureAtlas.class);
         animFalling = new Animation<TextureAtlas.AtlasRegion>(1f/15f, atlasFallingFrog.getRegions());
 
+        //particles
+        pe = new ParticleEffect();
+        pe.load(Gdx.files.internal("particles/fire.p"),Gdx.files.internal(""));
+        pe.getEmitters().first().setPosition(w / 2, h / 2);
+        pe.start();
+
     }
 
     @Override
     public void render(float delta) {
         update(Gdx.graphics.getDeltaTime());
+        pe.update(delta);
 
         //Render
-        Gdx.gl.glClearColor(184f, 134f, 11f, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         tmr.render();
@@ -272,6 +284,7 @@ public class W1L1 implements Screen {
         }
 
         batch.begin();
+        pe.draw(batch);
         batch.draw(tex,x,y,width,height);
         for (Coin coin :
                 coins) {
@@ -290,6 +303,10 @@ public class W1L1 implements Screen {
         //draw stage
         stage.act();
         stage.draw();
+
+        if(pe.isComplete()){
+            pe.reset();
+        }
 
     }
 
@@ -351,6 +368,7 @@ public class W1L1 implements Screen {
         atlasAttackingFrog.dispose();
         atlasJumpingFrog.dispose();
         topbar.dispose();
+        pe.dispose();
         game.manager.unload("maps/World1Level1.tmx");
     }
 
