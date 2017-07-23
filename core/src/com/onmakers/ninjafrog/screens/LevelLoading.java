@@ -120,6 +120,8 @@ public class LevelLoading implements Screen {
         game.manager.load("frogAnim/attackingFrog/attackingFrog.atlas",TextureAtlas.class);
         game.manager.load("frogAnim/jumpingFrog/JumpingFrog.atlas",TextureAtlas.class);
         game.manager.load("frogAnim/fallingFrog/fallingFrog.atlas",TextureAtlas.class);
+
+        game.manager.load("owlAnim/owlFlying/owlFlying.atlas",TextureAtlas.class);
         switch (0){
 
             case 0:

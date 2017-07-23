@@ -119,8 +119,8 @@ R
 
     public void update(float delta){
         timer += delta;
-        if(timer >= 3){
-           // game.setScreen(new W1L1(sm));
+        if(timer >= 1){
+            game.setScreen(game.mainMenu);
              // sm.setScreenState(ScreenManager.State.W1L1);
         }
         stage.act(delta);

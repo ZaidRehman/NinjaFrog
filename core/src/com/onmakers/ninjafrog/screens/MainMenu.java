@@ -1,33 +1,27 @@
 package com.onmakers.ninjafrog.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.tween.ActorAccessor;
-import com.onmakers.ninjafrog.tween.SpriteAccessor;
 
-import aurelienribon.tweenengine.Timeline;
 import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenAccessor;
 import aurelienribon.tweenengine.TweenManager;
 
 import static com.onmakers.ninjafrog.utils.Constants.HEIGHT;
@@ -43,54 +37,81 @@ public class MainMenu implements Screen{
     private  Stage stage;
     private  Skin skin;
     private TweenManager tweenManager;
-    private  Table table;
     private Image playImg;
-    private TextButton buttonPlay,buttonjSetting, buttonWorld, buttonExit;
-    private ShapeRenderer shapeRenderer;
-    private BitmapFont showcardFont;
-    private Label label;
-
-    int i=1;
+    private Image settingsImg;
+    private Image levelsImg;
+    private Image profileImg;
+    private Image scoreImg;
+    private Sprite tsBgImg;
+    //private BitmapFont showcardFont;
+    private TextureAtlas titleScreenAtlas;
+    private Batch batch;
+    OrthographicCamera camera;
+    Viewport viewport;
 
     public MainMenu(final  NinjaFrog game) {
         this.game= game;
 
-        this.stage = new Stage(new FitViewport(NinjaFrog.V_WIDTH,NinjaFrog.V_Height, game.camera));
-        this.shapeRenderer = new ShapeRenderer();
+        this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
     }
 
     public  void update(float delta){
         stage.act(delta);
-        i+=10;
     }
 
     @Override
     public void show() {
-        System.out.println("Main Menu");
+
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
-        showcardFont = new BitmapFont(Gdx.files.internal("font/showcardFont/showcard.fnt"));
+        camera = new OrthographicCamera();
+        viewport = new FillViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),camera);
+        viewport.apply();
 
-        Texture playTex = new Texture(Gdx.files.internal("images/teddybear0.png"));
-        playImg = new Image(playTex);
-        playImg.setPosition(stage.getWidth()/2, stage.getHeight()/2);
-        playImg.setOrigin(playImg.getWidth()/2,playImg.getHeight()/2);
+        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
+
+        //showcardFont = new BitmapFont(Gdx.files.internal("font/showcardFont/showcard.ttf"));
+
+        titleScreenAtlas = new TextureAtlas(Gdx.files.internal("titleScreen/titleScreen.atlas"));
+
+        tsBgImg = new Sprite(new Texture("images/titleScreenPainting.png"));
+        batch = new SpriteBatch();
+
+        playImg = new Image(titleScreenAtlas.findRegion("PLAY button"));
+        profileImg = new Image(titleScreenAtlas.findRegion("PROFILE button"));
+        levelsImg = new Image(titleScreenAtlas.findRegion("LEVELS button"));
+        scoreImg = new Image(titleScreenAtlas.findRegion("SCORE button"));
+        settingsImg = new Image(titleScreenAtlas.findRegion("settings button 2"));
+
+        playImg.setPosition(stage.getWidth() / 4, stage.getHeight() - 200);
+        playImg.setOrigin(playImg.getWidth()/4,playImg.getHeight()/2);
+        playImg.setScale(1.5f);
         stage.addActor(playImg);
 
+        profileImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 400) ;
+        profileImg.setOrigin(profileImg.getWidth()/4,profileImg.getHeight()/2);
+        stage.addActor(profileImg);
 
+        levelsImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 600);
+        levelsImg.setOrigin(levelsImg.getWidth()/4,levelsImg.getHeight()/2);
+        stage.addActor(levelsImg);
+
+        scoreImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 800);
+        scoreImg.setOrigin(scoreImg.getWidth()/4,scoreImg.getHeight()/2);
+        stage.addActor(scoreImg);
+
+        settingsImg.setPosition(stage.getWidth() - 400, stage.getHeight() - 400);
+        settingsImg.setOrigin(settingsImg.getWidth() - 400,settingsImg.getHeight() - 400);
+        stage.addActor(settingsImg);
 
         this.skin=new Skin();
-        //this.skin.addRegions(game.manager.get("skin/glassy-ui.atlas", TextureAtlas.class));
         game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
         game.manager.finishLoading();
         this.skin.addRegions(game.manager.get("skin/glassy-ui.atlas", TextureAtlas.class));
 
-        //  this.skin.load(Gdx.files.internal("skin/glassy-ui.atlas"));
-        //this.skin.addRegions(game.manager.load(););
         game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
-        //this.skin.add("font", game.font24);
-        this.skin.add("font", showcardFont);
+        //this.skin.add("font", showcardFont);
         this.skin.load(Gdx.files.internal("skin/glassy-ui.json"));
 
         tweenManager = new TweenManager();
@@ -98,42 +119,46 @@ public class MainMenu implements Screen{
         Tween.set(playImg,ActorAccessor.ALPHA).target(0).start(tweenManager);
         Tween.to(playImg,ActorAccessor.ALPHA,2).target(1).start(tweenManager);
 
+        Tween.set(profileImg,ActorAccessor.ALPHA).target(0).start(tweenManager);
+        Tween.to(profileImg,ActorAccessor.ALPHA,2).target(1).start(tweenManager);
+
+        Tween.set(levelsImg,ActorAccessor.ALPHA).target(0).start(tweenManager);
+        Tween.to(levelsImg,ActorAccessor.ALPHA,2).target(1).start(tweenManager);
+
+        Tween.set(scoreImg,ActorAccessor.ALPHA).target(0).start(tweenManager);
+        Tween.to(scoreImg,ActorAccessor.ALPHA,2).target(1).start(tweenManager);
+
         initButtons();
 
     }
 
     @Override
     public void render(float delta) {
+
+        camera.update();
+        update(delta);
         Gdx.gl.glClearColor(0,165,114,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        update(delta);
+        batch.setProjectionMatrix(camera.combined);
+
+        batch.begin();
+        tsBgImg.draw(batch);
+        batch.end();
+
+        /*stage.getBatch().begin();
+        stage.getBatch().draw(tsBgImg,0,0, Gdx.graphics.getWidth(), game.camera.viewportHeight);
+        stage.getBatch().end();*/
         stage.draw();
 
         tweenManager.update(delta);
 
-
-        game.batch.begin();
-        showcardFont.draw(game.batch, "Main Menu", WIDTH /2 -15, HEIGHT);
-        game.batch.end();
-
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        //shapeRenderer.setColor(Color.RED);
-       // shapeRenderer.rect(WIDTH/2,HEIGHT* 0.75f,WIDTH/2,HEIGHT/4);
-
-        shapeRenderer.setColor(Color.BLUE);
-        if(i<WIDTH / 2)
-            shapeRenderer.rect(WIDTH - i,HEIGHT* 0.75f,WIDTH/2,HEIGHT/4);
-        else
-            shapeRenderer.rect(WIDTH/2,HEIGHT* 0.75f,WIDTH/2,HEIGHT/4);
-
-        shapeRenderer.end();
     }
 
     @Override
     public void resize(int width, int height) {
-
+        viewport.update(width,height);
+        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
     }
 
     @Override
@@ -153,28 +178,45 @@ public class MainMenu implements Screen{
 
     @Override
     public void dispose() {
-        shapeRenderer.dispose();
         stage.dispose();
         skin.dispose();
 
     }
     private void  initButtons(){
-        buttonPlay = new TextButton("Play", skin, "default");
-        //buttonPlay.setText("Play");
-        buttonPlay.setPosition(600,400);
-        buttonPlay.setSize(280,60);
 
-        buttonExit= new TextButton("Exit", skin, "default");
-        buttonExit.setPosition(600,100);
-        buttonExit.setSize(240,100);
-        buttonExit.addListener(new ClickListener(){
+        settingsImg.addListener(new ClickListener(){
             @Override
-            public  void clicked (InputEvent event, float x, float y){
-                Gdx.app.exit();
-    }
-});
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new Settings(game));
+            }
+        });
 
-        stage.addActor(buttonPlay);
-        stage.addActor(buttonExit);
+        playImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(game.levelLoading);
+            }
+        });
+
+        scoreImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+
+            }
+        });
+
+        levelsImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+
+            }
+        });
+
+        profileImg.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+
+            }
+        });
     }
 }

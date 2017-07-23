@@ -44,7 +44,7 @@ public class NinjaFrog extends Game {
     public void create() {
         manager = new AssetManager();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, V_WIDTH , V_Height );
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight() );
         batch = new SpriteBatch();
 
         initFonts();
@@ -56,7 +56,7 @@ public class NinjaFrog extends Game {
         splash = new Splash(this);
         loadingScreen = new LoadingScreen(this);
         mainMenu = new MainMenu(this);
-        setScreen(levelLoading);
+        setScreen(splash);
         /*switch(gm.getLevel()){
             case 0 : setScreen( new W1L1(this));
                 break;

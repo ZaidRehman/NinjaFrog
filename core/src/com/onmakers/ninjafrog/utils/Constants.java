@@ -38,4 +38,6 @@ public class Constants {
     public static float mapPixelWidth = 0;
     public static float mapPixelHeight = 0;
 
+    public static float elapsedOwlTime = 0;
+
 }

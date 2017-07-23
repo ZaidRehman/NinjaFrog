@@ -71,7 +71,7 @@ public class Settings implements Screen {
         backButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(new W1L1(game));
+                game.setScreen(game.mainMenu);
             }
         });
         //music

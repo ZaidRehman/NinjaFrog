@@ -27,6 +27,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.entities.Coin;
+import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
 import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
@@ -45,6 +46,7 @@ import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_HEIGHT;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
+import static com.onmakers.ninjafrog.utils.Constants.elapsedOwlTime;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
@@ -73,6 +75,7 @@ public class W1L1 implements Screen {
     //private Body frog;
     private Player frog;
     private PlayerFoot frogFoot;
+    private Enemy flyingOwl;
 
     //body of keys and coins
     private ArrayList<Coin> coins;
@@ -98,6 +101,9 @@ public class W1L1 implements Screen {
     //Animation
     private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog, atlasFallingFrog;
     private Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping, animFalling;
+
+    private TextureAtlas atlasFlyingOwl;
+    private Animation<TextureAtlas.AtlasRegion> animFlyingOwl;
 
     //Game Design
     private Texture topbar;
@@ -164,6 +170,8 @@ public class W1L1 implements Screen {
         frogFoot = new PlayerFoot(world,"FROG_FOOT",100,300, FROG_BODY_WIDTH, 5);
         JointBuilder.createDJointDef(world,frog.body,frogFoot.body, FROG_BODY_HEIGHT);
 
+        flyingOwl = new Enemy(world, "flyingOwl", 1000, 1000, 30, 30);
+
         TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get("collision-layer").getObjects());
 
 
@@ -217,6 +225,10 @@ public class W1L1 implements Screen {
         animJumping = new Animation<TextureAtlas.AtlasRegion>(1f/30f,atlasJumpingFrog.getRegions());
         atlasFallingFrog = game.manager.get("frogAnim/fallingFrog/fallingFrog.atlas", TextureAtlas.class);
         animFalling = new Animation<TextureAtlas.AtlasRegion>(1f/15f, atlasFallingFrog.getRegions());
+
+        elapsedOwlTime = 0;
+        atlasFlyingOwl = game.manager.get("owlAnim/owlFlying/owlFlying.atlas", TextureAtlas.class);
+        animFlyingOwl = new Animation<TextureAtlas.AtlasRegion>(1f/30f , atlasFlyingOwl.getRegions());
 
         //particles
         pe = new ParticleEffect();
@@ -285,6 +297,9 @@ public class W1L1 implements Screen {
 
         batch.begin();
         pe.draw(batch);
+        //owl
+        batch.draw(animFlyingOwl.getKeyFrame(elapsedOwlTime,true),flyingOwl.body.getPosition().x * PPM - 30 * 2.5f, flyingOwl.body.getPosition().y * PPM - 30 * 1.5f);
+        //frog
         batch.draw(tex,x,y,width,height);
         for (Coin coin :
                 coins) {
@@ -298,7 +313,7 @@ public class W1L1 implements Screen {
         stage.getBatch().draw(bottombar,-10,-10,w + 10f,h * 0.1f);
         stage.getBatch().end();
 
-        //b2dr.render(world, camera.combined.scl(PPM));
+        b2dr.render(world, camera.combined.scl(PPM));
 
         //draw stage
         stage.act();
@@ -317,13 +332,20 @@ public class W1L1 implements Screen {
 
         //updates
         elapsedTime += delta;
+        elapsedOwlTime += delta;
         game.manager.update();
+
         cameraUpdate(delta,frog,camera);
         UtilityMethods.inputUpdate(frog);
         updateFrogStatus(delta,frog);
 
         tmr.setView(camera);
         batch.setProjectionMatrix(camera.combined);
+
+        //flyingOwl.body.setLinearVelocity(flyingOwl.body.getLinearVelocity().x, delta * 12);
+        //flyingOwl.body.applyLinearImpulse(0,1.5f,0,0,true);
+        if(flyingOwl.body.getLinearVelocity().y <= 0)
+        flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
 
         if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
             game.gm.setPrefLevel(0);
