@@ -1,5 +1,7 @@
 package com.onmakers.ninjafrog.entities;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -15,6 +17,12 @@ public class Enemy {
     public boolean isAlive = true;
     public boolean isTouchingRSword = false;
     public boolean isTouchingLSword = false;
+    public TextureAtlas atlasFlyingOwl,atlasDead1Owl,atlasDead2Owl,atlasDead3Owl,atlasAttack1Owl,atlasAttack2Owl;
+    public   Animation<TextureAtlas.AtlasRegion> animFlyingOwl,animDead1Owl,animDead2Owl,animDead3Owl,animAttack1Owl,animAttack2Owl;
+    public float elapsedOwlTime = 0;
+    public float elapsedDeadCounter = 0;
+    public String flyingOwlStatus = "flying";
+    public boolean isBodyDestroyed= false;
 
     public Enemy(World world, String id, float x, float y, float width, float height){
         this.id = id;
@@ -43,6 +51,14 @@ public class Enemy {
 
     public void hit(boolean x){
         System.out.println(id + ": has been hit");
+    }
+    public void dispose(){
+        atlasFlyingOwl.dispose();
+        atlasDead1Owl.dispose();
+        atlasDead2Owl.dispose();
+        atlasDead3Owl.dispose();
+        atlasAttack1Owl.dispose();
+        atlasAttack2Owl.dispose();
     }
 
 }

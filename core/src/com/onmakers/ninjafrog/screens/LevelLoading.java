@@ -28,7 +28,7 @@ public class LevelLoading implements Screen {
     private  void update(float delta){
         progress = MathUtils.lerp(progress, game.manager.getProgress(),.1f);
         if(game.manager.update() && (progress >= game.manager.getProgress() - 0.01f)){
-            switch (0){
+            switch (game.gm.getLevel()){
 
                 case 0:
                     game.setScreen(new W1L1(game));
@@ -62,7 +62,7 @@ public class LevelLoading implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1f,.1f,.1f,1f);
+        Gdx.gl.glClearColor(.1f,.5f,.5f,1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         update(delta);
@@ -122,7 +122,12 @@ public class LevelLoading implements Screen {
         game.manager.load("frogAnim/fallingFrog/fallingFrog.atlas",TextureAtlas.class);
 
         game.manager.load("owlAnim/owlFlying/owlFlying.atlas",TextureAtlas.class);
-        switch (0){
+        game.manager.load("owlAnim/owlAttack/owlAttack1.atlas",TextureAtlas.class);
+        game.manager.load("owlAnim/owlAttack/owlAttack2.atlas",TextureAtlas.class);
+        game.manager.load("owlAnim/owlDead/owlDead1.atlas",TextureAtlas.class);
+        game.manager.load("owlAnim/owlDead/owlDead2.atlas",TextureAtlas.class);
+        game.manager.load("owlAnim/owlDead/owlDead3.atlas",TextureAtlas.class);
+        switch (game.gm.getLevel()){
 
             case 0:
                 game.manager.load("maps/World1Level1.tmx", TiledMap.class);
