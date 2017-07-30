@@ -1,0 +1,272 @@
+
+owlFlying.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Owl idle0001
+  rotate: false
+  xy: 2, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0002
+  rotate: false
+  xy: 2, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0003
+  rotate: false
+  xy: 148, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0004
+  rotate: false
+  xy: 2, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0005
+  rotate: false
+  xy: 148, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0006
+  rotate: false
+  xy: 294, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0007
+  rotate: false
+  xy: 2, 419
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0008
+  rotate: false
+  xy: 148, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0009
+  rotate: false
+  xy: 294, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0010
+  rotate: false
+  xy: 440, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0011
+  rotate: false
+  xy: 2, 280
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0012
+  rotate: false
+  xy: 148, 419
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0013
+  rotate: false
+  xy: 294, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0014
+  rotate: false
+  xy: 440, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0015
+  rotate: false
+  xy: 586, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0016
+  rotate: false
+  xy: 2, 141
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0017
+  rotate: false
+  xy: 148, 280
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0018
+  rotate: false
+  xy: 294, 419
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0019
+  rotate: false
+  xy: 440, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0020
+  rotate: false
+  xy: 586, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0021
+  rotate: false
+  xy: 732, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0022
+  rotate: false
+  xy: 878, 836
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0023
+  rotate: false
+  xy: 2, 2
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0024
+  rotate: false
+  xy: 148, 141
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0025
+  rotate: false
+  xy: 294, 280
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0026
+  rotate: false
+  xy: 440, 419
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0027
+  rotate: false
+  xy: 586, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0028
+  rotate: false
+  xy: 732, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0029
+  rotate: false
+  xy: 878, 697
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0030
+  rotate: false
+  xy: 148, 2
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0031
+  rotate: false
+  xy: 294, 141
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0032
+  rotate: false
+  xy: 440, 280
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0033
+  rotate: false
+  xy: 586, 419
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0034
+  rotate: false
+  xy: 732, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0035
+  rotate: false
+  xy: 878, 558
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0036
+  rotate: false
+  xy: 294, 2
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0037
+  rotate: false
+  xy: 440, 141
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1
+Owl idle0038
+  rotate: false
+  xy: 586, 280
+  size: 144, 137
+  orig: 144, 137
+  offset: 0, 0
+  index: -1

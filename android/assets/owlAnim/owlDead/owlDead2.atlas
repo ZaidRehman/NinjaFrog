@@ -1,0 +1,125 @@
+
+owlDead2.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Owl flying dead 20001
+  rotate: false
+  xy: 2, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20002
+  rotate: false
+  xy: 2, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20003
+  rotate: false
+  xy: 86, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20004
+  rotate: false
+  xy: 86, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20005
+  rotate: false
+  xy: 170, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20006
+  rotate: false
+  xy: 170, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20007
+  rotate: false
+  xy: 254, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20008
+  rotate: false
+  xy: 254, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20009
+  rotate: false
+  xy: 338, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20010
+  rotate: false
+  xy: 338, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20011
+  rotate: false
+  xy: 422, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20012
+  rotate: false
+  xy: 422, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20013
+  rotate: false
+  xy: 506, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20014
+  rotate: false
+  xy: 506, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20015
+  rotate: false
+  xy: 590, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20016
+  rotate: false
+  xy: 590, 2
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1
+Owl flying dead 20017
+  rotate: false
+  xy: 674, 176
+  size: 82, 172
+  orig: 82, 172
+  offset: 0, 0
+  index: -1

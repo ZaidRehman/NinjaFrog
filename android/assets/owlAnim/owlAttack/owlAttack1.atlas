@@ -1,0 +1,111 @@
+
+owlAttack1.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Owl enemy attack 10001
+  rotate: false
+  xy: 2, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10002
+  rotate: false
+  xy: 2, 164
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10003
+  rotate: false
+  xy: 138, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10004
+  rotate: false
+  xy: 2, 2
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10005
+  rotate: false
+  xy: 138, 164
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10006
+  rotate: false
+  xy: 274, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10007
+  rotate: false
+  xy: 138, 2
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10008
+  rotate: false
+  xy: 274, 164
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10009
+  rotate: false
+  xy: 410, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10010
+  rotate: false
+  xy: 274, 2
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10011
+  rotate: false
+  xy: 410, 164
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10012
+  rotate: false
+  xy: 546, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10013
+  rotate: false
+  xy: 546, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10014
+  rotate: false
+  xy: 546, 326
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1
+Owl enemy attack 10015
+  rotate: false
+  xy: 410, 2
+  size: 134, 160
+  orig: 134, 160
+  offset: 0, 0
+  index: -1

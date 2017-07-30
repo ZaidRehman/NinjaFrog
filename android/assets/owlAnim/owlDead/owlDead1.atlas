@@ -1,0 +1,76 @@
+
+owlDead1.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Owl dead 10001
+  rotate: false
+  xy: 2, 336
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10002
+  rotate: false
+  xy: 2, 169
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10003
+  rotate: false
+  xy: 138, 336
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10004
+  rotate: false
+  xy: 2, 2
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10005
+  rotate: false
+  xy: 138, 169
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10006
+  rotate: false
+  xy: 274, 336
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10007
+  rotate: false
+  xy: 138, 2
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10008
+  rotate: false
+  xy: 274, 169
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10009
+  rotate: false
+  xy: 410, 336
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1
+Owl dead 10010
+  rotate: false
+  xy: 274, 2
+  size: 134, 165
+  orig: 134, 165
+  offset: 0, 0
+  index: -1

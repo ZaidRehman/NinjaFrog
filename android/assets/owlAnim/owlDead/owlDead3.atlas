@@ -1,0 +1,55 @@
+
+owlDead3.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Owl flying dead 30001
+  rotate: false
+  xy: 2, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30002
+  rotate: false
+  xy: 123, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30003
+  rotate: false
+  xy: 244, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30004
+  rotate: false
+  xy: 365, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30005
+  rotate: false
+  xy: 486, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30006
+  rotate: false
+  xy: 607, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+Owl flying dead 30007
+  rotate: false
+  xy: 728, 2
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
