@@ -4,172 +4,200 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Ninja Frog - Standing0001
+Ninja frog idle0001
   rotate: false
-  xy: 2, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0002
+Ninja frog idle0002
   rotate: false
-  xy: 2, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0003
+Ninja frog idle0003
   rotate: false
-  xy: 156, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0004
+Ninja frog idle0004
   rotate: false
-  xy: 2, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0005
+Ninja frog idle0005
   rotate: false
-  xy: 156, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0006
+Ninja frog idle0006
   rotate: false
-  xy: 310, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0007
+Ninja frog idle0007
   rotate: false
   xy: 2, 2
-  size: 152, 222
-  orig: 152, 222
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0008
+Ninja frog idle0008
   rotate: false
-  xy: 156, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0009
+Ninja frog idle0009
   rotate: false
-  xy: 310, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0010
+Ninja frog idle0010
   rotate: false
-  xy: 464, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0011
+Ninja frog idle0011
   rotate: false
-  xy: 156, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0012
+Ninja frog idle0012
   rotate: false
-  xy: 310, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0013
+Ninja frog idle0013
   rotate: false
-  xy: 464, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0014
+Ninja frog idle0014
   rotate: false
-  xy: 618, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0015
+Ninja frog idle0015
   rotate: false
-  xy: 310, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0016
+Ninja frog idle0016
   rotate: false
-  xy: 464, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0017
+Ninja frog idle0017
   rotate: false
-  xy: 618, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0018
+Ninja frog idle0018
   rotate: false
-  xy: 772, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0019
+Ninja frog idle0019
   rotate: false
-  xy: 464, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0020
+Ninja frog idle0020
   rotate: false
-  xy: 618, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0021
+Ninja frog idle0021
   rotate: false
-  xy: 772, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0022
+Ninja frog idle0022
   rotate: false
-  xy: 618, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 830, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0023
+Ninja frog idle0023
   rotate: false
-  xy: 772, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0024
+Ninja frog idle0024
   rotate: false
-  xy: 772, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 225
+  size: 136, 221
+  orig: 136, 221
+  offset: 0, 0
+  index: -1
+Ninja frog idle0025
+  rotate: false
+  xy: 830, 448
+  size: 136, 221
+  orig: 136, 221
+  offset: 0, 0
+  index: -1
+Ninja frog idle0026
+  rotate: false
+  xy: 692, 2
+  size: 136, 221
+  orig: 136, 221
+  offset: 0, 0
+  index: -1
+Ninja frog idle0027
+  rotate: false
+  xy: 830, 225
+  size: 136, 221
+  orig: 136, 221
+  offset: 0, 0
+  index: -1
+Ninja frog idle0028
+  rotate: false
+  xy: 830, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
 
@@ -178,233 +206,199 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Ninja Frog - Standing0025
+Ninja frog idle0029
   rotate: false
-  xy: 2, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0026
+Ninja frog idle0030
   rotate: false
-  xy: 2, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0027
+Ninja frog idle0031
   rotate: false
-  xy: 156, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0028
+Ninja frog idle0032
   rotate: false
-  xy: 2, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 2, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0029
+Ninja frog idle0033
   rotate: false
-  xy: 156, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0030
+Ninja frog idle0034
   rotate: false
-  xy: 310, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0031
+Ninja frog idle0035
   rotate: false
   xy: 2, 2
-  size: 152, 222
-  orig: 152, 222
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0032
+Ninja frog idle0036
   rotate: false
-  xy: 156, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0033
+Ninja frog idle0037
   rotate: false
-  xy: 310, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0034
+Ninja frog idle0038
   rotate: false
-  xy: 464, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0035
+Ninja frog idle0039
   rotate: false
-  xy: 156, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 140, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0036
+Ninja frog idle0040
   rotate: false
-  xy: 310, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0037
+Ninja frog idle0041
   rotate: false
-  xy: 464, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0038
+Ninja frog idle0042
   rotate: false
-  xy: 618, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0039
+Ninja frog idle0043
   rotate: false
-  xy: 310, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 278, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0040
+Ninja frog idle0044
   rotate: false
-  xy: 464, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0041
+Ninja frog idle0045
   rotate: false
-  xy: 618, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0042
+Ninja frog idle0046
   rotate: false
-  xy: 772, 674
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0043
+Ninja frog idle0047
   rotate: false
-  xy: 464, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 416, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0044
+Ninja frog idle0048
   rotate: false
-  xy: 618, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0045
+Ninja frog idle0049
   rotate: false
-  xy: 772, 450
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0046
+Ninja frog idle0050
   rotate: false
-  xy: 618, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 830, 671
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0047
+Ninja frog idle0051
   rotate: false
-  xy: 772, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 554, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0048
+Ninja frog idle0052
   rotate: false
-  xy: 772, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-
-standingFrog3.png
-size: 1024,512
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-Ninja Frog - Standing0049
+Ninja frog idle0053
   rotate: false
-  xy: 2, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 830, 448
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0050
+Ninja frog idle0054
   rotate: false
-  xy: 2, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 692, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0051
+Ninja frog idle0055
   rotate: false
-  xy: 156, 226
-  size: 152, 222
-  orig: 152, 222
+  xy: 830, 225
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1
-Ninja Frog - Standing0052
+Ninja frog idle0056
   rotate: false
-  xy: 156, 2
-  size: 152, 222
-  orig: 152, 222
-  offset: 0, 0
-  index: -1
-Ninja Frog - Standing0053
-  rotate: false
-  xy: 310, 226
-  size: 152, 222
-  orig: 152, 222
-  offset: 0, 0
-  index: -1
-Ninja Frog - Standing0054
-  rotate: false
-  xy: 310, 2
-  size: 152, 222
-  orig: 152, 222
-  offset: 0, 0
-  index: -1
-Ninja Frog - Standing0055
-  rotate: false
-  xy: 464, 226
-  size: 152, 222
-  orig: 152, 222
-  offset: 0, 0
-  index: -1
-Ninja Frog - Standing0056
-  rotate: false
-  xy: 464, 2
-  size: 152, 222
-  orig: 152, 222
+  xy: 830, 2
+  size: 136, 221
+  orig: 136, 221
   offset: 0, 0
   index: -1

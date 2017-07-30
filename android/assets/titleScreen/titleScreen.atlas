@@ -1,0 +1,55 @@
+
+titleScreen.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+LEVELS button
+  rotate: false
+  xy: 2, 248
+  size: 281, 148
+  orig: 281, 148
+  offset: 0, 0
+  index: -1
+PLAY button
+  rotate: false
+  xy: 568, 274
+  size: 235, 122
+  orig: 235, 122
+  offset: 0, 0
+  index: -1
+PROFILE button
+  rotate: false
+  xy: 2, 98
+  size: 281, 148
+  orig: 281, 148
+  offset: 0, 0
+  index: -1
+SCORE button
+  rotate: false
+  xy: 285, 248
+  size: 281, 148
+  orig: 281, 148
+  offset: 0, 0
+  index: -1
+SETTINGS button
+  rotate: false
+  xy: 285, 98
+  size: 281, 148
+  orig: 281, 148
+  offset: 0, 0
+  index: -1
+settings button 2
+  rotate: false
+  xy: 2, 2
+  size: 94, 94
+  orig: 94, 94
+  offset: 0, 0
+  index: -1
+title screen painting
+  rotate: false
+  xy: 2, 398
+  size: 960, 600
+  orig: 960, 600
+  offset: 0, 0
+  index: -1

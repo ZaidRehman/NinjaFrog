@@ -31,6 +31,8 @@ public class Constants {
 
     // Animation
     public static boolean isGrounded = true;
+    public static boolean isKillingEnemy = false;
+
     public static boolean frogDirection = false;
     public static String frogStatus = "standing";
     public static float elapsedTime = 0;
@@ -39,5 +41,6 @@ public class Constants {
     public static float mapPixelHeight = 0;
 
     public static float elapsedOwlTime = 0;
+    public static String flyingOwlStatus = "flying";
 
 }

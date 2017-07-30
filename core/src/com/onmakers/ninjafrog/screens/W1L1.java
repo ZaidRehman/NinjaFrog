@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -31,7 +30,9 @@ import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
 import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
+import com.onmakers.ninjafrog.entities.PlayerSword;
 import com.onmakers.ninjafrog.handler.PlayerContactListener;
+import com.onmakers.ninjafrog.utils.Constants;
 import com.onmakers.ninjafrog.utils.JointBuilder;
 import com.onmakers.ninjafrog.utils.TiledObjectUtil;
 import com.onmakers.ninjafrog.utils.UtilityMethods;
@@ -40,7 +41,6 @@ import java.util.ArrayList;
 
 import static com.onmakers.ninjafrog.NinjaFrog.V_Height;
 import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
-import static com.onmakers.ninjafrog.manager.ParticleManager.initParticles;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_HEIGHT;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_HEIGHT;
@@ -50,6 +50,7 @@ import static com.onmakers.ninjafrog.utils.Constants.elapsedOwlTime;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
+import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.buttonAttack;
@@ -75,11 +76,13 @@ public class W1L1 implements Screen {
     //private Body frog;
     private Player frog;
     private PlayerFoot frogFoot;
-    private Enemy flyingOwl;
+    private PlayerSword frogSwordR;
+    private PlayerSword frogSwordL;
 
     //body of keys and coins
     private ArrayList<Coin> coins;
     private ArrayList<Key> keys;
+    private ArrayList<Enemy> flyingOwls;
 
     private float w, h;
 
@@ -109,9 +112,6 @@ public class W1L1 implements Screen {
     private Texture topbar;
     private Sprite bottombar;
 
-    //particles
-    private ParticleEffect pe;
-
     public W1L1(NinjaFrog game) {
         this.game = game;
     }
@@ -120,6 +120,7 @@ public class W1L1 implements Screen {
     public void show() {
         w = Gdx.graphics.getWidth();
         h = Gdx.graphics.getHeight();
+        Constants.isGrounded = false;
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH / SCALE, V_Height / SCALE);
@@ -168,9 +169,25 @@ public class W1L1 implements Screen {
 
         frog = new Player(world, "FROG", 100, 360, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
         frogFoot = new PlayerFoot(world,"FROG_FOOT",100,300, FROG_BODY_WIDTH, 5);
-        JointBuilder.createDJointDef(world,frog.body,frogFoot.body, FROG_BODY_HEIGHT);
+        frogSwordR = new PlayerSword(world,"FROG_SWORD_RIGHT",100 + 300,300, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
+        frogSwordL = new PlayerSword(world,"FROG_SWORD_LEFT",100 + 300,300, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
+        frogSwordR.joint = JointBuilder.createRJointDef(world,frog.body, frogSwordR.body, FROG_BODY_WIDTH * 2,0, false);
+        frogSwordL.joint = JointBuilder.createRJointDef(world,frog.body, frogSwordL.body, -FROG_BODY_WIDTH * 2,0, false);
+        frogFoot.joint = JointBuilder.createRJointDef(world,frog.body,frogFoot.body, 0, -FROG_BODY_HEIGHT -10, false);
 
-        flyingOwl = new Enemy(world, "flyingOwl", 1000, 1000, 30, 30);
+
+        flyingOwls=new ArrayList<Enemy>();
+        flyingOwls.add(new Enemy(world, "flyingOwl"+1, mapPixelWidth * 0.1f * 1, 1000, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+2, mapPixelWidth * 0.1f * 2, 1200, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+3, mapPixelWidth * 0.1f * 3, 900, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+4, mapPixelWidth * 0.1f * 4, 1100, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+5, mapPixelWidth * 0.1f * 5, 900, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+6, mapPixelWidth * 0.08f * 6, 900, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+7, mapPixelWidth * 0.1f * 7, 950, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+8, mapPixelWidth * 0.1f * 8, 500, 30, 30));
+        flyingOwls.add(new Enemy(world, "flyingOwl"+9, mapPixelWidth * 0.1f * 9, 500, 30, 30));
+        //flyingOwls.add(new Enemy(world, "flyingOwl"+10, mapPixelWidth * 0.1f * 10, 900, 30, 30));
+
 
         TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get("collision-layer").getObjects());
 
@@ -230,21 +247,21 @@ public class W1L1 implements Screen {
         atlasFlyingOwl = game.manager.get("owlAnim/owlFlying/owlFlying.atlas", TextureAtlas.class);
         animFlyingOwl = new Animation<TextureAtlas.AtlasRegion>(1f/30f , atlasFlyingOwl.getRegions());
 
-        //particles
+/*        //particles
         pe = new ParticleEffect();
         pe.load(Gdx.files.internal("particles/fire.p"),Gdx.files.internal(""));
         pe.getEmitters().first().setPosition(w / 2, h / 2);
-        pe.start();
+        pe.start();*/
 
     }
 
     @Override
     public void render(float delta) {
         update(Gdx.graphics.getDeltaTime());
-        pe.update(delta);
+      //  pe.update(delta);
 
         //Render
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         tmr.render();
@@ -296,9 +313,13 @@ public class W1L1 implements Screen {
         }
 
         batch.begin();
-        pe.draw(batch);
+        //pe.draw(batch);
         //owl
-        batch.draw(animFlyingOwl.getKeyFrame(elapsedOwlTime,true),flyingOwl.body.getPosition().x * PPM - 30 * 2.5f, flyingOwl.body.getPosition().y * PPM - 30 * 1.5f);
+        for (Enemy flyingOwl :
+                flyingOwls) {
+            if(flyingOwl.isAlive)
+                batch.draw(animFlyingOwl.getKeyFrame(elapsedOwlTime,true),flyingOwl.body.getPosition().x * PPM - 30 * 2.5f, flyingOwl.body.getPosition().y * PPM - 30 * 1.5f);
+        }
         //frog
         batch.draw(tex,x,y,width,height);
         for (Coin coin :
@@ -319,9 +340,9 @@ public class W1L1 implements Screen {
         stage.act();
         stage.draw();
 
-        if(pe.isComplete()){
+      /*  if(pe.isComplete()){
             pe.reset();
-        }
+        }*/
 
     }
 
@@ -338,18 +359,47 @@ public class W1L1 implements Screen {
         cameraUpdate(delta,frog,camera);
         UtilityMethods.inputUpdate(frog);
         updateFrogStatus(delta,frog);
+        checkAttacking(delta);
 
         tmr.setView(camera);
         batch.setProjectionMatrix(camera.combined);
 
+        if(frogDirection){
+
+        }
+
         //flyingOwl.body.setLinearVelocity(flyingOwl.body.getLinearVelocity().x, delta * 12);
         //flyingOwl.body.applyLinearImpulse(0,1.5f,0,0,true);
-        if(flyingOwl.body.getLinearVelocity().y <= 0)
-        flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
+        for (Enemy flyingOwl :
+                flyingOwls) {
+            if(flyingOwl.body.getLinearVelocity().y <= 0)
+                flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
+        }
 
         if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
             game.gm.setPrefLevel(0);
             game.setScreen(game.levelLoading);
+        }
+    }
+    public void checkAttacking(float delta){
+        if(frogStatus == "attacking" && isKillingEnemy){
+            if(frogDirection){
+                for (Enemy frogOwl :
+                        flyingOwls) {
+                    if (frogOwl.isTouchingRSword && frogOwl.isAlive) {
+                        frogOwl.isAlive = false;
+                    }
+                }
+            }else{
+                for (Enemy frogOwl :
+                        flyingOwls) {
+                    if (frogOwl.isTouchingLSword && frogOwl.isAlive) {
+                        frogOwl.isAlive = false;
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -389,8 +439,9 @@ public class W1L1 implements Screen {
         atlasWalkingFrog.dispose();
         atlasAttackingFrog.dispose();
         atlasJumpingFrog.dispose();
+        atlasFlyingOwl.dispose();
         topbar.dispose();
-        pe.dispose();
+        //pe.dispose();
         game.manager.unload("maps/World1Level1.tmx");
     }
 

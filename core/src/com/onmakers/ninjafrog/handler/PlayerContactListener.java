@@ -10,6 +10,9 @@ import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
 import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
+import com.onmakers.ninjafrog.entities.PlayerSword;
+
+import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 
 public class PlayerContactListener implements ContactListener{
     @Override
@@ -20,7 +23,30 @@ public class PlayerContactListener implements ContactListener{
         if(fa == null || fb == null) return;
         if(fa.getUserData() == null || fb.getUserData() == null) return;
 
-        // check contact of wall and foot
+        // check contact of enemy and sword
+        if(isAttacking(fa,fb)){
+            if(fa.getUserData() instanceof PlayerSword){
+                PlayerSword playerSword = (PlayerSword) fa.getUserData();
+                playerSword.hit(true);
+                Enemy enemy = (Enemy) fb.getUserData();
+                if(playerSword.id == "FROG_SWORD_RIGHT"){
+                    enemy.isTouchingRSword = true;
+                }else{
+                    enemy.isTouchingLSword = true;
+                }
+            }else{
+                PlayerSword playerSword = (PlayerSword) fb.getUserData();
+                playerSword.hit(true);
+                Enemy enemy = (Enemy) fa.getUserData();
+                if(playerSword.id == "FROG_SWORD_RIGHT"){
+                    enemy.isTouchingRSword = true;
+                }else{
+                    enemy.isTouchingLSword = true;
+                }
+            }
+        }
+
+        // check contact of wall and joint
         if(isCollisionInFootAndWall(fa, fb)){
             if (fa.getUserData() instanceof PlayerFoot) {
                 PlayerFoot playerFoot = (PlayerFoot) fa.getUserData();
@@ -28,17 +54,6 @@ public class PlayerContactListener implements ContactListener{
             } else {
                 PlayerFoot playerFoot = (PlayerFoot) fb.getUserData();
                 playerFoot.hit(true);
-            }
-        }
-
-        //Check Enemy Contact
-        if (isEnemyContact(fa, fb)) {
-            if (fa.getUserData() instanceof Player) {
-                Enemy enemy = (Enemy) fb.getUserData();
-                enemy.hit();
-            } else {
-                Enemy enemy = (Enemy) fa.getUserData();
-                enemy.hit();
             }
         }
 
@@ -97,6 +112,13 @@ public class PlayerContactListener implements ContactListener{
         }
         return false;
     }
+    private boolean isAttacking(Fixture fa,Fixture fb){
+        if(fa.getUserData() instanceof PlayerSword || fb.getUserData() instanceof PlayerSword){
+            if(fa.getUserData() instanceof Enemy || fb.getUserData() instanceof Enemy)
+                    return true;
+        }
+        return false;
+    }
 
     @Override
     public void endContact(Contact contact) {
@@ -108,6 +130,28 @@ public class PlayerContactListener implements ContactListener{
 
 
         //System.out.println("A Collision Ended");
+
+        if(isAttacking(fa,fb)){
+            if(fa.getUserData() instanceof PlayerSword){
+                PlayerSword playerSword = (PlayerSword) fa.getUserData();
+                playerSword.hit(false);
+                Enemy enemy = (Enemy) fb.getUserData();
+                if(playerSword.id == "FROG_SWORD_RIGHT"){
+                    enemy.isTouchingRSword = false;
+                }else{
+                    enemy.isTouchingLSword = false;
+                }
+            }else{
+                PlayerSword playerSword = (PlayerSword) fb.getUserData();
+                playerSword.hit(false);
+                Enemy enemy = (Enemy) fa.getUserData();
+                if(playerSword.id == "FROG_SWORD_RIGHT"){
+                    enemy.isTouchingRSword = false;
+                }else{
+                    enemy.isTouchingLSword = false;
+                }
+            }
+        }
 
         if(isCollisionInFootAndWall(fa, fb)){
             if (fa.getUserData() instanceof PlayerFoot) {

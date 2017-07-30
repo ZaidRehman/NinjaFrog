@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import static com.onmakers.ninjafrog.utils.Constants.BIT_FROG;
+import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 
 public class TiledObjectUtil {
     public static void parseTiledObjetLayer(World world, MapObjects objects) {
@@ -34,6 +35,8 @@ public class TiledObjectUtil {
             fd.filter.categoryBits = Constants.BIT_WALL;
             fd.filter.maskBits = Constants.BIT_WALL | BIT_FROG ;
             fd.filter.groupIndex = 1;
+            //fd.filter.categoryBits = BIT_WALL ;
+            //fd.filter.maskBits = BIT_FROG;
 
             body.createFixture(fd).setUserData("WALL");
             shape.dispose();

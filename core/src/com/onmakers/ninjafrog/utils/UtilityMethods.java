@@ -129,11 +129,17 @@ public class UtilityMethods {
             System.out.println(" l r");
         }
         else if(left && jump  && vel.y < MAX_V_VELOCITY && vel.x > -MAX_H_VELOCITY){
-            frog.body.applyForceToCenter( -.80f * PPM, 10.80f * PPM, true);
+            frog.body.applyForceToCenter(-10.80f * PPM, 0, true);
+            if(isGrounded){
+                frog.body.applyLinearImpulse(new Vector2(0, 20 *  PPM),frog.body.getPosition(),true);
+            }
             System.out.println(" l j ");
         }
         else if(right && jump  && vel.y < MAX_V_VELOCITY && vel.x < MAX_H_VELOCITY){
-            frog.body.applyForceToCenter( .80f * PPM, 10.80f * PPM , true);
+            frog.body.applyForceToCenter(10.80f * PPM, 0, true);
+            if(isGrounded){
+                frog.body.applyLinearImpulse(new Vector2(0, 20 *  PPM),frog.body.getPosition(),true);
+            }
             System.out.println(" r j ");
         }
         else if(left && vel.x > -MAX_H_VELOCITY){

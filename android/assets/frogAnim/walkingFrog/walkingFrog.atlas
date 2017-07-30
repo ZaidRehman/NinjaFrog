@@ -4,393 +4,387 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Ninja frog - Walking0001
+Frog Walk0001
   rotate: false
-  xy: 2, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 2, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0002
+Frog Walk0002
   rotate: false
-  xy: 2, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 2, 539
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0003
+Frog Walk0003
   rotate: false
-  xy: 171, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0004
+Frog Walk0004
   rotate: false
-  xy: 2, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 2, 360
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0005
+Frog Walk0005
   rotate: false
-  xy: 171, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 539
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0006
+Frog Walk0006
   rotate: false
-  xy: 340, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0007
+Frog Walk0007
+  rotate: false
+  xy: 2, 181
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0008
+  rotate: false
+  xy: 128, 360
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0009
+  rotate: false
+  xy: 254, 539
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0010
+  rotate: false
+  xy: 380, 718
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0011
   rotate: false
   xy: 2, 2
-  size: 167, 207
-  orig: 167, 207
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0008
+Frog Walk0012
   rotate: false
-  xy: 171, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0009
+Frog Walk0013
   rotate: false
-  xy: 340, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 360
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0010
+Frog Walk0014
   rotate: false
-  xy: 509, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 539
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0011
+Frog Walk0015
   rotate: false
-  xy: 171, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0012
+Frog Walk0016
   rotate: false
-  xy: 340, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0013
+Frog Walk0017
   rotate: false
-  xy: 509, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0014
+Frog Walk0018
   rotate: false
-  xy: 678, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 360
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0015
+Frog Walk0019
   rotate: false
-  xy: 340, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 539
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0016
+Frog Walk0020
   rotate: false
-  xy: 509, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 632, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0017
+Frog Walk0021
   rotate: false
-  xy: 678, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0018
+Frog Walk0022
   rotate: false
-  xy: 847, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0019
+Frog Walk0023
   rotate: false
-  xy: 509, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 360
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0020
+Frog Walk0024
   rotate: false
-  xy: 678, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 632, 539
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0021
+Frog Walk0025
   rotate: false
-  xy: 847, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 758, 718
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0022
+Frog Walk0026
   rotate: false
-  xy: 678, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0023
+Frog Walk0027
   rotate: false
-  xy: 847, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0024
+Frog Walk0028
   rotate: false
-  xy: 847, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 632, 360
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0029
+  rotate: false
+  xy: 758, 539
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0030
+  rotate: false
+  xy: 884, 718
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0031
+  rotate: false
+  xy: 506, 2
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0032
+  rotate: false
+  xy: 632, 181
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0033
+  rotate: false
+  xy: 758, 360
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0034
+  rotate: false
+  xy: 884, 539
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0035
+  rotate: false
+  xy: 632, 2
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0036
+  rotate: false
+  xy: 758, 181
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0037
+  rotate: false
+  xy: 884, 360
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0038
+  rotate: false
+  xy: 758, 2
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0039
+  rotate: false
+  xy: 884, 181
+  size: 124, 177
+  orig: 124, 177
+  offset: 0, 0
+  index: -1
+Frog Walk0040
+  rotate: false
+  xy: 884, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
 
 walkingFrog2.png
-size: 1024,1024
+size: 1024,512
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Ninja frog - Walking0025
+Frog Walk0041
   rotate: false
-  xy: 2, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 2, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0026
-  rotate: false
-  xy: 2, 420
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0027
-  rotate: false
-  xy: 171, 629
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0028
-  rotate: false
-  xy: 2, 211
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0029
-  rotate: false
-  xy: 171, 420
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0030
-  rotate: false
-  xy: 340, 629
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0031
+Frog Walk0042
   rotate: false
   xy: 2, 2
-  size: 167, 207
-  orig: 167, 207
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0032
+Frog Walk0043
   rotate: false
-  xy: 171, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0033
+Frog Walk0044
   rotate: false
-  xy: 340, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 128, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0034
+Frog Walk0045
   rotate: false
-  xy: 509, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0035
+Frog Walk0046
   rotate: false
-  xy: 171, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 254, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0036
+Frog Walk0047
   rotate: false
-  xy: 340, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0037
+Frog Walk0048
   rotate: false
-  xy: 509, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 380, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0038
+Frog Walk0049
   rotate: false
-  xy: 678, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0039
+Frog Walk0050
   rotate: false
-  xy: 340, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 506, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0040
+Frog Walk0051
   rotate: false
-  xy: 509, 211
-  size: 167, 207
-  orig: 167, 207
+  xy: 632, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0041
+Frog Walk0052
   rotate: false
-  xy: 678, 420
-  size: 167, 207
-  orig: 167, 207
+  xy: 632, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0042
+Frog Walk0053
   rotate: false
-  xy: 847, 629
-  size: 167, 207
-  orig: 167, 207
+  xy: 758, 181
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1
-Ninja frog - Walking0043
+Frog Walk0054
   rotate: false
-  xy: 509, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0044
-  rotate: false
-  xy: 678, 211
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0045
-  rotate: false
-  xy: 847, 420
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0046
-  rotate: false
-  xy: 678, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0047
-  rotate: false
-  xy: 847, 211
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0048
-  rotate: false
-  xy: 847, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-
-walkingFrog3.png
-size: 1024,256
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
-Ninja frog - Walking0049
-  rotate: false
-  xy: 2, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0050
-  rotate: false
-  xy: 171, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0051
-  rotate: false
-  xy: 340, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0052
-  rotate: false
-  xy: 509, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0053
-  rotate: false
-  xy: 678, 2
-  size: 167, 207
-  orig: 167, 207
-  offset: 0, 0
-  index: -1
-Ninja frog - Walking0054
-  rotate: false
-  xy: 847, 2
-  size: 167, 207
-  orig: 167, 207
+  xy: 758, 2
+  size: 124, 177
+  orig: 124, 177
   offset: 0, 0
   index: -1

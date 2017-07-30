@@ -173,7 +173,7 @@ public class Level1 { // implements Screen, InputProcessor {
         heading = new Label("Ninja Frog "+Gdx.graphics.getWidth() +" "+ Gdx.graphics.getHeight(), headingStyle);
         heading.setFontScale(3);
 
-        //Add in table foot
+        //Add in table joint
         tableFoot.add(buttonLeft).padLeft(100).height(100).width(100);
         tableFoot.add(buttonRight).padLeft(100).height(100).width(100);
         tableFoot.align(Align.bottomLeft);
@@ -437,7 +437,7 @@ public class Level1 { // implements Screen, InputProcessor {
         heading = new Label("Ninja Frog "+Gdx.graphics.getWidth() +" "+ Gdx.graphics.getHeight(), headingStyle);
         heading.setFontScale(3);
 
-        //Add in table foot
+        //Add in table joint
         tableFoot.add(buttonLeft).padLeft(100).height(100).width(100);
         tableFoot.add(buttonRight).padLeft(100).height(100).width(100);
         tableFoot.align(Align.bottomLeft);

@@ -5,24 +5,22 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.joints.RevoluteJoint;
 
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
+import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
 
-public class Enemy {
-
+public class PlayerSword {
+    public RevoluteJoint joint;
     public Body body;
-    String id;
-    public boolean isAlive = true;
-    public boolean isTouchingRSword = false;
-    public boolean isTouchingLSword = false;
+    public String id;
 
-    public Enemy(World world, String id, float x, float y, float width, float height){
+    public PlayerSword(World world, String id, float x, float y, float width, float height){
         this.id = id;
-        createBoxBody(world,x,y,width,height);
-       // body.setLinearDamping(1f);
+        createSwordSensor(world,x,y,width,height);
+        body.setLinearDamping(2f);
     }
-
-    public void createBoxBody(World world,float x,float y, float width, float hieght){
+    public void createSwordSensor(World world, float x, float y, float width, float hieght){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.fixedRotation = true;
@@ -33,16 +31,17 @@ public class Enemy {
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density =1.0f;
+        //fixtureDef.restitution = 0.0f;
+        fixtureDef.density = 0;
+        fixtureDef.isSensor = true;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);
 
         shape.dispose();
     }
-
     public void hit(boolean x){
-        System.out.println(id + ": has been hit");
+        isKillingEnemy = x;
+        //System.out.println("isKillingEnemy " + x);
     }
-
 }
