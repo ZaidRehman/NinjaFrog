@@ -15,8 +15,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.tween.ActorAccessor;
@@ -66,7 +69,7 @@ public class MainMenu implements Screen{
         stage.clear();
 
         camera = new OrthographicCamera();
-        viewport = new FillViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),camera);
+        viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),camera);
         viewport.apply();
 
         camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
@@ -76,6 +79,10 @@ public class MainMenu implements Screen{
         titleScreenAtlas = new TextureAtlas(Gdx.files.internal("titleScreen/titleScreen.atlas"));
 
         tsBgImg = new Sprite(new Texture("images/titleScreenPainting.png"));
+        tsBgImg.getTexture().setFilter(Texture.TextureFilter.Linear,
+                Texture.TextureFilter.Linear);
+        tsBgImg.setSize(tsBgImg.getWidth() / (1920 / Gdx.graphics.getWidth()),
+                tsBgImg.getHeight() / (1920 / Gdx.graphics.getWidth()));
         batch = new SpriteBatch();
 
         playImg = new Image(titleScreenAtlas.findRegion("PLAY button"));
