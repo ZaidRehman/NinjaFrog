@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-up" width="250" height="27" tilewidth="64" tileheight="64" nextobjectid="30">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-up" width="250" height="27" tilewidth="64" tileheight="64" nextobjectid="158">
  <tileset firstgid="1" name="level3TileSet" tilewidth="64" tileheight="64" tilecount="510" columns="30">
   <image source="level3TileSet.png" width="1920" height="1151"/>
  </tileset>
@@ -28,8 +28,8 @@
 0,391,392,393,394,395,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,7,8,9,10,11,12,13,14,15,16,17,6,7,8,9,10,11,0,0,0,0,0,0,276,277,0,0,280,281,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3221225602,0,0,3221225632,3221225632,3221225632,3221225662,3221225662,3221225662,3221225602,3221225602,3221225602,3221225602,3221225602,3221225632,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,186,187,188,189,190,191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,12,13,14,15,16,17,
 421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,0,0,0,0,0,0,0,0,0,0,0,36,37,38,39,40,41,42,43,44,45,46,47,36,37,38,39,40,41,0,0,0,0,0,0,306,0,0,0,0,311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3221225602,3221225602,3221225602,3221225632,3221225632,3221225632,3221225662,3221225662,3221225662,3221225692,3221225692,3221225602,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,216,217,218,219,220,221,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,31,32,0,0,42,43,44,45,46,47,
 451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,0,0,66,67,68,69,70,71,72,73,74,75,76,77,66,67,68,69,70,71,0,0,0,0,0,0,336,0,0,0,0,341,0,0,0,0,0,0,0,0,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,0,0,0,0,0,0,0,0,2684354840,3221225602,3221225602,3221225602,3221225632,3221225632,3221225632,3221225662,3221225662,2684354720,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,331,332,333,334,335,0,0,0,0,0,0,0,0,246,247,248,249,250,251,0,0,0,0,0,0,0,0,0,331,332,333,334,335,0,0,0,61,62,0,0,72,73,74,75,76,77,
-481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,96,97,98,99,100,101,102,103,104,105,106,107,96,97,98,99,100,101,0,0,0,0,0,0,366,384,385,386,387,0,0,0,0,0,0,0,0,0,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,2684354840,2684354810,2684354780,3221225602,3221225602,3221225602,3221225632,3221225632,2684354720,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,361,362,363,364,365,0,0,0,0,0,0,0,0,276,277,278,279,280,281,0,0,0,0,0,0,0,0,0,361,362,363,364,365,0,0,0,91,92,0,0,102,103,104,105,106,107,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,276,277,278,279,280,281,132,133,134,135,136,137,276,277,278,279,280,281,0,0,0,0,0,0,0,414,415,416,417,0,0,0,0,0,0,0,0,0,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,881,882,883,884,0,2684354840,2684354810,2684354780,2684354750,2684354720,3221225602,3221225602,2684354720,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,391,392,393,394,395,0,0,0,0,0,0,0,0,276,277,278,279,280,281,0,0,0,0,0,0,0,0,0,391,392,393,394,395,0,0,0,0,0,0,0,132,133,134,135,136,137,
+481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,96,97,98,99,100,101,102,103,104,105,106,107,96,97,98,99,100,101,0,0,0,0,0,0,366,0,0,0,0,0,0,0,0,0,0,0,0,0,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,0,0,0,0,0,0,0,0,0,2684354840,2684354810,2684354780,3221225602,3221225602,3221225602,3221225632,3221225632,2684354720,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,361,362,363,364,365,0,0,0,0,0,0,0,0,276,277,278,279,280,281,0,0,0,0,0,0,0,0,0,361,362,363,364,365,0,0,0,91,92,0,0,102,103,104,105,106,107,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,276,277,278,279,280,281,132,133,134,135,136,137,276,277,278,279,280,281,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,0,0,0,0,0,881,882,883,884,0,2684354840,2684354810,2684354780,2684354750,2684354720,3221225602,3221225602,2684354720,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,391,392,393,394,395,0,0,0,0,0,0,0,0,276,277,278,279,280,281,0,0,0,0,0,0,0,0,0,391,392,393,394,395,0,0,0,0,0,0,0,132,133,134,135,136,137,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,306,307,308,309,310,311,162,163,164,165,166,167,306,307,308,309,310,311,0,0,0,312,313,314,315,316,317,318,319,320,321,322,323,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,312,313,314,315,316,317,318,316,317,318,319,316,317,318,319,320,321,322,323,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,941,942,943,944,0,0,0,2684354840,2684354840,2684354810,2684354780,2684354750,2684354720,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,312,313,314,315,316,317,318,319,316,317,318,319,320,321,322,323,0,0,0,306,307,308,309,310,311,0,0,0,312,313,314,315,316,317,318,319,316,317,318,319,320,321,322,323,0,0,162,163,164,165,166,167,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,336,337,338,339,340,341,192,193,194,195,196,197,336,337,338,339,340,341,0,0,0,342,343,344,345,346,347,348,349,350,351,352,353,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,342,343,344,345,346,347,348,346,347,348,349,346,347,348,349,350,351,352,353,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,1002,1003,1004,0,0,0,2684354840,2684354810,2684354780,2684354750,2684354720,2684354690,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,342,343,344,345,346,347,348,349,346,347,348,349,350,351,352,353,0,0,0,336,337,338,339,340,341,0,0,0,342,343,344,345,346,347,348,349,346,347,348,349,350,351,352,353,0,0,192,193,194,195,196,197,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,366,367,368,369,370,371,222,223,224,225,226,227,366,367,368,369,370,371,0,0,0,372,373,374,375,376,377,378,379,380,381,382,383,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,372,373,374,375,376,377,378,376,377,378,379,376,377,378,379,380,381,382,383,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1061,1062,1063,1064,0,0,0,2684354840,2684354810,2684354780,2684354750,2684354720,2684354690,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,384,385,386,387,384,385,386,387,385,386,387,384,385,386,387,384,385,386,387,0,0,0,0,0,0,0,0,0,0,0,372,373,374,375,376,377,378,379,376,377,378,379,380,381,382,383,0,0,0,366,367,368,369,370,371,0,0,0,372,373,374,375,376,377,378,379,376,377,378,379,380,381,382,383,0,0,222,223,224,225,226,227,
@@ -43,21 +43,6 @@
  <objectgroup name="collision-layer">
   <object id="13" x="4" y="1474">
    <polyline points="0,0 3262,-4 3470,-260 3820,-258 4026,0 5754,-2 5964,-256 6762,-258 6972,2 12672,-4 12876,-260 13490,-260 13694,-2 14462,-2 14670,-258 15272,-260 15480,-4 15994,-2 15990,-968 15440,-960 15232,-1216 14590,-1216 14378,-962 13770,-962 13564,-1216 4026,-1220 3816,-966 3470,-962 3264,-1216 2,-1220 0,-960 682,-958 682,-778 0,-772 0,-512 1196,-514 1196,-332 2,-326 2,6 14,18"/>
-  </object>
-  <object id="9" x="3521.33" y="516" width="252" height="122.667">
-   <properties>
-    <property name="dead" value=""/>
-   </properties>
-  </object>
-  <object id="10" x="3526.67" y="1089.33" width="241.333" height="124">
-   <properties>
-    <property name="dead" value=""/>
-   </properties>
-  </object>
-  <object id="12" x="7234.67" y="261.333" width="1209.33" height="122.667">
-   <properties>
-    <property name="dead" value=""/>
-   </properties>
   </object>
   <object id="16" x="3116" y="884">
    <polyline points="0,0 2,-182 -1262,-178 -1262,0 4,2 2,0"/>
@@ -82,6 +67,624 @@
   </object>
   <object id="29" x="6836" y="888">
    <polyline points="0,0 0,-182 -948,-180 -948,-6 -2,0"/>
+  </object>
+  <object id="41" x="3524" y="520">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -2,116 250,118 252,-4"/>
+  </object>
+  <object id="42" x="7234" y="266">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 0,120 1218,116 1218,-6 2,0"/>
+  </object>
+  <object id="43" x="10758" y="1346">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -2,122 1212,124 1186,-2 4,0"/>
+  </object>
+  <object id="49" x="134" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="50" x="256" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="52" x="386" y="446">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="53" x="514" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="54" x="640" y="454">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="55" x="512" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="56" x="640" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="57" x="768" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="58" x="896" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="59" x="1026" y="894">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="60" x="2116" y="518">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="61" x="2248" y="516">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="62" x="2372" y="514">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="63" x="2500" y="514">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="64" x="2626" y="514">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="65" x="3462" y="1156">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="66" x="3586" y="1152">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="67" x="3716" y="1156">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="68" x="3844" y="1154">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="70" x="5190" y="956">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="71" x="5320" y="960">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="72" x="5442" y="958">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="73" x="5188" y="834">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="74" x="5314" y="830">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="75" x="5440" y="834">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="76" x="6022" y="452">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="77" x="6148" y="448">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="78" x="6274" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="79" x="6408" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="80" x="6530" y="452">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="81" x="6662" y="452">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="82" x="7812" y="510">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="83" x="7808" y="638">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="84" x="7812" y="774">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="85" x="7812" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="86" x="7810" y="1014">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="87" x="7940" y="512">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="88" x="7942" y="644">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="89" x="7940" y="768">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="90" x="7934" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="91" x="7936" y="1016">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="92" x="8068" y="512">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="93" x="8068" y="642">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="94" x="8068" y="768">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="95" x="8064" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="96" x="8064" y="1020">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="100" x="9088" y="446">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="101" x="9224" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="102" x="9350" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="103" x="9474" y="450">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="104" x="9602" y="452">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="105" x="9732" y="452">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="106" x="9614" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="107" x="9734" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="108" x="9864" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="109" x="9988" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="110" x="10118" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="111" x="10242" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="112" x="11844" y="642">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="113" x="11844" y="512">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="114" x="11846" y="388">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="115" x="11970" y="386">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="116" x="11970" y="514">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="117" x="11970" y="642">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="118" x="12092" y="386">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="119" x="12102" y="514">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="120" x="12102" y="638">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="121" x="13824" y="1406">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="122" x="13822" y="1216">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="123" x="13828" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="124" x="13828" y="830">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="129" x="14342" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="130" x="14338" y="1030">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="131" x="14336" y="1214">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="132" x="14340" y="1412">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="133" x="15236" y="834">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="134" x="15234" y="956">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="135" x="15232" y="1088">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="136" x="15234" y="706">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="137" x="1446" y="1282">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="138" x="836" y="706">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="139" x="1664" y="1294">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="140" x="1916" y="1280">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="141" x="2756" y="576">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="142" x="4866" y="960">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="143" x="4606" y="1410">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="144" x="5246" y="1354">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="145" x="6016" y="582">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="146" x="6592" y="580">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="147" x="7486" y="772">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="148" x="8260" y="768">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="149" x="9282" y="1280">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="150" x="10558" y="894">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="151" x="10050" y="392">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="152" x="11522" y="578">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="153" x="12352" y="1280">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="154" x="13310" y="962">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="155" x="12988" y="964">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="156" x="14594" y="1080">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="157" x="14784" y="960">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
   </object>
  </objectgroup>
 </map>

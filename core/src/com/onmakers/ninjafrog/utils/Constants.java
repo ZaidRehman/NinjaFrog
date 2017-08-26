@@ -1,6 +1,10 @@
 package com.onmakers.ninjafrog.utils;
 
 import com.badlogic.gdx.Gdx;
+import com.onmakers.ninjafrog.entities.Coin;
+import com.onmakers.ninjafrog.entities.Enemy;
+
+import java.util.ArrayList;
 
 public class Constants {
     public static final float PPM = 32;
@@ -40,6 +44,13 @@ public class Constants {
     public static float mapPixelWidth = 0;
     public static float mapPixelHeight = 0;
 
+
+    //Dead
+    public static boolean isDead = false;
+
+
+    public static ArrayList<Coin> coins = new ArrayList<Coin>();
+    public static ArrayList<Enemy> flyingOwls = new ArrayList<Enemy>();
 
 
 }

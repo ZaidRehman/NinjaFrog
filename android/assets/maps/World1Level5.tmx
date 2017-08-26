@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="350" height="30" tilewidth="64" tileheight="64" nextobjectid="20">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="right-up" width="350" height="30" tilewidth="64" tileheight="64" nextobjectid="235">
  <tileset firstgid="1" name="level3TileSet" tilewidth="64" tileheight="64" tilecount="510" columns="30">
   <image source="level3TileSet.png" width="1920" height="1151"/>
  </tileset>
@@ -94,6 +94,1254 @@
   </object>
   <object id="19" x="20910" y="960">
    <polyline points="0,0 0,64 868,62 868,-2 0,-2 40,10"/>
+  </object>
+  <object id="21" x="1346" y="1728">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 28,-124 124,-124 124,-4 4,0"/>
+  </object>
+  <object id="22" x="1542" y="1602">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="24" x="1800" y="1606">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="25" x="2052" y="1606">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="26" x="2310" y="1602">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="27" x="2570" y="1602">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="28" x="2824" y="1600">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="29" x="3078" y="1600">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 186,0 186,122 -4,124 -2,0"/>
+  </object>
+  <object id="30" x="3340" y="1602">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 52,0 50,124 -2,124"/>
+  </object>
+  <object id="36" x="11140" y="1336">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -30,-118 -164,-120 -200,4 2,2"/>
+  </object>
+  <object id="37" x="12254" y="1218">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -26,124 164,126 136,-2 4,0"/>
+  </object>
+  <object id="38" x="14044" y="1220">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -28,120 166,124 132,-2 6,-2"/>
+  </object>
+  <object id="39" x="15106" y="1536">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -126,28 -128,164 -2,188 -2,2"/>
+  </object>
+  <object id="40" x="16062" y="702">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -124,32 -128,164 2,200 2,-4"/>
+  </object>
+  <object id="41" x="17278" y="708">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -116,30 -118,156 0,188 6,-2"/>
+  </object>
+  <object id="42" x="19322" y="702">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -118,32 -118,168 -6,190 0,2"/>
+  </object>
+  <object id="43" x="19676" y="1600">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 42,132 -154,124 -126,8 -2,4"/>
+  </object>
+  <object id="44" x="20640" y="1606">
+   <properties>
+    <property name="dead" value=""/>
+   </properties>
+   <polyline points="0,0 -30,120 168,122 130,-4 4,-4"/>
+  </object>
+  <object id="45" x="512" y="1672">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="46" x="644" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="47" x="770" y="1668">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="48" x="962" y="1408">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="49" x="1084" y="1274">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="50" x="1218" y="1150">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="51" x="1352" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="52" x="1474" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="53" x="1734" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="54" x="1728" y="890">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="55" x="1984" y="1018">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="56" x="1990" y="892">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="57" x="2244" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="58" x="2240" y="894">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="59" x="2496" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="60" x="2500" y="904">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="61" x="2754" y="1024">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="62" x="2752" y="902">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="63" x="3012" y="1022">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="64" x="3014" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="65" x="3260" y="1026">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="66" x="3260" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="67" x="3906" y="884">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="68" x="3908" y="764">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="69" x="3912" y="640">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="70" x="4484" y="892">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="71" x="4490" y="768">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="72" x="4482" y="642">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="73" x="3710" y="1672">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="74" x="3840" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="75" x="3974" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="76" x="4422" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="77" x="4548" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="78" x="4668" y="1670">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="79" x="5308" y="1346">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="80" x="5310" y="1218">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="81" x="5302" y="1086">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="82" x="5678" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="83" x="5678" y="766">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="84" x="5678" y="640">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="85" x="7230" y="1344">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="86" x="7234" y="1216">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="87" x="7234" y="1090">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="88" x="7558" y="894">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="89" x="7558" y="770">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="90" x="7552" y="640">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="91" x="8962" y="1658">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="92" x="8954" y="1534">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="93" x="9088" y="1668">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="94" x="9086" y="1532">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="95" x="9854" y="1662">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="96" x="9860" y="1536">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="97" x="9986" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="98" x="9982" y="1542">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="99" x="9088" y="1408">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="100" x="8838" y="1670">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="101" x="10112" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="102" x="9856" y="1408">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="103" x="10568" y="1276">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="104" x="10688" y="1286">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="105" x="10814" y="1288">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="106" x="11266" y="1284">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="107" x="11392" y="1292">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="108" x="11526" y="1284">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="109" x="11136" y="710">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="110" x="11264" y="710">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="111" x="11390" y="712">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="112" x="11772" y="708">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="113" x="11904" y="714">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="114" x="12024" y="706">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="115" x="12604" y="1276">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="116" x="12608" y="1158">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="117" x="12604" y="1032">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="118" x="12610" y="904">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="119" x="12606" y="768">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="120" x="12604" y="638">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="121" x="12600" y="512">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="122" x="13058" y="840">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="123" x="13186" y="834">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="124" x="13190" y="704">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="125" x="13184" y="580">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="126" x="13184" y="448">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="127" x="13730" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="128" x="13726" y="710">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="129" x="13732" y="576">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="130" x="13728" y="442">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="131" x="13846" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="132" x="14466" y="1280">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="133" x="14458" y="1148">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="134" x="14452" y="1010">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="135" x="14454" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="136" x="14912" y="834">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="137" x="14982" y="764">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="138" x="15040" y="706">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="139" x="15102" y="638">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="140" x="15176" y="576">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="141" x="15236" y="518">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="142" x="15616" y="832">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="143" x="15684" y="762">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="144" x="15740" y="708">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="145" x="15812" y="642">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="146" x="15880" y="582">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="147" x="15942" y="516">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="148" x="15486" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="149" x="15618" y="1670">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="150" x="15748" y="1668">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="151" x="15870" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="152" x="16002" y="1666">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="153" x="16132" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="154" x="16266" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="155" x="15620" y="1546">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="156" x="15742" y="1540">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="157" x="15880" y="1540">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="158" x="16000" y="1542">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="159" x="16124" y="1540">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="160" x="15742" y="1406">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="161" x="15874" y="1404">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="162" x="15996" y="1408">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="163" x="15870" y="1278">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="164" x="16772" y="1406">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="165" x="16832" y="1338">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="166" x="16898" y="1280">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="167" x="16966" y="1216">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="168" x="16768" y="832">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="169" x="16832" y="766">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="170" x="16894" y="700">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="171" x="16970" y="640">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="172" x="17668" y="1092">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="173" x="17730" y="1022">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="174" x="17800" y="962">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="175" x="17858" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="176" x="17920" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="177" x="18190" y="1070">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="178" x="18262" y="1018">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="179" x="18336" y="958">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="180" x="18400" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="181" x="18478" y="842">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="182" x="19110" y="836">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="183" x="19108" y="694">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="184" x="19104" y="546">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="185" x="19262" y="538">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="186" x="19428" y="544">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="187" x="19204" y="1500">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="188" x="19200" y="1338">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="189" x="19200" y="1170">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="190" x="19710" y="1150">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="191" x="19834" y="1158">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="192" x="19968" y="1152">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="193" x="20100" y="1148">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="194" x="20230" y="1152">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="195" x="20354" y="1154">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="196" x="20476" y="1152">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="197" x="20930" y="896">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="198" x="21056" y="898">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="199" x="21180" y="900">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="200" x="21060" y="770">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="201" x="21186" y="764">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="202" x="21182" y="638">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="203" x="20928" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="204" x="21056" y="1664">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="205" x="21176" y="1660">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="206" x="21184" y="1534">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="207" x="21052" y="1538">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="208" x="21180" y="1408">
+   <properties>
+    <property name="coin" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="209" x="730" y="1222">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="210" x="3666" y="786">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="211" x="4230" y="630">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="212" x="4662" y="808">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="213" x="4230" y="1418">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="214" x="5418" y="1236">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="215" x="5914" y="706">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="216" x="6536" y="702">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="217" x="6476" y="1502">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="218" x="7356" y="1172">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="219" x="7792" y="726">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="220" x="8490" y="698">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="221" x="8562" y="1464">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="222" x="10382" y="1080">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="223" x="12680" y="1190">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="224" x="13448" y="1464">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="225" x="14642" y="1016">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="226" x="15322" y="748">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="227" x="15358" y="1276">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="228" x="17058" y="1372">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="229" x="17918" y="1048">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="230" x="18466" y="1052">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="231" x="18890" y="814">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="232" x="18908" y="1418">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="233" x="21380" y="820">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
+  </object>
+  <object id="234" x="21498" y="1572">
+   <properties>
+    <property name="flyingowl" value=""/>
+   </properties>
+   <polyline points="0,0 2,-64"/>
   </object>
  </objectgroup>
 </map>

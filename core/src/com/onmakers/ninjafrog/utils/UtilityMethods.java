@@ -2,6 +2,7 @@ package com.onmakers.ninjafrog.utils;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -30,14 +31,17 @@ import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 public class UtilityMethods {
 
     public static ImageButton buttonLeft, buttonRight, buttonJump, buttonAttack;
-    public static void initButtons(Object obj){
+    public static void initButtons(Object obj, TextureAtlas gs){
 
-        Drawable leftup, rightup, leftdown, rightdown, jumpup,jumpdown , attackup, attackdown;
+        Drawable arrowup, arrowdown, attackup, attackdown;
 
         //Left Button
-        leftup = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/left.up.png")));
-        leftdown = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/left.down.png")));
-        buttonLeft = new ImageButton(leftup,leftdown);
+        arrowup = new TextureRegionDrawable(gs.findRegion("arrow"));
+        arrowdown = new TextureRegionDrawable(gs.findRegion("arrow pressed"));
+        attackup = new TextureRegionDrawable(gs.findRegion("attack icon"));
+        attackdown = new TextureRegionDrawable(gs.findRegion("attack icon pressed"));
+
+        buttonLeft = new ImageButton(arrowup,arrowdown);
         buttonLeft.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -54,9 +58,7 @@ public class UtilityMethods {
         });
 
         //Right Button
-        rightup = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/right.up.png")));
-        rightdown = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/right.down.png")));
-        buttonRight = new ImageButton(rightup,rightdown);
+        buttonRight = new ImageButton(arrowup,arrowdown);
         buttonRight.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -73,9 +75,8 @@ public class UtilityMethods {
             }
         });
 
-        jumpup = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/jump.up.png")));
-        jumpdown = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/jump.down.png")));
-        buttonJump = new ImageButton(jumpup,jumpdown);
+        //jump button
+        buttonJump = new ImageButton(arrowup,arrowdown);
         buttonJump.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -93,8 +94,6 @@ public class UtilityMethods {
             }
         });
 
-        attackup = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/attack.up.png")));
-        attackdown = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/attack.down.png")));
         buttonAttack = new ImageButton(attackup,attackdown);
         buttonAttack.addListener(new InputListener() {
             @Override
@@ -143,10 +142,10 @@ public class UtilityMethods {
             System.out.println(" r j ");
         }
         else if(left && vel.x > -MAX_H_VELOCITY){
-            frog.body.applyForceToCenter(-10.80f * PPM, 0, true);
+            frog.body.applyForceToCenter(-15f * PPM, 0, true);
         }
         else if (right && vel.x < MAX_H_VELOCITY){
-            frog.body.applyForceToCenter(10.80f * PPM, 0,true);
+            frog.body.applyForceToCenter(15f * PPM, 0,true);
         }
         else if (jump && vel.y < MAX_V_VELOCITY){
             if(isGrounded){

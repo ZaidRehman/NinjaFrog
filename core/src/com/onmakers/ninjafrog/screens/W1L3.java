@@ -200,7 +200,7 @@ public class W1L3 implements Screen {
         table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         //initialize buttons
-        UtilityMethods.initButtons(this);
+        //UtilityMethods.initButtons(this);
 
         //Label Style
         Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);

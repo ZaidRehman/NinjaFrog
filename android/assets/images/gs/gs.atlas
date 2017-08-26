@@ -1,0 +1,62 @@
+
+gs.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+arrow
+  rotate: false
+  xy: 2, 319
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1
+arrow pressed
+  rotate: false
+  xy: 334, 636
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1
+attack icon
+  rotate: false
+  xy: 2, 17
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1
+attack icon pressed
+  rotate: false
+  xy: 651, 636
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1
+coin
+  rotate: false
+  xy: 2, 621
+  size: 330, 315
+  orig: 330, 315
+  offset: 0, 0
+  index: -1
+lives
+  rotate: false
+  xy: 319, 304
+  size: 300, 315
+  orig: 300, 315
+  offset: 0, 0
+  index: -1
+splash icon
+  rotate: false
+  xy: 621, 334
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1
+splash icon pressed
+  rotate: false
+  xy: 319, 2
+  size: 315, 300
+  orig: 315, 300
+  offset: 0, 0
+  index: -1

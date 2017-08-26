@@ -13,6 +13,7 @@ import com.onmakers.ninjafrog.entities.PlayerFoot;
 import com.onmakers.ninjafrog.entities.PlayerSword;
 
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
+import static com.onmakers.ninjafrog.utils.Constants.isDead;
 
 public class PlayerContactListener implements ContactListener{
     @Override
@@ -55,6 +56,12 @@ public class PlayerContactListener implements ContactListener{
                 PlayerFoot playerFoot = (PlayerFoot) fb.getUserData();
                 playerFoot.hit(true);
             }
+        }
+
+        //check contact of frog and spikes
+        if(isCollisionInFrogandSpike(fa,fb)){
+            System.out.println("Frog is dead");
+            isDead = true;
         }
 
         // check key Contact
@@ -115,6 +122,14 @@ public class PlayerContactListener implements ContactListener{
     private boolean isAttacking(Fixture fa,Fixture fb){
         if(fa.getUserData() instanceof PlayerSword || fb.getUserData() instanceof PlayerSword){
             if(fa.getUserData() instanceof Enemy || fb.getUserData() instanceof Enemy)
+                    return true;
+        }
+        return false;
+    }
+    private boolean isCollisionInFrogandSpike(Fixture fa,Fixture fb){
+        if(fa.getUserData() instanceof String || fb.getUserData() instanceof String){
+            if(fa.getUserData() == "SPIKES" || fb.getUserData() == "SPIKES")
+                if(fa.getUserData() instanceof Player || fb.getUserData() instanceof Player)
                     return true;
         }
         return false;

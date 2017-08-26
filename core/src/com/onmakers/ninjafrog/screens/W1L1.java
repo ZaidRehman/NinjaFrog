@@ -5,9 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapProperties;
@@ -46,7 +44,9 @@ import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_HEIGHT;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
+import static com.onmakers.ninjafrog.utils.Constants.coins;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
+import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
@@ -79,17 +79,14 @@ public class W1L1 implements Screen {
     private PlayerSword frogSwordL;
 
     //body of keys and coins
-    private ArrayList<Coin> coins;
     private ArrayList<Key> keys;
-    private ArrayList<Enemy> flyingOwls;
+
 
     private float w, h;
 
     //batch
     private SpriteBatch batch;
     private TextureAtlas.AtlasRegion tex;
-    private Texture texCoin;
-
 
     //stage
     private Stage stage;
@@ -106,8 +103,7 @@ public class W1L1 implements Screen {
 
 
     //Game Design
-    private Texture topbar;
-    private Sprite bottombar;
+    private TextureAtlas gs;
 
     public W1L1(NinjaFrog game) {
         this.game = game;
@@ -131,7 +127,6 @@ public class W1L1 implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         //tile
-        //map = new TmxMapLoader().load("maps/World1Level1.tmx");
         map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
         tmr = new OrthogonalTiledMapRenderer(map);
         MapProperties prop = map.getProperties();
@@ -146,23 +141,14 @@ public class W1L1 implements Screen {
 
         //batch
         batch = new SpriteBatch();
-        //tex = game.manager.get("images/frog.png", Texture.class);
 
         //Keys
-        //texKey = new Texture("images/key.png");
         keys = new ArrayList<Key>();
         keys.add(new Key(world, "KEY0", mapPixelWidth * 0.02f, mapPixelHeight * 0.75f, 16, 16));
         keys.add(new Key(world, "KEY1", 325, 475, 16, 16));
         keys.add(new Key(world, "KEY2", 325, 475, 16, 16));
         keys.add(new Key(world, "KEY3", 325, 475, 16, 16));
         keys.add(new Key(world, "KEY4", 325, 475, 16, 16));
-
-        //Coins
-        texCoin = new Texture("images/coin.png");
-        coins = new ArrayList<Coin>();
-        for (int i = 0, j = 0; i < 10; i++) {
-            coins.add(new Coin(world, "COIN" + i, mapPixelWidth * 0.02f + 100 * i, mapPixelHeight * 0.75f + 100, 32, 32));
-        }
 
         frog = new Player(world, "FROG", 100, 360, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
         frogFoot = new PlayerFoot(world,"FROG_FOOT",100,300, FROG_BODY_WIDTH, 10);
@@ -172,25 +158,14 @@ public class W1L1 implements Screen {
         frogSwordL.joint = JointBuilder.createRJointDef(world,frog.body, frogSwordL.body, -FROG_BODY_WIDTH * 2,0, false);
         frogFoot.joint = JointBuilder.createRJointDef(world,frog.body,frogFoot.body, 0, -FROG_BODY_HEIGHT -10, false);
 
-
-        flyingOwls=new ArrayList<Enemy>();
-        flyingOwls.add(new Enemy(world, "flyingOwl"+1, mapPixelWidth * 0.1f * 1, 1000, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+2, mapPixelWidth * 0.1f * 2, 1200, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+3, mapPixelWidth * 0.1f * 3, 900, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+4, mapPixelWidth * 0.1f * 4, 1100, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+5, mapPixelWidth * 0.1f * 5, 900, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+6, mapPixelWidth * 0.08f * 6, 900, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+7, mapPixelWidth * 0.1f * 7, 950, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+8, mapPixelWidth * 0.1f * 8, 500, 30, 30));
-        flyingOwls.add(new Enemy(world, "flyingOwl"+9, mapPixelWidth * 0.1f * 9, 500, 30, 30));
-        //flyingOwls.add(new Enemy(world, "flyingOwl"+10, mapPixelWidth * 0.1f * 10, 900, 30, 30));
-
-
+        coins.clear();
+        flyingOwls.clear();
         TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get("collision-layer").getObjects());
 
 
         //stage
         stage = new Stage(new FitViewport(w,h));
+        gs = game.manager.get("images/gs/gs.atlas", TextureAtlas.class);
 
         //atlas = new TextureAtlas("ui/atlas.pack");
         skin = new Skin();
@@ -200,7 +175,7 @@ public class W1L1 implements Screen {
         table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         //initialize buttons
-        UtilityMethods.initButtons(this);
+        UtilityMethods.initButtons(this,gs);
 
         //Label Style
         Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);
@@ -216,9 +191,7 @@ public class W1L1 implements Screen {
 
 
         //Game Design
-        topbar = game.manager.get("images/topBar.png", Texture.class);
-        bottombar = new Sprite(topbar);
-        bottombar.flip(false,true);
+
 
         //table.debug();// TODO remove later
         table.setFillParent(true);
@@ -372,14 +345,10 @@ public class W1L1 implements Screen {
         for (Coin coin :
                 coins) {
             if (!coin.isTouched())
-                batch.draw(texCoin, coin.body.getPosition().x * PPM - 68, coin.body.getPosition().y * PPM - 68, 128, 128);
+                batch.draw(gs.findRegion("coin"), coin.body.getPosition().x * PPM - 68, coin.body.getPosition().y * PPM - 68, 128, 128);
         }
         batch.end();
 
-        stage.getBatch().begin();
-        stage.getBatch().draw(topbar,-10,h * 0.91f,w + 10f,h * 0.1f );
-        stage.getBatch().draw(bottombar,-10,-10,w + 10f,h * 0.1f);
-        stage.getBatch().end();
 
         //b2dr.render(world, camera.combined.scl(PPM));
 
@@ -510,14 +479,12 @@ public class W1L1 implements Screen {
         tex.getTexture().dispose();
         tmr.dispose();
         map.dispose();
-        texCoin.dispose();
         stage.dispose();
         skin.dispose();
         atlasStandingFrog.dispose();
         atlasWalkingFrog.dispose();
         atlasAttackingFrog.dispose();
         atlasJumpingFrog.dispose();
-        topbar.dispose();
         //pe.dispose();
         for (Enemy flyingOwl : flyingOwls) {
             flyingOwl.dispose();

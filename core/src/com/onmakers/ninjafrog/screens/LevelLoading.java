@@ -107,7 +107,7 @@ public class LevelLoading implements Screen {
 
     private  void  queueAssets(){
         //game.manager.load("images/LevelLoadingScreen.png", Texture.class);
-        game.manager.load("images/topBar.png", Texture.class);
+        //game.manager.load("images/topBar.png", Texture.class);
        // game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
 
      /*   game.manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
@@ -127,6 +127,8 @@ public class LevelLoading implements Screen {
         game.manager.load("owlAnim/owlDead/owlDead1.atlas",TextureAtlas.class);
         game.manager.load("owlAnim/owlDead/owlDead2.atlas",TextureAtlas.class);
         game.manager.load("owlAnim/owlDead/owlDead3.atlas",TextureAtlas.class);
+
+        game.manager.load("images/gs/gs.atlas", TextureAtlas.class);
         switch (game.gm.getLevel()){
 
             case 0:
