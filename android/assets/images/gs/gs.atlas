@@ -6,63 +6,97 @@ filter: Nearest,Nearest
 repeat: none
 arrow
   rotate: false
-  xy: 2, 304
+  xy: 2, 319
   size: 315, 300
   orig: 315, 300
+  offset: 0, 0
+  index: -1
+arrow left
+  rotate: false
+  xy: 334, 621
+  size: 300, 315
+  orig: 300, 315
   offset: 0, 0
   index: -1
 arrow pressed
   rotate: false
-  xy: 334, 621
+  xy: 2, 17
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
   index: -1
+arrow pressed left
+  rotate: false
+  xy: 319, 304
+  size: 300, 315
+  orig: 300, 315
+  offset: 0, 0
+  index: -1
+arrow pressed right
+  rotate: false
+  xy: 636, 621
+  size: 300, 315
+  orig: 300, 315
+  offset: 0, 0
+  index: -1
+arrow right
+  rotate: false
+  xy: 621, 304
+  size: 300, 315
+  orig: 300, 315
+  offset: 0, 0
+  index: -1
 attack icon
   rotate: false
-  xy: 2, 2
+  xy: 319, 2
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
   index: -1
 attack icon pressed
   rotate: false
-  xy: 651, 621
+  xy: 636, 2
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
   index: -1
 coin
   rotate: false
-  xy: 2, 606
+  xy: 2, 621
   size: 330, 315
   orig: 330, 315
   offset: 0, 0
   index: -1
+
+gs2.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 icon empty
   rotate: false
-  xy: 334, 319
+  xy: 2, 319
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
   index: -1
 lives
   rotate: false
-  xy: 319, 2
+  xy: 2, 2
   size: 300, 315
   orig: 300, 315
   offset: 0, 0
   index: -1
 splash icon
   rotate: false
-  xy: 651, 319
+  xy: 319, 319
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
   index: -1
 splash icon pressed
   rotate: false
-  xy: 621, 17
+  xy: 304, 17
   size: 315, 300
   orig: 315, 300
   offset: 0, 0
