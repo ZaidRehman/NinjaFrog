@@ -133,7 +133,7 @@ public class W1L1 implements Screen {
         //viewport = new ScreenViewport(camera);
         viewport.apply();
 
-        world = new World(new Vector2(0f, -25f), true);
+        world = new World(new Vector2(0f, -40f), true);
         this.world.setContactListener(new PlayerContactListener());
         b2dr = new Box2DDebugRenderer();
 
@@ -208,6 +208,7 @@ public class W1L1 implements Screen {
         //Label Style
         Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);
         coinLabel = new Label((coinCounter + ""), headingStyle);
+        //buttonLeft.moveBy(-200,-200);
 
         Image lives = new Image(gs.findRegion("lives"));
         Image livesbg = new Image(gs.findRegion("icon empty"));
@@ -222,22 +223,44 @@ public class W1L1 implements Screen {
         coinsCount.addActor(livesbg);
         coinsCount.addActor(coinLabel);
 
-        table.add(lives).width(w * 0.1f).height(h * 0.15f);
-        table.add(coinsbg).width(w * 0.1f).height(h * 0.15f);
-        table.add(coins).width(w * 0.1f).height(h * 0.15f);
-        table.add(new CoinCell(gs.findRegion("icon empty"),coinCounter+"",game.showcard)).width(w * 0.1f).height(h * 0.15f).center();
-        table.add(empty).width(w * 0.6f);
+        table.add(lives).height(h * 0.15f).width(h * 0.15f);
+        table.add(coinsbg).height(h * 0.15f).width(h * 0.15f);
+        table.add(coins).height(h * 0.15f).width(h * 0.15f);
+        table.add(new CoinCell(gs.findRegion("icon empty"),coinCounter+"",game.showcard)).height(h * 0.15f).width(h * 0.15f).center();
+        table.add(empty).expandX();
+
+       // table.row();
+        //table.add(buttonJump).colspan(2).expandY().height(h * 0.2f).bottom();
+
+        Table bottomTable = new Table();
+        bottomTable.add(empty).expandY().height(h * 0.55f);
+        bottomTable.row();
+        bottomTable.add(buttonJump).colspan(2).height(h * 0.15f).expandY();
+        bottomTable.row();
+        bottomTable.add(buttonLeft).height(h * .15f).left().width(h * 0.25f).left();
+        bottomTable.add(buttonRight).height(h * .15f).left().width(h * 0.25f).left();
+        bottomTable.add(empty).expandX().width(w - (h * 0.75f));
+        bottomTable.add(buttonAttack).height(h * .15f).right().width(h * 0.25f).right();
+
+        //bottomTable.debug();
 
         table.row();
-        table.add(buttonJump).colspan(4).height(h * 0.18f).width(w * 0.1f).center().bottom().expandY();
-        table.add(empty);
+        table.add(bottomTable).colspan(5).expandY().expandX().left();
+//
+//        table.row();
+//        table.add(buttonLeft).bottom().left().height(h * 0.2f).padBottom(-80);
+//        table.add(buttonRight).bottom().left().height(h * 0.2f).padBottom(-80);
+//        table.add(empty);
+//        table.add(empty);
+//        table.add(buttonAttack).bottom().right().height(h * 0.2f).expandX();
 
-        table.row();
-        table.add(buttonLeft).bottom().left().height(h * 0.2f).colspan(2).padBottom(-20);
-        table.add(buttonRight).bottom().right().height(h * 0.2f).colspan(2).padBottom(-20);
-        table.add(buttonAttack).bottom().right().height(h * 0.2f).expandX();
+        System.out.println(buttonLeft.getX());
+        System.out.println(buttonLeft.getImage().getX());
 
-        table.debug();// TODO remove later
+        System.out.println(buttonRight.getX());
+        System.out.println(buttonRight.getImage().getX());
+
+        //table.debug();// TODO remove later
         table.setFillParent(true);
         //table.debug();
         stage.addActor(table.align(Align.center));
@@ -405,7 +428,7 @@ public class W1L1 implements Screen {
             }
         }
         //frog
-        batch.draw(tex,x,y,width,height);
+        batch.draw(tex,x,y - 10,width,height);
         for (Coin coin :
                 coins) {
             if (!coin.isTouched())

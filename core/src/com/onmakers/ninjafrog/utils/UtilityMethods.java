@@ -1,9 +1,7 @@
 package com.onmakers.ninjafrog.utils;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -11,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Player;
 
 import static com.onmakers.ninjafrog.screens.W1L1.animFalling;
@@ -21,7 +18,6 @@ import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.action;
 import static com.onmakers.ninjafrog.utils.Constants.attackCounter;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
-import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
 import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.jump;
@@ -37,31 +33,19 @@ public class UtilityMethods {
     public static ImageButton buttonLeft, buttonRight, buttonJump, buttonAttack;
     public static void initButtons(Object obj, TextureAtlas gs,float w,float h){
 
-        Drawable arrowup, arrowdown, attackup, attackdown;
+        Drawable arrowup, arrowdown, attackup, attackdown,arrowLup,arrowLdown,arrowRup,arrowRdown;
 
         //Left Button
         arrowup = new TextureRegionDrawable(gs.findRegion("arrow"));
         arrowdown = new TextureRegionDrawable(gs.findRegion("arrow pressed"));
+        arrowLup = new TextureRegionDrawable(gs.findRegion("arrow left"));
+        arrowLdown = new TextureRegionDrawable(gs.findRegion("arrow pressed left"));
+        arrowRup = new TextureRegionDrawable(gs.findRegion("arrow right"));
+        arrowRdown = new TextureRegionDrawable(gs.findRegion("arrow pressed right"));
         attackup = new TextureRegionDrawable(gs.findRegion("attack icon"));
         attackdown = new TextureRegionDrawable(gs.findRegion("attack icon pressed"));
 
-        buttonLeft = new ImageButton(arrowup,arrowdown);
-        //buttonLeft.setSize(25,20);
-        //buttonLeft.getImage().setSize(25,20);
-        //buttonLeft.setOrigin(25,20);
-        //buttonLeft.setOrigin(w * 0.3f,0);
-        //buttonLeft.rotateBy(90);
-        //buttonLeft.getImage().setOrigin(25,20);
-        //buttonLeft.setOrigin(w * 0.3f,0);
-        //buttonLeft.getImage().setRotation(90);
-        //buttonLeft.getImage().setX(buttonLeft.getX());
-        //buttonLeft.getImage().setY(buttonLeft.getY());
-        //buttonLeft.setX(h * 0.5f);
-        //buttonLeft.setY(h * 0.5f);
-
-        buttonLeft.getImage().setOrigin(buttonLeft.getWidth()/2,buttonLeft.getHeight()/2);
-        buttonLeft.getImage().rotateBy(90);
-
+        buttonLeft = new ImageButton(arrowLup,arrowLdown);
         buttonLeft.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -78,13 +62,7 @@ public class UtilityMethods {
         });
 
         //Right Button
-        buttonRight = new ImageButton(arrowup,arrowdown);
-        //buttonRight.setSize(h * .2f,h * 0.1f);
-        //buttonRight.getImage().setSize(h * .2f,h * 0.1f);
-        //buttonRight.setOrigin(buttonRight.getWidth()/2,buttonRight.getHeight()/2);
-        //buttonRight.rotateBy(-90);
-        buttonRight.getImage().setOrigin(buttonRight.getWidth()/2,buttonRight.getHeight()/2);
-        buttonRight.getImage().rotateBy(-90);
+        buttonRight = new ImageButton(arrowRup,arrowRdown);
         buttonRight.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {

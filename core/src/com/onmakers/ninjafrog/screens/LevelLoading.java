@@ -97,7 +97,7 @@ public class LevelLoading implements Screen {
         shapeRenderer.end();
 
         game.batch.begin();
-        game.showcard.draw(game.batch,"Level "+ game.gm.getLevel()+" loading",game.camera.viewportWidth / 2,game.camera.viewportHeight / 2);
+        game.showcard.draw(game.batch,"Level "+ (game.gm.getLevel() + 1 )+" is loading",game.camera.viewportWidth / 2 - 50,game.camera.viewportHeight * 0.65f);
         game.batch.end();
     }
 

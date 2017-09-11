@@ -27,8 +27,8 @@ public class Constants {
     public static boolean jump = false;
     public static boolean action = false;
 
-    public static float MAX_H_VELOCITY = 10.0f;
-    public static float MAX_V_VELOCITY = 20.0f;
+    public static float MAX_H_VELOCITY = 25.0f;
+    public static float MAX_V_VELOCITY = 45.0f;
 
     public static final float WIDTH = Gdx.graphics.getWidth();
     public static final float HEIGHT = Gdx.graphics.getHeight();
