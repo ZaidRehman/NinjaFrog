@@ -11,14 +11,18 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Player;
 
+import static com.onmakers.ninjafrog.screens.W1L1.animFalling;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_H_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_V_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.action;
 import static com.onmakers.ninjafrog.utils.Constants.attackCounter;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
+import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
+import static com.onmakers.ninjafrog.utils.Constants.isDead;
 import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.jump;
 import static com.onmakers.ninjafrog.utils.Constants.left;
@@ -31,7 +35,7 @@ import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 public class UtilityMethods {
 
     public static ImageButton buttonLeft, buttonRight, buttonJump, buttonAttack;
-    public static void initButtons(Object obj, TextureAtlas gs){
+    public static void initButtons(Object obj, TextureAtlas gs,float w,float h){
 
         Drawable arrowup, arrowdown, attackup, attackdown;
 
@@ -42,6 +46,22 @@ public class UtilityMethods {
         attackdown = new TextureRegionDrawable(gs.findRegion("attack icon pressed"));
 
         buttonLeft = new ImageButton(arrowup,arrowdown);
+        //buttonLeft.setSize(25,20);
+        //buttonLeft.getImage().setSize(25,20);
+        //buttonLeft.setOrigin(25,20);
+        //buttonLeft.setOrigin(w * 0.3f,0);
+        //buttonLeft.rotateBy(90);
+        //buttonLeft.getImage().setOrigin(25,20);
+        //buttonLeft.setOrigin(w * 0.3f,0);
+        //buttonLeft.getImage().setRotation(90);
+        //buttonLeft.getImage().setX(buttonLeft.getX());
+        //buttonLeft.getImage().setY(buttonLeft.getY());
+        //buttonLeft.setX(h * 0.5f);
+        //buttonLeft.setY(h * 0.5f);
+
+        buttonLeft.getImage().setOrigin(buttonLeft.getWidth()/2,buttonLeft.getHeight()/2);
+        buttonLeft.getImage().rotateBy(90);
+
         buttonLeft.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -59,6 +79,12 @@ public class UtilityMethods {
 
         //Right Button
         buttonRight = new ImageButton(arrowup,arrowdown);
+        //buttonRight.setSize(h * .2f,h * 0.1f);
+        //buttonRight.getImage().setSize(h * .2f,h * 0.1f);
+        //buttonRight.setOrigin(buttonRight.getWidth()/2,buttonRight.getHeight()/2);
+        //buttonRight.rotateBy(-90);
+        buttonRight.getImage().setOrigin(buttonRight.getWidth()/2,buttonRight.getHeight()/2);
+        buttonRight.getImage().rotateBy(-90);
         buttonRight.addListener(new InputListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -86,10 +112,12 @@ public class UtilityMethods {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 
-                jump = true;
-                frogStatus = "jumping";
-                elapsedTime = 0;
-                System.out.println("jump");
+                if(isGrounded){
+                    jump = true;
+                    frogStatus = "jumping";
+                    elapsedTime = 0;
+                    System.out.println("jump");
+                }
                 return true;
             }
         });
@@ -115,6 +143,10 @@ public class UtilityMethods {
 
 
     public static void inputUpdate(Player frog){
+
+        if(isDead){
+            return;
+        }
 
         Vector2 vel = frog.body.getLinearVelocity();
         Vector2 pos = frog.body.getPosition();
@@ -142,15 +174,19 @@ public class UtilityMethods {
             System.out.println(" r j ");
         }
         else if(left && vel.x > -MAX_H_VELOCITY){
-            frog.body.applyForceToCenter(-15f * PPM, 0, true);
+            frog.body.applyForceToCenter(-25f * PPM, 0, true);
         }
         else if (right && vel.x < MAX_H_VELOCITY){
-            frog.body.applyForceToCenter(15f * PPM, 0,true);
+            frog.body.applyForceToCenter(25f * PPM, 0,true);
         }
         else if (jump && vel.y < MAX_V_VELOCITY){
             if(isGrounded){
                 frog.body.applyLinearImpulse(new Vector2(0, 20 *  PPM),frog.body.getPosition(),true);
             }
+        }
+
+        if(vel.y == 0){
+            isGrounded = true;
         }
     }
 
@@ -160,6 +196,9 @@ public class UtilityMethods {
         if(frogStatus == "falling"){
             if(frog.body.getLinearVelocity().y >= 0)
                 frogStatus = "standing";
+            if(animFalling.isAnimationFinished(elapsedTime)){
+                frogStatus = "standing";
+            }
         }else if(frogStatus == "jumping"){
             if(frog.body.getLinearVelocity().y <= 0){
                 elapsedTime = 0;

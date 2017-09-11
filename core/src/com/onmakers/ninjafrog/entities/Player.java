@@ -20,7 +20,7 @@ public class Player  {
     public Player(World world, String id, float x, float y, float width, float height){
         this.id = id;
         createBoxBody(world,x,y,width,height);
-        body.setLinearDamping(2f);
+        body.setLinearDamping(1f);
     }
     public void createBoxBody(World world,float x,float y, float width, float hieght){
         BodyDef bodyDef = new BodyDef();

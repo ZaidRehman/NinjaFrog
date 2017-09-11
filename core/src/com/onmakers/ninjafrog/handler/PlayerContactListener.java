@@ -12,7 +12,6 @@ import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
 import com.onmakers.ninjafrog.entities.PlayerSword;
 
-import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
 
 public class PlayerContactListener implements ContactListener{
@@ -49,6 +48,16 @@ public class PlayerContactListener implements ContactListener{
 
         // check contact of wall and joint
         if(isCollisionInFootAndWall(fa, fb)){
+            if (fa.getUserData() instanceof PlayerFoot) {
+                PlayerFoot playerFoot = (PlayerFoot) fa.getUserData();
+                playerFoot.hit(true);
+            } else {
+                PlayerFoot playerFoot = (PlayerFoot) fb.getUserData();
+                playerFoot.hit(true);
+            }
+        }
+        // check contact of wall and joint
+        if(isCollisionInFootAndEnemy(fa, fb)){
             if (fa.getUserData() instanceof PlayerFoot) {
                 PlayerFoot playerFoot = (PlayerFoot) fa.getUserData();
                 playerFoot.hit(true);
@@ -119,6 +128,13 @@ public class PlayerContactListener implements ContactListener{
         }
         return false;
     }
+    private  boolean isCollisionInFootAndEnemy(Fixture fa, Fixture fb){
+        if(fa.getUserData() instanceof PlayerFoot || fb.getUserData() instanceof PlayerFoot){
+                if(fa.getUserData() instanceof Enemy || fb.getUserData() instanceof Enemy)
+                    return true;
+        }
+        return false;
+    }
     private boolean isAttacking(Fixture fa,Fixture fb){
         if(fa.getUserData() instanceof PlayerSword || fb.getUserData() instanceof PlayerSword){
             if(fa.getUserData() instanceof Enemy || fb.getUserData() instanceof Enemy)
@@ -169,6 +185,15 @@ public class PlayerContactListener implements ContactListener{
         }
 
         if(isCollisionInFootAndWall(fa, fb)){
+            if (fa.getUserData() instanceof PlayerFoot) {
+                PlayerFoot playerFoot = (PlayerFoot) fa.getUserData();
+                playerFoot.hit(false);
+            } else {
+                PlayerFoot playerFoot = (PlayerFoot) fb.getUserData();
+                playerFoot.hit(false);
+            }
+        }
+        if(isCollisionInFootAndEnemy(fa, fb)){
             if (fa.getUserData() instanceof PlayerFoot) {
                 PlayerFoot playerFoot = (PlayerFoot) fa.getUserData();
                 playerFoot.hit(false);

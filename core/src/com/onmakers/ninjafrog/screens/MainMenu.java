@@ -14,14 +14,22 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.tween.ActorAccessor;
 
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenManager;
+
+import static com.onmakers.ninjafrog.NinjaFrog.V_Height;
+import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
 
 
 public class MainMenu implements Screen{
@@ -44,6 +52,7 @@ public class MainMenu implements Screen{
     private Batch batch;
     OrthographicCamera camera;
     Viewport viewport;
+    private static final float SCALE = 1f;
 
     public MainMenu(final  NinjaFrog game) {
         this.game= game;
@@ -61,21 +70,23 @@ public class MainMenu implements Screen{
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
+//        camera = new OrthographicCamera();
+//        viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),camera);
+//        viewport.apply();
+
         camera = new OrthographicCamera();
-        viewport = new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),camera);
+        camera.setToOrtho(false, V_WIDTH / SCALE, V_Height / SCALE);
+        camera.update();
+        viewport = new FillViewport(V_WIDTH / SCALE, V_Height / SCALE, camera);
+        //viewport = new ScreenViewport(camera);
         viewport.apply();
-
-        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
-
-        //showcardFont = new BitmapFont(Gdx.files.internal("font/showcardFont/showcard.ttf"));
+        //camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
 
         titleScreenAtlas = new TextureAtlas(Gdx.files.internal("titleScreen/titleScreen.atlas"));
 
         tsBgImg = new Sprite(new Texture("images/titleScreenPainting.png"));
-        tsBgImg.getTexture().setFilter(Texture.TextureFilter.Linear,
-                Texture.TextureFilter.Linear);
-        tsBgImg.setSize(tsBgImg.getWidth() / (1920 / Gdx.graphics.getWidth()),
-                tsBgImg.getHeight() / (1920 / Gdx.graphics.getWidth()));
+        //tsBgImg.getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
+        //tsBgImg.setSize(tsBgImg.getWidth() / (1920 / Gdx.graphics.getWidth()),tsBgImg.getHeight() / (1920 / Gdx.graphics.getWidth()));
         batch = new SpriteBatch();
 
         playImg = new Image(titleScreenAtlas.findRegion("PLAY button"));
@@ -84,26 +95,48 @@ public class MainMenu implements Screen{
         scoreImg = new Image(titleScreenAtlas.findRegion("SCORE button"));
         settingsImg = new Image(titleScreenAtlas.findRegion("settings button 2"));
 
-        playImg.setPosition(stage.getWidth() / 4, stage.getHeight() - 200);
-        playImg.setOrigin(playImg.getWidth()/4,playImg.getHeight()/2);
+        //playImg.setPosition(stage.getWidth() / 4, stage.getHeight() - 200);
+        playImg.setOrigin(playImg.getWidth()/2,playImg.getHeight()/2);
         playImg.setScale(1.5f);
-        stage.addActor(playImg);
+        //stage.addActor(playImg);
 
-        profileImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 400) ;
-        profileImg.setOrigin(profileImg.getWidth()/4,profileImg.getHeight()/2);
-        stage.addActor(profileImg);
+        //profileImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 400) ;
+        profileImg.setOrigin(profileImg.getWidth()/2,profileImg.getHeight()/2);
+        //profileImg.scaleBy(-0.5f);
+        //stage.addActor(profileImg);
 
-        levelsImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 600);
-        levelsImg.setOrigin(levelsImg.getWidth()/4,levelsImg.getHeight()/2);
-        stage.addActor(levelsImg);
+        //levelsImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 600);
+        levelsImg.setOrigin(levelsImg.getWidth()/2,levelsImg.getHeight()/2);
+        //levelsImg.scaleBy(-0.5f);
+        //stage.addActor(levelsImg);
 
-        scoreImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 800);
-        scoreImg.setOrigin(scoreImg.getWidth()/4,scoreImg.getHeight()/2);
-        stage.addActor(scoreImg);
+        //scoreImg.setPosition(stage.getWidth()/4 , stage.getHeight() - 800);
+        scoreImg.setOrigin(scoreImg.getWidth()/2,scoreImg.getHeight()/2);
+        //scoreImg.scaleBy(-0.5f);
+        //stage.addActor(scoreImg);
 
-        settingsImg.setPosition(stage.getWidth() - 400, stage.getHeight() - 400);
-        settingsImg.setOrigin(settingsImg.getWidth() - 400,settingsImg.getHeight() - 400);
-        stage.addActor(settingsImg);
+        //settingsImg.setPosition(stage.getWidth() - 400, stage.getHeight() - 400);
+        //settingsImg.setOrigin(settingsImg.getWidth() - 400,settingsImg.getHeight() - 400);
+        //stage.addActor(settingsImg);
+        float h = Gdx.graphics.getHeight();
+        float w = Gdx.graphics.getWidth();
+
+        Image empty = new Image();
+        Table table = new Table();
+        table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        table.add(playImg);
+        table.row();
+        table.add(empty).height(h * 0.1f);
+        table.row();
+        table.add(profileImg);
+        table.row();
+        table.add(levelsImg);
+        table.row();
+        table.add(scoreImg);
+
+        table.setPosition(w * 0.3f,0);
+        //table.debug();
+        stage.addActor(table.align(Align.left));
 
         this.skin=new Skin();
         game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
@@ -157,8 +190,13 @@ public class MainMenu implements Screen{
 
     @Override
     public void resize(int width, int height) {
-        viewport.update(width,height);
-        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
+//        viewport.update(width,height);
+//        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
+
+        camera.viewportHeight = height;
+        camera.viewportWidth = width;
+        viewport.update(width, height);
+        stage.getViewport().update(width, height);
     }
 
     @Override

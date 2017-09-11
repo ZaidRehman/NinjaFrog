@@ -93,8 +93,8 @@ public class NinjaFrog extends Game {
         FreeTypeFontGenerator generator =new FreeTypeFontGenerator(Gdx.files.internal("font/ShowcardFont/showcard.TTF"));
         FreeTypeFontGenerator.FreeTypeFontParameter params = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
-        params.size = 24;
-        params.color = Color.CYAN;
+        params.size = 48;
+        params.color = Color.WHITE;
         showcard = generator.generateFont(params);
     }
 

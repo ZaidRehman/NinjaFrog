@@ -18,7 +18,7 @@ public class PlayerSword {
     public PlayerSword(World world, String id, float x, float y, float width, float height){
         this.id = id;
         createSwordSensor(world,x,y,width,height);
-        body.setLinearDamping(2f);
+        body.setLinearDamping(1f);
     }
     public void createSwordSensor(World world, float x, float y, float width, float hieght){
         BodyDef bodyDef = new BodyDef();

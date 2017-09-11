@@ -20,7 +20,7 @@ public class PlayerFoot {
     public PlayerFoot(World world, String id, float x, float y, float width, float height){
         this.id = id;
         createFootSensor(world,x,y,width,height);
-        body.setLinearDamping(2f);
+        body.setLinearDamping(1f);
     }
     public void createFootSensor(World world, float x, float y, float width, float hieght){
         BodyDef bodyDef = new BodyDef();

@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
+import static com.onmakers.ninjafrog.utils.Constants.coinCounter;
 
 public class Coin {
     public World world;
@@ -50,6 +51,7 @@ public class Coin {
             }
         });
         touched =true;
+        coinCounter ++ ;
         System.out.println(id + ": has been hit");
     }
     public boolean isTouched (){

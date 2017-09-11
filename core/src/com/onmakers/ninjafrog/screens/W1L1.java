@@ -14,7 +14,9 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -23,6 +25,8 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
+import com.onmakers.ninjafrog.actors.CoinCell;
+import com.onmakers.ninjafrog.actors.LeftArrorButton;
 import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
@@ -44,11 +48,14 @@ import static com.onmakers.ninjafrog.utils.Constants.FROG_BODY_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_HEIGHT;
 import static com.onmakers.ninjafrog.utils.Constants.FROG_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
+import static com.onmakers.ninjafrog.utils.Constants.coinCounter;
 import static com.onmakers.ninjafrog.utils.Constants.coins;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
 import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
+import static com.onmakers.ninjafrog.utils.Constants.isDead;
+import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
@@ -93,18 +100,19 @@ public class W1L1 implements Screen {
     private Skin skin;
     private Table table;
 
-    private Label heading;
+    private Label coinLabel;
 
     public NinjaFrog game;
 
     //Animation
-    private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog,atlasFallingFrog;
-    private Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping, animFalling;
+    private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog,atlasFallingFrog,atlasDeadFrog;
+    public static Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping, animFalling, animDeadFrog;
 
 
     //Game Design
     private TextureAtlas gs;
 
+    int dc ;
     public W1L1(NinjaFrog game) {
         this.game = game;
     }
@@ -114,6 +122,9 @@ public class W1L1 implements Screen {
         w = Gdx.graphics.getWidth();
         h = Gdx.graphics.getHeight();
         Constants.isGrounded = false;
+        isDead = false;
+        dc = 0;
+        coinCounter = 0;
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH / SCALE, V_Height / SCALE);
@@ -127,7 +138,24 @@ public class W1L1 implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         //tile
-        map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+        switch (game.gm.getLevel()){
+
+            case 0:
+                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                break;
+            case 1:
+                map = game.manager.get("maps/World1Level2.tmx", TiledMap.class);
+                break;
+            case 2:
+                map = game.manager.get("maps/World1Level3.tmx", TiledMap.class);
+                break;
+            case 3:
+                map = game.manager.get("maps/World1Level4.tmx", TiledMap.class);
+                break;
+            case 4:
+                map = game.manager.get("maps/World1Level5.tmx", TiledMap.class);
+                break;
+        }
         tmr = new OrthogonalTiledMapRenderer(map);
         MapProperties prop = map.getProperties();
 
@@ -152,8 +180,8 @@ public class W1L1 implements Screen {
 
         frog = new Player(world, "FROG", 100, 360, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
         frogFoot = new PlayerFoot(world,"FROG_FOOT",100,300, FROG_BODY_WIDTH, 10);
-        frogSwordR = new PlayerSword(world,"FROG_SWORD_RIGHT",100 + 300,300, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
-        frogSwordL = new PlayerSword(world,"FROG_SWORD_LEFT",100 + 300,300, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
+        frogSwordR = new PlayerSword(world,"FROG_SWORD_RIGHT",100 + 300,300, FROG_BODY_WIDTH + 100, FROG_BODY_HEIGHT);
+        frogSwordL = new PlayerSword(world,"FROG_SWORD_LEFT",100 + 300,300, FROG_BODY_WIDTH + 100, FROG_BODY_HEIGHT);
         frogSwordR.joint = JointBuilder.createRJointDef(world,frog.body, frogSwordR.body, FROG_BODY_WIDTH * 2,0, false);
         frogSwordL.joint = JointBuilder.createRJointDef(world,frog.body, frogSwordL.body, -FROG_BODY_WIDTH * 2,0, false);
         frogFoot.joint = JointBuilder.createRJointDef(world,frog.body,frogFoot.body, 0, -FROG_BODY_HEIGHT -10, false);
@@ -175,25 +203,41 @@ public class W1L1 implements Screen {
         table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         //initialize buttons
-        UtilityMethods.initButtons(this,gs);
+        UtilityMethods.initButtons(this,gs,w,h);
 
         //Label Style
         Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);
-        heading = new Label("Ninja Frog ", headingStyle);
-        heading.setFontScale(3);
+        coinLabel = new Label((coinCounter + ""), headingStyle);
 
-        table.add(heading).colspan(4).center().height(h * 0.03f).expandX();
-        table.row().expandY().padBottom(h * 0.05f);
-        table.add(buttonLeft).bottom().left().width(w * 0.15f).height(h * 0.2f);
-        table.add(buttonRight).bottom().left().width(w * 0.15f).height(h * 0.2f).padRight(w * 0.13f);
-        table.add(buttonJump).bottom().right().width(w * 0.15f).height(h * 0.2f).padLeft(w * 0.13f);
-        table.add(buttonAttack).bottom().right().width(w * 0.15f).height(h * 0.2f);
+        Image lives = new Image(gs.findRegion("lives"));
+        Image livesbg = new Image(gs.findRegion("icon empty"));
+        Image coins = new Image(gs.findRegion("coin"));
+        Image coinsbg = new Image(gs.findRegion("icon empty"));
 
+        Image empty = new Image();
 
-        //Game Design
+        livesbg.setWidth(w * 0.1f);
+        livesbg.setHeight(h *  0.15f);
+        Group coinsCount = new Group();
+        coinsCount.addActor(livesbg);
+        coinsCount.addActor(coinLabel);
 
+        table.add(lives).width(w * 0.1f).height(h * 0.15f);
+        table.add(coinsbg).width(w * 0.1f).height(h * 0.15f);
+        table.add(coins).width(w * 0.1f).height(h * 0.15f);
+        table.add(new CoinCell(gs.findRegion("icon empty"),coinCounter+"",game.showcard)).width(w * 0.1f).height(h * 0.15f).center();
+        table.add(empty).width(w * 0.6f);
 
-        //table.debug();// TODO remove later
+        table.row();
+        table.add(buttonJump).colspan(4).height(h * 0.18f).width(w * 0.1f).center().bottom().expandY();
+        table.add(empty);
+
+        table.row();
+        table.add(buttonLeft).bottom().left().height(h * 0.2f).colspan(2).padBottom(-20);
+        table.add(buttonRight).bottom().right().height(h * 0.2f).colspan(2).padBottom(-20);
+        table.add(buttonAttack).bottom().right().height(h * 0.2f).expandX();
+
+        table.debug();// TODO remove later
         table.setFillParent(true);
         //table.debug();
         stage.addActor(table.align(Align.center));
@@ -212,6 +256,8 @@ public class W1L1 implements Screen {
         animJumping = new Animation<TextureAtlas.AtlasRegion>(1f/30f,atlasJumpingFrog.getRegions());
         atlasFallingFrog = game.manager.get("frogAnim/fallingFrog/fallingFrog.atlas", TextureAtlas.class);
         animFalling = new Animation<TextureAtlas.AtlasRegion>(1f/15f, atlasFallingFrog.getRegions());
+        atlasDeadFrog = game.manager.get("frogAnim/deadFrog/deadFrog.atlas",TextureAtlas.class);
+        animDeadFrog = new Animation<TextureAtlas.AtlasRegion>(1/15f, atlasDeadFrog.getRegions());
 
         for (Enemy flyingOwl :
                 flyingOwls) {
@@ -256,6 +302,7 @@ public class W1L1 implements Screen {
         float x,y,width,height;
         height = FROG_HEIGHT;
         y = frog.body.getPosition().y * PPM - FROG_BODY_HEIGHT - 10;
+
         if(frogDirection){
             x = (frog.body.getPosition().x * PPM - FROG_BODY_WIDTH * 2.5f) + (FROG_WIDTH );
             width = -FROG_WIDTH;
@@ -264,7 +311,16 @@ public class W1L1 implements Screen {
             width = FROG_WIDTH;
         }
 
-        if(frogStatus == "standing"){
+        if(isDead){
+            tex = animDeadFrog.getKeyFrame(elapsedTime,true);
+            if(frogDirection){
+                x += 40;
+                width -= 40;
+            }else{
+                x -= 40;
+                width += 40;
+            }
+        }else if(frogStatus == "standing"){
            tex = animStanding.getKeyFrame(elapsedTime,true);
         }else if(frogStatus == "walking") {
             tex = animWalking.getKeyFrame(elapsedTime,true);
@@ -280,25 +336,33 @@ public class W1L1 implements Screen {
             tex = animAttacking.getKeyFrame(elapsedTime,true);
         }else if(frogStatus == "jumping"){
             tex = animJumping.getKeyFrame(elapsedTime,false);
-            x += 10;
+
             height += 30;
+            y -= 90;
             if(frogDirection){
-                width -= 10;
+                x += 30;
+                width -= 40;
             }else{
-                width += 10;
+                x -= 30;
+                width += 40;
             }
         }else if(frogStatus == "falling"){
             //System.out.println("falling animation");
-            x += 10;
+
+            y-=90;
             height += 30;
             if(frogDirection){
-                width -= 10;
+                x += 30;
+                width -= 40;
             }else{
-                width += 10;
+                x -= 30;
+                width += 40;
             }
             tex = animFalling.getKeyFrame(elapsedTime,false);
         }
 
+
+        CoinCell.setText(coinCounter + "");
 
         batch.begin();
         //pe.draw(batch);
@@ -370,6 +434,8 @@ public class W1L1 implements Screen {
         //updates
         elapsedTime += delta;
         game.manager.update();
+        if (isGrounded && isDead)
+            dc+= delta;
 
         cameraUpdate(delta,frog,camera);
         UtilityMethods.inputUpdate(frog);
@@ -385,8 +451,29 @@ public class W1L1 implements Screen {
         //flyingOwl.body.setLinearVelocity(flyingOwl.body.getLinearVelocity().x, delta * 12);
         //flyingOwl.body.applyLinearImpulse(0,1.5f,0,0,true);
 
+        if(animDeadFrog.isAnimationFinished(elapsedTime) && isDead && isGrounded){
+            game.setScreen(new LevelLoading(game));
+        }
         if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
-            game.gm.setPrefLevel(1);
+            switch (game.gm.getLevel()){
+
+                case 0:
+                    game.gm.setPrefLevel(1);
+                    break;
+                case 1:
+                    game.gm.setPrefLevel(2);
+                    break;
+                case 2:
+                    game.gm.setPrefLevel(3);
+                    break;
+                case 3:
+                    game.gm.setPrefLevel(4);
+                    break;
+                case 4:
+                    game.gm.setPrefLevel(0);
+                    break;
+            }
+
             game.setScreen(game.levelLoading);
         }
     }
@@ -394,34 +481,30 @@ public class W1L1 implements Screen {
         for (final Enemy flyingOwl :
                 flyingOwls) {
             if(!flyingOwl.isBodyDestroyed){
-                if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive)
-                    flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
 
                 flyingOwl.elapsedOwlTime += delta;
+
                 if(!flyingOwl.isAlive){
                     flyingOwl.elapsedDeadCounter += delta;
-                    if(flyingOwl.animDead1Owl.isAnimationFinished(flyingOwl.elapsedDeadCounter))
-                        flyingOwl.flyingOwlStatus = "dead2";
-                    if(flyingOwl.body.getLinearVelocity().y == 0)
-                        flyingOwl.flyingOwlStatus = "dead3";
-                    if(flyingOwl.flyingOwlStatus == "dead3" && flyingOwl.elapsedDeadCounter >= 1/15f * 34){
+
+                    if(flyingOwl.flyingOwlStatus == "dead3" && flyingOwl.elapsedDeadCounter >= 1/15f * 25){
                         world.destroyBody(flyingOwl.body);
                         flyingOwl.isBodyDestroyed= true;
 
                     }
-                }
+
+                    if(flyingOwl.body.getLinearVelocity().y == 0 && flyingOwl.flyingOwlStatus == "dead2"){
+                        flyingOwl.flyingOwlStatus = "dead3";
+
+                    }
+
+                    if(flyingOwl.animDead1Owl.isAnimationFinished(flyingOwl.elapsedDeadCounter) && flyingOwl.flyingOwlStatus == "dead1")
+                        flyingOwl.flyingOwlStatus = "dead2";
+
+
+                }else if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive)
+                    flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
             }
-
-
-            /*if(flyingOwl.elapsedDeadCounter >= 1/15f * 34){
-//                flyingOwl.atlasAttack1Owl.dispose();
-//                flyingOwl.atlasAttack2Owl.dispose();
-//                flyingOwl.atlasDead1Owl.dispose();
-//                flyingOwl.atlasDead2Owl.dispose();
-//                flyingOwl.atlasDead3Owl.dispose();
-//                flyingOwl.atlasFlyingOwl.dispose();
-                //world.destroyBody(flyingOwl.body);
-            }*/
         }
 
     }
@@ -445,8 +528,6 @@ public class W1L1 implements Screen {
                     }
                 }
             }
-
-
         }
     }
 
@@ -490,6 +571,25 @@ public class W1L1 implements Screen {
             flyingOwl.dispose();
         }
         game.manager.unload("maps/World1Level1.tmx");
+        switch (game.gm.getLevel()){
+
+            case 0:
+               game.manager.unload("maps/World1Level1.tmx");
+                break;
+            case 1:
+               game.manager.unload("maps/World1Level2.tmx");
+                break;
+            case 2:
+                game.manager.unload("maps/World1Level3.tmx");
+                break;
+            case 3:
+                game.manager.unload("maps/World1Level4.tmx");
+                break;
+            case 4:
+                game.manager.unload("maps/World1Level5.tmx");
+                break;
+        }
+
     }
 
 
