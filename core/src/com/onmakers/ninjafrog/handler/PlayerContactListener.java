@@ -23,6 +23,21 @@ public class PlayerContactListener implements ContactListener{
         if(fa == null || fb == null) return;
         if(fa.getUserData() == null || fb.getUserData() == null) return;
 
+        // check contact of frog and enemy
+        if(isEnemyContact(fa,fb)){
+            if (fa.getUserData() instanceof Player) {
+                Enemy owl = (Enemy) fb.getUserData();
+                owl.isCollidingFrog = true;
+                System.out.println("owl frog collided");
+
+            } else {
+                Enemy owl = (Enemy) fa.getUserData();
+                owl.isCollidingFrog = true;
+                System.out.println("owl frog collided");
+
+            }
+        }
+
         // check contact of enemy and sword
         if(isAttacking(fa,fb)){
             if(fa.getUserData() instanceof PlayerSword){
@@ -94,6 +109,7 @@ public class PlayerContactListener implements ContactListener{
                 coin.hit();
             }
         }
+
     }
 
     private boolean isEnemyContact(Fixture fa, Fixture fb) {

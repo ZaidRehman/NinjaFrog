@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.joints.DistanceJoint;
 
 import static com.onmakers.ninjafrog.utils.Constants.BIT_FROG;
+import static com.onmakers.ninjafrog.utils.Constants.BIT_OWL;
 import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 
@@ -36,7 +37,7 @@ public class Player  {
         fixtureDef.density =0.5f;
         fixtureDef.restitution = 0.0f;
         fixtureDef.filter.categoryBits = BIT_FROG;
-        fixtureDef.filter.maskBits = BIT_FROG | BIT_WALL ;
+        fixtureDef.filter.maskBits = BIT_FROG | BIT_WALL | BIT_OWL;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);

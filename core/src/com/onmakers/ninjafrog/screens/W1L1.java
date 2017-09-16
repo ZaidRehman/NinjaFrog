@@ -406,6 +406,7 @@ public class W1L1 implements Screen {
                 owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
                 owlWidth = - flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
                 owlHeight = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getHeight() / 6;
+
             }else{
                 if (flyingOwl.flyingOwlStatus == "dead2") {
 
@@ -434,20 +435,28 @@ public class W1L1 implements Screen {
                 }
 
             }
+            if(flyingOwl.direction == 1){
+                owlX = owlX + owlWidth;
+                owlWidth = -owlWidth;
+            }
             batch.draw(owlTex,owlX,owlY,owlWidth,owlHeight);
 
         }
-        //frog
+
+        //render frog
         batch.draw(tex,x,y,width,height);
+
+        //render coin
         for (Coin coin :
                 coins) {
             if (!coin.isTouched())
                 batch.draw(gs.findRegion("coin"), coin.body.getPosition().x * PPM - 68, coin.body.getPosition().y * PPM - 68, 128, 128);
         }
+
         batch.end();
 
 
-        b2dr.render(world, camera.combined.scl(PPM));
+        //b2dr.render(world, camera.combined.scl(PPM));
 
         //draw stage
         stage.act();
@@ -474,7 +483,6 @@ public class W1L1 implements Screen {
         UtilityMethods.inputUpdate(frog);
         updateFrogStatus(delta,frog);
         checkAttacking(delta);
-        checkEnemyAttacking(delta);
         updateEnemies(delta);
 
         tmr.setView(camera);
@@ -538,27 +546,42 @@ public class W1L1 implements Screen {
 
                 }else if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive){
 
-                    if (!frogInRangeOfOwl(flyingOwl)) {
-                        flyingOwl.body.applyForceToCenter(0,9.5f * PPM,true);
+                    //Owl direction
+                    if(flyingOwl.body.getPosition().x < frog.body.getPosition().x){
+                        flyingOwl.direction = 1;
                     }else{
-                        flyingOwl.body.applyForceToCenter(0,5f * PPM,true);
+                        flyingOwl.direction = -1;
                     }
-                    flyingOwl.flyingOwlDirection = (flyingOwl.body.getPosition().x > frog.body.getPosition().x);
+
+                    //Forces applied to owl
+                    if (!frogInRangeOfOwl(flyingOwl)) {
+                        flyingOwl.body.applyForceToCenter(0,9f * PPM,true);
+                    }else{
+                        flyingOwl.body.applyForceToCenter(2 * PPM * flyingOwl.direction,5 * PPM,true);
+                    }
+
+                    //Enemy attacking frog
+                    if(flyingOwl.isCollidingFrog){
+                        world.destroyBody(flyingOwl.body);
+                        flyingOwl.isAlive = false;
+                        flyingOwl.isBodyDestroyed= true;
+                    }
+
                 }
             }
         }
 
     }
-    public void checkEnemyAttacking(float delta){
+    /*public void checkEnemyAttacking(float delta){
         for (Enemy flyingOwl :
                 flyingOwls) {
             if (frogInRangeOfOwl(flyingOwl)) {
 
-                flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
+                //flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
                 //System.out.println("frog in range of " + flyingOwl.id );
             }
         }
-    }
+    }*/
 
     public boolean frogInRangeOfOwl(Enemy flyingOwl){
         float posFX = frog.body.getPosition().x * PPM;
@@ -566,8 +589,8 @@ public class W1L1 implements Screen {
         float posFY = frog.body.getPosition().y* PPM;
         float posOY = flyingOwl.body.getPosition().y * PPM;
 
-        if(posFY < posOY + 300 && posFY > posOY - 300){
-            if(posFX < (posOX + 200) && posFX > (posOX - 200) ){
+        if(posFY < posOY + 200 && posFY > posOY - 200){
+            if(posFX < (posOX + 500) && posFX > (posOX - 500) ){
                 return  true;
             }
         }

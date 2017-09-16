@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import static com.onmakers.ninjafrog.utils.Constants.BIT_FROG;
 import static com.onmakers.ninjafrog.utils.Constants.BIT_OWL;
 import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
@@ -16,10 +17,12 @@ public class Enemy {
 
     public Body body;
     public String id;
+    public float direction = 1;
     public boolean isAlive = true;
     public boolean isTouchingRSword = false;
     public boolean isTouchingLSword = false;
     public boolean flyingOwlDirection = false;
+    public boolean isCollidingFrog = false;
     public TextureAtlas atlasFlyingOwl,atlasDead1Owl,atlasDead2Owl,atlasDead3Owl,atlasAttack1Owl,atlasAttack2Owl;
     public   Animation<TextureAtlas.AtlasRegion> animFlyingOwl,animDead1Owl,animDead2Owl,animDead3Owl,animAttack1Owl,animAttack2Owl;
     public float elapsedOwlTime = 0;
@@ -46,7 +49,7 @@ public class Enemy {
         fixtureDef.shape = shape;
         fixtureDef.density =1.0f;
         fixtureDef.filter.categoryBits = BIT_OWL;
-        fixtureDef.filter.maskBits = BIT_WALL;
+        fixtureDef.filter.maskBits = BIT_WALL | BIT_FROG;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);
