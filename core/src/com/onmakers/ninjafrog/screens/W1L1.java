@@ -538,7 +538,9 @@ public class W1L1 implements Screen {
 
                 }else if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive){
 
-                    flyingOwl.body.applyForceToCenter(0,9.5f * PPM,true);
+                    if (!frogInRangeOfOwl(flyingOwl)) {
+                        flyingOwl.body.applyForceToCenter(0,9.5f * PPM,true);
+                    }
                     flyingOwl.flyingOwlDirection = (flyingOwl.body.getPosition().x > frog.body.getPosition().x);
                 }
             }
@@ -551,7 +553,7 @@ public class W1L1 implements Screen {
             if (frogInRangeOfOwl(flyingOwl)) {
 
                 flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
-                System.out.println("frog in range of " + flyingOwl.id );
+                //System.out.println("frog in range of " + flyingOwl.id );
             }
         }
     }
