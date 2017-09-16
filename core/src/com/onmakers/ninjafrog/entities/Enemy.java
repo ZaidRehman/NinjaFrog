@@ -8,6 +8,8 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import static com.onmakers.ninjafrog.utils.Constants.BIT_OWL;
+import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 
 public class Enemy {
@@ -43,7 +45,8 @@ public class Enemy {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density =1.0f;
-        fixtureDef.isSensor = true;
+        fixtureDef.filter.categoryBits = BIT_OWL;
+        fixtureDef.filter.maskBits = BIT_WALL;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);

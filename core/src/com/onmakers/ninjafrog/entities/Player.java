@@ -35,8 +35,8 @@ public class Player  {
         fixtureDef.shape = shape;
         fixtureDef.density =0.5f;
         fixtureDef.restitution = 0.0f;
-        //fixtureDef.filter.categoryBits = BIT_FROG;
-        //fixtureDef.filter.maskBits = BIT_FROG + BIT_WALL;
+        fixtureDef.filter.categoryBits = BIT_FROG;
+        fixtureDef.filter.maskBits = BIT_FROG | BIT_WALL ;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);

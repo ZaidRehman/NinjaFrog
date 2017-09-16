@@ -35,7 +35,7 @@ public class PlayerFoot {
         fixtureDef.shape = shape;
         fixtureDef.density =0.5f;
         fixtureDef.restitution = 0.0f;
-        //fixtureDef.isSensor = true;
+        fixtureDef.isSensor = true;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);

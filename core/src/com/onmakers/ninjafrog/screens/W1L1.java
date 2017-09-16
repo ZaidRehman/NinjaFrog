@@ -438,7 +438,7 @@ public class W1L1 implements Screen {
 
         }
         //frog
-        batch.draw(tex,x,y - 10,width,height);
+        batch.draw(tex,x,y,width,height);
         for (Coin coin :
                 coins) {
             if (!coin.isTouched())
@@ -540,6 +540,8 @@ public class W1L1 implements Screen {
 
                     if (!frogInRangeOfOwl(flyingOwl)) {
                         flyingOwl.body.applyForceToCenter(0,9.5f * PPM,true);
+                    }else{
+                        flyingOwl.body.applyForceToCenter(0,5f * PPM,true);
                     }
                     flyingOwl.flyingOwlDirection = (flyingOwl.body.getPosition().x > frog.body.getPosition().x);
                 }

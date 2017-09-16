@@ -14,6 +14,7 @@ import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
 
 import static com.onmakers.ninjafrog.utils.Constants.BIT_FROG;
+import static com.onmakers.ninjafrog.utils.Constants.BIT_OWL;
 import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 import static com.onmakers.ninjafrog.utils.Constants.coins;
 import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
@@ -60,7 +61,7 @@ public class TiledObjectUtil {
                 fd.shape = shape;
                 fd.density = 1.0f;
                 fd.filter.categoryBits = Constants.BIT_WALL;
-                fd.filter.maskBits = Constants.BIT_WALL | BIT_FROG ;
+                fd.filter.maskBits = Constants.BIT_WALL | BIT_FROG | BIT_OWL;
                 fd.filter.groupIndex = 1;
                 //fd.filter.categoryBits = BIT_WALL ;
                 //fd.filter.maskBits = BIT_FROG;
