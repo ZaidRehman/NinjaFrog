@@ -13,10 +13,11 @@ import static com.onmakers.ninjafrog.utils.Constants.PPM;
 public class Enemy {
 
     public Body body;
-    String id;
+    public String id;
     public boolean isAlive = true;
     public boolean isTouchingRSword = false;
     public boolean isTouchingLSword = false;
+    public boolean flyingOwlDirection = false;
     public TextureAtlas atlasFlyingOwl,atlasDead1Owl,atlasDead2Owl,atlasDead3Owl,atlasAttack1Owl,atlasAttack2Owl;
     public   Animation<TextureAtlas.AtlasRegion> animFlyingOwl,animDead1Owl,animDead2Owl,animDead3Owl,animAttack1Owl,animAttack2Owl;
     public float elapsedOwlTime = 0;
@@ -42,6 +43,7 @@ public class Enemy {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density =1.0f;
+        fixtureDef.isSensor = true;
 
         this.body = world.createBody(bodyDef);
         this.body.createFixture(fixtureDef).setUserData(this);

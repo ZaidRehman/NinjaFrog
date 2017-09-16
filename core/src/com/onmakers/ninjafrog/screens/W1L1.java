@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -26,7 +27,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.actors.CoinCell;
-import com.onmakers.ninjafrog.actors.LeftArrorButton;
 import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
@@ -385,6 +385,7 @@ public class W1L1 implements Screen {
         }
 
 
+
         CoinCell.setText(coinCounter + "");
 
         batch.begin();
@@ -395,37 +396,46 @@ public class W1L1 implements Screen {
             if(flyingOwl.isBodyDestroyed)
                 continue;
 
+
+            float owlX=0,owlY=0,owlWidth=0,owlHeight=0;
+            TextureAtlas.AtlasRegion owlTex = gs.findRegion("splash icon");
+
             if(flyingOwl.isAlive){
-                batch.draw(
-                        flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true),
-                        flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6,
-                        flyingOwl.body.getPosition().y * PPM - 30 * 1.5f,
-                        - flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6,
-                        flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getHeight() / 6);
+                owlTex = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true);
+                owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
+                owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                owlWidth = - flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
+                owlHeight = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getHeight() / 6;
             }else{
                 if (flyingOwl.flyingOwlStatus == "dead2") {
-                    batch.draw(
-                            flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,true),
-                            flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 12,
-                            flyingOwl.body.getPosition().y * PPM - 30 * 1.5f,
-                            - flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 12,
-                            flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight() / 3);
+
+                    owlTex = flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,true);
+                    owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 12;
+                    owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                    owlWidth = - flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 12;
+                    owlHeight = flyingOwl.animDead2Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight() / 3;
+
                 }else if(flyingOwl.flyingOwlStatus == "dead1"){
-                    batch.draw(
-                            flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false),
-                            flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + 10+ flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 7,
-                            flyingOwl.body.getPosition().y * PPM - 30 * 1.5f,
-                            - flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 7,
-                            flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight()/ 3);
+
+                    owlTex = flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false);
+                    owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + 10+ flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 7;
+                    owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                    owlWidth = - flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth() / 7;
+                    owlHeight = flyingOwl.animDead1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight()/ 3;
+
                 }else if(flyingOwl.flyingOwlStatus == "dead3"){
-                    batch.draw(
-                            flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false),
-                            flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth()/8,
-                            flyingOwl.body.getPosition().y * PPM - 30 * 1.5f,
-                            - flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth()/8,
-                            flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight()/1.5f);
+
+                    owlTex = flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false);
+                    owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth()/8;
+                    owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                    owlWidth = - flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getWidth()/8;
+                    owlHeight = flyingOwl.animDead3Owl.getKeyFrame(flyingOwl.elapsedDeadCounter,false).getTexture().getHeight()/1.5f;
+
                 }
+
             }
+            batch.draw(owlTex,owlX,owlY,owlWidth,owlHeight);
+
         }
         //frog
         batch.draw(tex,x,y - 10,width,height);
@@ -437,7 +447,7 @@ public class W1L1 implements Screen {
         batch.end();
 
 
-        //b2dr.render(world, camera.combined.scl(PPM));
+        b2dr.render(world, camera.combined.scl(PPM));
 
         //draw stage
         stage.act();
@@ -464,6 +474,7 @@ public class W1L1 implements Screen {
         UtilityMethods.inputUpdate(frog);
         updateFrogStatus(delta,frog);
         checkAttacking(delta);
+        checkEnemyAttacking(delta);
         updateEnemies(delta);
 
         tmr.setView(camera);
@@ -525,11 +536,38 @@ public class W1L1 implements Screen {
                         flyingOwl.flyingOwlStatus = "dead2";
 
 
-                }else if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive)
-                    flyingOwl.body.applyForceToCenter(0,5.5f * PPM,true);
+                }else if(flyingOwl.body.getLinearVelocity().y <= 0 && flyingOwl.isAlive){
+
+                    flyingOwl.body.applyForceToCenter(0,9.5f * PPM,true);
+                    flyingOwl.flyingOwlDirection = (flyingOwl.body.getPosition().x > frog.body.getPosition().x);
+                }
             }
         }
 
+    }
+    public void checkEnemyAttacking(float delta){
+        for (Enemy flyingOwl :
+                flyingOwls) {
+            if (frogInRangeOfOwl(flyingOwl)) {
+
+                flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
+                System.out.println("frog in range of " + flyingOwl.id );
+            }
+        }
+    }
+
+    public boolean frogInRangeOfOwl(Enemy flyingOwl){
+        float posFX = frog.body.getPosition().x * PPM;
+        float posOX = flyingOwl.body.getPosition().x * PPM;
+        float posFY = frog.body.getPosition().y* PPM;
+        float posOY = flyingOwl.body.getPosition().y * PPM;
+
+        if(posFY < posOY + 300 && posFY > posOY - 300){
+            if(posFX < (posOX + 200) && posFX > (posOX - 200) ){
+                return  true;
+            }
+        }
+        return false;
     }
     public void checkAttacking(float delta){
         if(frogStatus == "attacking" && isKillingEnemy){
