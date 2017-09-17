@@ -401,11 +401,20 @@ public class W1L1 implements Screen {
             TextureAtlas.AtlasRegion owlTex = gs.findRegion("splash icon");
 
             if(flyingOwl.isAlive){
-                owlTex = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true);
-                owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
-                owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
-                owlWidth = - flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
-                owlHeight = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getHeight() / 6;
+                if(flyingOwl.flyingOwlStatus.equals("attacking")) {
+                    //owlTex = flyingOwl.animAttack1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter, false);
+                    owlTex = flyingOwl.atlasAttack1Owl.findRegion("Owl enemy attack 10015");
+                    owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animAttack1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter, false).getTexture().getWidth() / 7;
+                    owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                    owlWidth = -flyingOwl.animAttack1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter, false).getTexture().getWidth() / 7;
+                    owlHeight = flyingOwl.animAttack1Owl.getKeyFrame(flyingOwl.elapsedDeadCounter, false).getTexture().getHeight() / 3f;
+                }else{
+                    owlTex = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true);
+                    owlX = flyingOwl.body.getPosition().x * PPM - 30 * 2.5f + flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
+                    owlY = flyingOwl.body.getPosition().y * PPM - 30 * 1.5f;
+                    owlWidth = - flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getWidth() / 6;
+                    owlHeight = flyingOwl.animFlyingOwl.getKeyFrame(flyingOwl.elapsedOwlTime,true).getTexture().getHeight() / 6;
+                }
 
             }else{
                 if (flyingOwl.flyingOwlStatus == "dead2") {
@@ -456,7 +465,7 @@ public class W1L1 implements Screen {
         batch.end();
 
 
-        //b2dr.render(world, camera.combined.scl(PPM));
+        b2dr.render(world, camera.combined.scl(PPM));
 
         //draw stage
         stage.act();
@@ -557,6 +566,7 @@ public class W1L1 implements Screen {
                     if (!frogInRangeOfOwl(flyingOwl)) {
                         flyingOwl.body.applyForceToCenter(0,9f * PPM,true);
                     }else{
+                        flyingOwl.flyingOwlStatus = "attacking";
                         flyingOwl.body.applyForceToCenter(2 * PPM * flyingOwl.direction,5 * PPM,true);
                     }
 
