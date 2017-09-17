@@ -47,6 +47,7 @@ public class Constants {
 
     //Dead
     public static boolean isDead = false;
+    public static int deadFrogCounter = 10;
 
     public static int coinCounter = 0;
     public static ArrayList<Coin> coins = new ArrayList<Coin>();

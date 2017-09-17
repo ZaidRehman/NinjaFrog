@@ -27,6 +27,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.actors.CoinCell;
+import com.onmakers.ninjafrog.actors.FrogLivesCell;
 import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
@@ -50,6 +51,7 @@ import static com.onmakers.ninjafrog.utils.Constants.FROG_WIDTH;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.coinCounter;
 import static com.onmakers.ninjafrog.utils.Constants.coins;
+import static com.onmakers.ninjafrog.utils.Constants.deadFrogCounter;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
 import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
@@ -224,7 +226,7 @@ public class W1L1 implements Screen {
         coinsCount.addActor(coinLabel);
 
         table.add(lives).height(h * 0.15f).width(h * 0.15f);
-        table.add(coinsbg).height(h * 0.15f).width(h * 0.15f);
+        table.add(new FrogLivesCell(gs.findRegion("icon empty"),deadFrogCounter+"",game.showcard)).height(h * 0.15f).width(h * 0.15f);
         table.add(coins).height(h * 0.15f).width(h * 0.15f);
         table.add(new CoinCell(gs.findRegion("icon empty"),coinCounter+"",game.showcard)).height(h * 0.15f).width(h * 0.15f).center();
         table.add(empty).expandX();
@@ -386,7 +388,6 @@ public class W1L1 implements Screen {
 
 
 
-        CoinCell.setText(coinCounter + "");
 
         batch.begin();
         //pe.draw(batch);
@@ -487,11 +488,14 @@ public class W1L1 implements Screen {
         game.manager.update();
         if (isGrounded && isDead)
             dc+= delta;
+        CoinCell.setText(coinCounter + "");
+        FrogLivesCell.setText(deadFrogCounter + "");
 
         cameraUpdate(delta,frog,camera);
         UtilityMethods.inputUpdate(frog);
         updateFrogStatus(delta,frog);
         checkAttacking(delta);
+        checkIsFrogAlive();
         updateEnemies(delta);
 
         tmr.setView(camera);
@@ -526,6 +530,12 @@ public class W1L1 implements Screen {
             }
 
             game.setScreen(game.levelLoading);
+        }
+    }
+    public void checkIsFrogAlive(){
+        if(deadFrogCounter <= 0){
+            isDead = true;
+            deadFrogCounter = 10;
         }
     }
     public void updateEnemies(float delta){
@@ -572,6 +582,7 @@ public class W1L1 implements Screen {
 
                     //Enemy attacking frog
                     if(flyingOwl.isCollidingFrog){
+                        deadFrogCounter--;
                         world.destroyBody(flyingOwl.body);
                         flyingOwl.isAlive = false;
                         flyingOwl.isBodyDestroyed= true;

@@ -12,6 +12,7 @@ import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
 import com.onmakers.ninjafrog.entities.PlayerSword;
 
+import static com.onmakers.ninjafrog.utils.Constants.deadFrogCounter;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
 
 public class PlayerContactListener implements ContactListener{
@@ -85,7 +86,7 @@ public class PlayerContactListener implements ContactListener{
         //check contact of frog and spikes
         if(isCollisionInFrogandSpike(fa,fb)){
             System.out.println("Frog is dead");
-            isDead = true;
+            deadFrogCounter -- ;
         }
 
         // check key Contact
