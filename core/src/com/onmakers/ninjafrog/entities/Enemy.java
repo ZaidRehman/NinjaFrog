@@ -29,6 +29,7 @@ public class Enemy {
     public float elapsedDeadCounter = 0;
     public String flyingOwlStatus = "flying";
     public boolean isBodyDestroyed= false;
+    public boolean isStartedPE = false;
 
     public Enemy(World world, String id, float x, float y, float width, float height){
         this.id = id;

@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapProperties;
@@ -41,6 +43,7 @@ import com.onmakers.ninjafrog.utils.TiledObjectUtil;
 import com.onmakers.ninjafrog.utils.UtilityMethods;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.onmakers.ninjafrog.NinjaFrog.V_Height;
 import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
@@ -114,7 +117,12 @@ public class W1L1 implements Screen {
     //Game Design
     private TextureAtlas gs;
 
-    int dc ;
+    //Particle effect
+    List<ParticleEffect> peList;
+
+    float allowChangeScreen;
+
+    float dc ;
     public W1L1(NinjaFrog game) {
         this.game = game;
     }
@@ -305,18 +313,23 @@ public class W1L1 implements Screen {
         }
 
 
-/*        //particles
-        pe = new ParticleEffect();
-        pe.load(Gdx.files.internal("particles/fire.p"),Gdx.files.internal(""));
-        pe.getEmitters().first().setPosition(w / 2, h / 2);
-        pe.start();*/
+       //particles
+        peList = new ArrayList<ParticleEffect>();
+
+
+        deadFrogCounter = 10;
 
     }
+
 
     @Override
     public void render(float delta) {
         update(Gdx.graphics.getDeltaTime());
-      //  pe.update(delta);
+        //for (ParticleEffect pe:
+        //     peList) {
+        //    if(pe != null)
+        //    pe.update(delta);
+        //}
 
         //Render
         Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -337,7 +350,7 @@ public class W1L1 implements Screen {
         }
 
         if(isDead){
-            tex = animDeadFrog.getKeyFrame(elapsedTime,true);
+            tex = animDeadFrog.getKeyFrame(dc,false);
             if(frogDirection){
                 x += 40;
                 width -= 40;
@@ -390,7 +403,7 @@ public class W1L1 implements Screen {
 
 
         batch.begin();
-        //pe.draw(batch);
+
         //owl
         for (Enemy flyingOwl :
                 flyingOwls) {
@@ -451,6 +464,15 @@ public class W1L1 implements Screen {
             }
             batch.draw(owlTex,owlX,owlY,owlWidth,owlHeight);
 
+            //if(flyingOwl.isStartedPE){
+             //   renderPE(pe,batch);
+            //}
+
+        }
+
+        for (ParticleEffect pe :
+                peList) {
+            pe.draw(batch,delta);
         }
 
         //render frog
@@ -463,18 +485,22 @@ public class W1L1 implements Screen {
                 batch.draw(gs.findRegion("coin"), coin.body.getPosition().x * PPM - 68, coin.body.getPosition().y * PPM - 68, 128, 128);
         }
 
+
+        //particle
+        //pe.draw(batch);
+
         batch.end();
 
 
-        b2dr.render(world, camera.combined.scl(PPM));
+        //b2dr.render(world, camera.combined.scl(PPM));
 
         //draw stage
         stage.act();
         stage.draw();
 
-      /*  if(pe.isComplete()){
-            pe.reset();
-        }*/
+        //if(pe.isComplete()){
+        //    pe.reset();
+        //}
 
     }
 
@@ -486,7 +512,7 @@ public class W1L1 implements Screen {
         //updates
         elapsedTime += delta;
         game.manager.update();
-        if (isGrounded && isDead)
+        if (isDead)
             dc+= delta;
         CoinCell.setText(coinCounter + "");
         FrogLivesCell.setText(deadFrogCounter + "");
@@ -506,7 +532,10 @@ public class W1L1 implements Screen {
         //flyingOwl.body.setLinearVelocity(flyingOwl.body.getLinearVelocity().x, delta * 12);
         //flyingOwl.body.applyLinearImpulse(0,1.5f,0,0,true);
 
-        if(animDeadFrog.isAnimationFinished(elapsedTime) && isDead && isGrounded){
+        //if(animDeadFrog.isAnimationFinished(elapsedTime) && isDead && isGrounded && frogStatus=="dead"){
+        if(isDead)
+            allowChangeScreen += delta;
+        if(deadFrogCounter <= 0 && allowChangeScreen >= 3){
             game.setScreen(new LevelLoading(game));
         }
         if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
@@ -535,7 +564,6 @@ public class W1L1 implements Screen {
     public void checkIsFrogAlive(){
         if(deadFrogCounter <= 0){
             isDead = true;
-            deadFrogCounter = 10;
         }
     }
     public void updateEnemies(float delta){
@@ -577,7 +605,7 @@ public class W1L1 implements Screen {
                         flyingOwl.body.applyForceToCenter(0,9f * PPM,true);
                     }else{
                         flyingOwl.flyingOwlStatus = "attacking";
-                        flyingOwl.body.applyForceToCenter(2 * PPM * flyingOwl.direction,5 * PPM,true);
+                        flyingOwl.body.applyForceToCenter(2 * PPM * flyingOwl.direction,3f * PPM,true);
                     }
 
                     //Enemy attacking frog
@@ -586,6 +614,11 @@ public class W1L1 implements Screen {
                         world.destroyBody(flyingOwl.body);
                         flyingOwl.isAlive = false;
                         flyingOwl.isBodyDestroyed= true;
+                        ParticleEffect pe = new ParticleEffect();
+                        pe.load(Gdx.files.internal("particles/fire2.p"),Gdx.files.internal(""));
+                        pe.getEmitters().first().setPosition(flyingOwl.body.getPosition().x * PPM,flyingOwl.body.getPosition().y * PPM);
+                        pe.start();
+                        peList.add(pe);
                     }
 
                 }
@@ -675,7 +708,10 @@ public class W1L1 implements Screen {
         atlasWalkingFrog.dispose();
         atlasAttackingFrog.dispose();
         atlasJumpingFrog.dispose();
-        //pe.dispose();
+        for (ParticleEffect pe :
+                peList) {
+            pe.dispose();
+        }
         for (Enemy flyingOwl : flyingOwls) {
             flyingOwl.dispose();
         }
