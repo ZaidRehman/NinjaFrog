@@ -3,6 +3,7 @@ package com.onmakers.ninjafrog.screens;
 import com.badlogic.gdx.Gdx;
 import  com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -154,6 +155,12 @@ public class LevelLoading implements Screen {
         game.manager.load("owlAnim/owlDead/owlDead3.atlas",TextureAtlas.class);
 
         game.manager.load("images/gs/gs.atlas", TextureAtlas.class);
+
+        game.manager.load("sounds/dead.wav", Sound.class);
+        game.manager.load("sounds/hurt.wav", Sound.class);
+        game.manager.load("sounds/jump.wav", Sound.class);
+        //game.manager.load("sounds/owldead.wav", Sound.class);
+        game.manager.load("sounds/sword.wav", Sound.class);
         switch (game.gm.getLevel()){
 
             case 0:

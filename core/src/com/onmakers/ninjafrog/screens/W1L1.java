@@ -5,6 +5,7 @@ package com.onmakers.ninjafrog.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -123,29 +124,45 @@ public class W1L1 implements Screen {
     //Particle effect
     List<ParticleEffect> peList;
 
+    //Sound
+    public static Sound frogDead,sword,frogJump,frogHurt;
+    public boolean deadPlayed = false;
+
     float allowChangeScreen;
 
     float dc ;
     public W1L1(NinjaFrog game) {
         this.game = game;
+
+        //Sounds
+        frogDead = game.manager.get("sounds/dead.wav",Sound.class);
+        frogHurt = game.manager.get("sounds/hurt.wav",Sound.class);
+        frogJump = game.manager.get("sounds/jump.wav",Sound.class);
+        sword = game.manager.get("sounds/sword.wav",Sound.class);
+        //owlDead = game.manager.get("sounds/owldead.wav",Sound.class);
+
     }
 
     @Override
     public void show() {
+
+        //initialize
         w = Gdx.graphics.getWidth();
         h = Gdx.graphics.getHeight();
         Constants.isGrounded = false;
         isDead = false;
         dc = 0;
         coinCounter = 0;
+        deadFrogCounter = 10;
+        peList = new ArrayList<ParticleEffect>();    //particles
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH / SCALE, V_Height / SCALE);
         camera.update();
         viewport = new FillViewport(V_WIDTH / SCALE, V_Height / SCALE, camera);
-        //viewport = new ScreenViewport(camera);
         viewport.apply();
 
+        //Box2d
         world = new World(new Vector2(0f, -40f), true);
         this.world.setContactListener(new PlayerContactListener());
         b2dr = new Box2DDebugRenderer();
@@ -316,11 +333,7 @@ public class W1L1 implements Screen {
         }
 
 
-       //particles
-        peList = new ArrayList<ParticleEffect>();
 
-
-        deadFrogCounter = 10;
 
     }
 
@@ -567,6 +580,10 @@ public class W1L1 implements Screen {
     public void checkIsFrogAlive(){
         if(deadFrogCounter <= 0){
             isDead = true;
+            if(!deadPlayed){
+                frogDead.play(0.5f);
+                deadPlayed = true;
+            }
         }
     }
     public void updateEnemies(float delta){
@@ -582,6 +599,7 @@ public class W1L1 implements Screen {
                     if(flyingOwl.flyingOwlStatus == "dead3" && flyingOwl.elapsedDeadCounter >= 1/15f * 25){
                         world.destroyBody(flyingOwl.body);
                         flyingOwl.isBodyDestroyed= true;
+                        //owlDead.play();
 
                     }
 
@@ -622,6 +640,7 @@ public class W1L1 implements Screen {
                         pe.getEmitters().first().setPosition(flyingOwl.body.getPosition().x * PPM,flyingOwl.body.getPosition().y * PPM);
                         pe.start();
                         peList.add(pe);
+                        frogHurt.play();
                     }
 
                 }
