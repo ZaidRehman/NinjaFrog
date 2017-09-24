@@ -1,6 +1,6 @@
 package com.onmakers.ninjafrog;
 
-// New Version
+// New Version (V.1)
 
 
 import com.badlogic.gdx.Game;

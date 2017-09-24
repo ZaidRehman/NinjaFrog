@@ -1,5 +1,6 @@
 package com.onmakers.ninjafrog.utils;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -12,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.onmakers.ninjafrog.entities.Player;
 
 import static com.onmakers.ninjafrog.screens.W1L1.animFalling;
+import static com.onmakers.ninjafrog.screens.W1L1.frogJump;
+import static com.onmakers.ninjafrog.screens.W1L1.sword;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_H_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_V_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
@@ -31,7 +34,7 @@ import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 public class UtilityMethods {
 
     public static ImageButton buttonLeft, buttonRight, buttonJump, buttonAttack;
-    public static void initButtons(Object obj, TextureAtlas gs,float w,float h){
+    public static void initButtons(Object obj, TextureAtlas gs, float w, float h){
 
         Drawable arrowup, arrowdown, attackup, attackdown,arrowLup,arrowLdown,arrowRup,arrowRdown;
 
@@ -92,6 +95,7 @@ public class UtilityMethods {
 
                 if(isGrounded){
                     jump = true;
+                    frogJump.play();
                     frogStatus = "jumping";
                     elapsedTime = 0;
                     System.out.println("jump");
@@ -112,6 +116,7 @@ public class UtilityMethods {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 action = true;
+                sword.play();
                 frogStatus = "attacking";
                 return true;
             }
