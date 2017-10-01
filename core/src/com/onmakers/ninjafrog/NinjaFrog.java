@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.onmakers.ninjafrog.screens.LevelLoading;
+import com.onmakers.ninjafrog.screens.LevelScreen;
 import com.onmakers.ninjafrog.screens.LoadingScreen;
 import com.onmakers.ninjafrog.screens.MainMenu;
 import com.onmakers.ninjafrog.screens.Splash;
@@ -38,6 +39,7 @@ public class NinjaFrog extends Game {
     public GamePreferences gm;
     public  AssetManager manager;
 
+    public LevelScreen levelScreen;
     public LoadingScreen loadingScreen;
     public LevelLoading levelLoading;
     public Splash splash;
@@ -55,6 +57,7 @@ public class NinjaFrog extends Game {
         gm = new GamePreferences();
 
 
+        levelScreen = new LevelScreen(this);
         levelLoading = new LevelLoading(this);
         splash = new Splash(this);
         loadingScreen = new LoadingScreen(this);

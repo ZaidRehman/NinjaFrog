@@ -58,10 +58,14 @@ public class MainMenu implements Screen{
         this.game= game;
 
         this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+        batch = new SpriteBatch();
     }
 
     public  void update(float delta){
+        camera.update();
         stage.act(delta);
+        batch.setProjectionMatrix(camera.combined);
+        tweenManager.update(delta);
     }
 
     @Override
@@ -87,7 +91,6 @@ public class MainMenu implements Screen{
         tsBgImg = new Sprite(new Texture("images/titleScreenPainting.png"));
         //tsBgImg.getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
         //tsBgImg.setSize(tsBgImg.getWidth() / (1920 / Gdx.graphics.getWidth()),tsBgImg.getHeight() / (1920 / Gdx.graphics.getWidth()));
-        batch = new SpriteBatch();
 
         playImg = new Image(titleScreenAtlas.findRegion("PLAY button"));
         profileImg = new Image(titleScreenAtlas.findRegion("PROFILE button"));
@@ -143,9 +146,9 @@ public class MainMenu implements Screen{
         game.manager.finishLoading();
         this.skin.addRegions(game.manager.get("skin/glassy-ui.atlas", TextureAtlas.class));
 
-        game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
+        //game.manager.get("skin/glassy-ui.atlas", TextureAtlas.class);
         //this.skin.add("font", showcardFont);
-        this.skin.load(Gdx.files.internal("skin/glassy-ui.json"));
+        //this.skin.load(Gdx.files.internal("skin/glassy-ui.json"));
 
         tweenManager = new TweenManager();
         Tween.registerAccessor(Actor.class, new ActorAccessor());
@@ -168,12 +171,11 @@ public class MainMenu implements Screen{
     @Override
     public void render(float delta) {
 
-        camera.update();
+
         update(delta);
         Gdx.gl.glClearColor(0,165,114,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
         tsBgImg.draw(batch);
@@ -184,7 +186,6 @@ public class MainMenu implements Screen{
         stage.getBatch().end();*/
         stage.draw();
 
-        tweenManager.update(delta);
 
     }
 
@@ -246,7 +247,7 @@ public class MainMenu implements Screen{
         levelsImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-
+                game.setScreen(game.levelScreen);
             }
         });
 
