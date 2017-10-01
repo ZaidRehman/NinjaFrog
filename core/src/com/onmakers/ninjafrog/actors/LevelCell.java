@@ -9,13 +9,13 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  * Created by qureshi on 01/10/17.
  */
 
-public class levelCell extends Actor {
-    public static String text = "Item"; // item text
+public class LevelCell extends Actor {
+    public int text = 0; // item text
     private TextureRegion image; // image to show
     private BitmapFont font; // font used for text
 
 
-    public levelCell (TextureRegion reg, String itemText, BitmapFont fnt){
+    public LevelCell(TextureRegion reg, int itemText, BitmapFont fnt){
         image = reg;
         text = itemText;
         font = fnt;
@@ -27,9 +27,9 @@ public class levelCell extends Actor {
         batch.draw(image, getX(), getY(), getOriginX(), getOriginY(),
                 getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
         // draw text below image
-        font.draw(batch, text, getX() + getWidth() * 0.3f, getY() + getHeight() * 0.7f);
+        font.draw(batch, (text+1) + "", getX() + getWidth() * 0.45f, getY() + getHeight() * 0.7f);
     }
-    public static void setText(String x){
+    public void setText(int x){
         text = x;
     }
 }

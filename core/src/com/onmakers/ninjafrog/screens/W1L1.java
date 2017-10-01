@@ -66,6 +66,7 @@ import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
 import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
+import static com.onmakers.ninjafrog.utils.Constants.left;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.buttonAttack;
@@ -112,6 +113,7 @@ public class W1L1 implements Screen {
     private Label coinLabel;
 
     public NinjaFrog game;
+    int levelScreenNo = 0;
 
     //Animation
     private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog,atlasFallingFrog,atlasDeadFrog;
@@ -131,9 +133,9 @@ public class W1L1 implements Screen {
     float allowChangeScreen;
 
     float dc ;
-    public W1L1(NinjaFrog game) {
+    public W1L1(NinjaFrog game, int level) {
         this.game = game;
-
+        levelScreenNo = level;
         //Sounds
         frogDead = game.manager.get("sounds/dead.wav",Sound.class);
         frogHurt = game.manager.get("sounds/hurt.wav",Sound.class);
@@ -168,7 +170,13 @@ public class W1L1 implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         //tile
-        switch (game.gm.getLevel()){
+        int assign;
+        if(levelScreenNo == -1){
+            assign = game.gm.getLevel();
+        }else{
+            assign = levelScreenNo;
+        }
+        switch (assign){
 
             case 0:
                 map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
@@ -185,6 +193,12 @@ public class W1L1 implements Screen {
             case 4:
                 map = game.manager.get("maps/World1Level5.tmx", TiledMap.class);
                 break;
+
+            default:
+                game.gm.setPrefLevel(0);
+                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                break;
+
         }
         tmr = new OrthogonalTiledMapRenderer(map);
         MapProperties prop = map.getProperties();
@@ -552,28 +566,23 @@ public class W1L1 implements Screen {
         if(isDead)
             allowChangeScreen += delta;
         if(deadFrogCounter <= 0 && allowChangeScreen >= 3){
-            game.setScreen(new LevelLoading(game));
-        }
-        if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
-            switch (game.gm.getLevel()){
-
-                case 0:
-                    game.gm.setPrefLevel(1);
-                    break;
-                case 1:
-                    game.gm.setPrefLevel(2);
-                    break;
-                case 2:
-                    game.gm.setPrefLevel(3);
-                    break;
-                case 3:
-                    game.gm.setPrefLevel(4);
-                    break;
-                case 4:
-                    game.gm.setPrefLevel(0);
-                    break;
+            if(levelScreenNo == -1){
+                game.setScreen(new LevelLoading(game,-1));
+            }else{
+                game.setScreen(new LevelLoading(game,levelScreenNo));
             }
 
+        }
+        if((mapPixelWidth - 200) <= frog.body.getPosition().x * PPM){
+            if(game.gm.getLevel() == 19){
+                game.gm.setPrefLevel(0);
+            }else{
+                if(levelScreenNo == -1){
+                    game.gm.setPrefLevel(game.gm.getLevel() + 1);
+                }else{
+                    game.gm.setPrefLevel(game.gm.getLevel());
+                }
+            }
             game.setScreen(game.levelLoading);
         }
     }
@@ -737,8 +746,13 @@ public class W1L1 implements Screen {
         for (Enemy flyingOwl : flyingOwls) {
             flyingOwl.dispose();
         }
-        game.manager.unload("maps/World1Level1.tmx");
-        switch (game.gm.getLevel()){
+        int assign;
+        if(levelScreenNo == -1){
+            assign = game.gm.getLevel();
+        }else{
+            assign = levelScreenNo;
+        }
+        switch (assign){
 
             case 0:
                game.manager.unload("maps/World1Level1.tmx");
@@ -759,9 +773,4 @@ public class W1L1 implements Screen {
 
     }
 
-
-
-    private boolean canJump() {
-        return ((frog.body.getLinearVelocity().y < 2 || frog.body.getLinearVelocity().y > -2) && frogStatus!= "jumping" && frogStatus != "falling");
-    }
 }

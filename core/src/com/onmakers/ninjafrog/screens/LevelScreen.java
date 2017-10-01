@@ -15,20 +15,18 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
-import com.onmakers.ninjafrog.actors.levelCell;
-
+import com.onmakers.ninjafrog.actors.LevelCell;
 
 import java.util.ArrayList;
 
@@ -53,11 +51,12 @@ public class LevelScreen implements Screen {
 
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
+    private Table table;
 
     //Game Design
     private TextureAtlas gs;
 
-    ArrayList<levelCell> ls;
+    ArrayList<LevelCell> ls;
 
     public LevelScreen(NinjaFrog game) {
         this.game = game;
@@ -94,29 +93,29 @@ public class LevelScreen implements Screen {
 
         gs = new TextureAtlas(Gdx.files.internal("images/gs/gs.atlas"));
 
-        ls = new ArrayList<levelCell>();
-        ls.add(new levelCell(gs.findRegion("icon empty"),"1",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"2",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"3",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"4",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"5",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"6",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"7",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"8",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"9",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"10",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"11",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"12",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"13",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"14",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"15",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"16",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"17",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"18",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"19",game.showcard));
-        ls.add(new levelCell(gs.findRegion("icon empty"),"20",game.showcard));
+        ls = new ArrayList<LevelCell>();
+        ls.add(new LevelCell(gs.findRegion("icon empty"),0,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),1,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),2,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),3,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),4,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),5,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),6,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),7,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),8,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),9,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),10,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),11,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),12,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),13,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),14,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),15,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),16,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),17,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),18,game.showcard));
+        ls.add(new LevelCell(gs.findRegion("icon empty"),19,game.showcard));
 
-        Table table = new Table(skin);
+        table = new Table(skin);
 
 
         table.add(ls.get(0)).width(w * 0.18f).height(h * 0.23f).pad(10);
@@ -145,7 +144,7 @@ public class LevelScreen implements Screen {
 
 
 
-        table.debug();
+        //table.debug();
 
         table.setFillParent(true);
 
@@ -153,6 +152,17 @@ public class LevelScreen implements Screen {
 
         map = new TmxMapLoader().load("maps/levelScreen.tmx");
         tmr = new OrthogonalTiledMapRenderer(map);
+
+        for (LevelCell lc :
+                ls) {
+            final int assign = lc.text;
+            lc.addListener(new ClickListener(){
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    game.setScreen(new LevelLoading(game,assign));
+                }
+            });
+        }
 
 
     }
@@ -173,11 +183,6 @@ public class LevelScreen implements Screen {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        int i = 1;
-        for (levelCell lc :
-                ls) {
-            lc.setText(i++ + "");
-        }
         tmr.render();
         stage.draw();
 

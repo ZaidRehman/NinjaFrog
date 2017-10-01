@@ -58,7 +58,7 @@ public class NinjaFrog extends Game {
 
 
         levelScreen = new LevelScreen(this);
-        levelLoading = new LevelLoading(this);
+        levelLoading = new LevelLoading(this,-1);
         splash = new Splash(this);
         loadingScreen = new LoadingScreen(this);
         mainMenu = new MainMenu(this);
