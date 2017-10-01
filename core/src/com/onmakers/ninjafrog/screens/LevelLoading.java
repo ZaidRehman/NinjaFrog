@@ -29,36 +29,29 @@ public class LevelLoading implements Screen {
     //OrthographicCamera camera;
     Viewport viewport;
     private static final float SCALE = 1f;
+    private int levelScreenNo = -1;
 
-    public LevelLoading(final NinjaFrog game) {
+    public LevelLoading(final NinjaFrog game, int levelScreenNo) {
         this.game= game;
         this.shapeRenderer= new ShapeRenderer() ;
+        this.levelScreenNo = levelScreenNo;
     }
 
-    private  void update(float delta){
-        progress = MathUtils.lerp(progress, game.manager.getProgress(),.1f);
-        if(game.manager.update() && (progress >= game.manager.getProgress() - 0.01f)){
-            switch (0){
+    private  void update(float delta) {
+        progress = MathUtils.lerp(progress, game.manager.getProgress(), .1f);
 
-                case 0:
-                    game.setScreen(new W1L1(game));
-                    break;
-                case 1:
-                    game.setScreen(new W1L2(game));
-                    break;
-                case 2:
-                    game.setScreen(new W1L3(game));
-                    break;
-                case 3:
-                    game.setScreen(new W1L4(game));
-                    break;
-                case 4:
-                    game.setScreen(new W1L5(game));
-                    break;
 
+        if (game.manager.update() && (progress >= game.manager.getProgress() - 0.01f)) {
+
+            int assign;
+            if(levelScreenNo == -1){
+                assign = game.gm.getLevel();
+            }else{
+                assign = levelScreenNo;
             }
-
+            game.setScreen(new W1L1(game,assign));
         }
+
 
     }
 
@@ -96,9 +89,14 @@ public class LevelLoading implements Screen {
         shapeRenderer.setColor(Color.BLUE);
         shapeRenderer.rect(32,game.camera.viewportHeight/2 -8,progress*(game.camera.viewportWidth -64),16);
         shapeRenderer.end();
-
+        int assign;
+        if(levelScreenNo == -1){
+            assign = game.gm.getLevel() + 1;
+        }else{
+            assign = levelScreenNo + 1;
+        }
         game.batch.begin();
-        game.showcard.draw(game.batch,"Level "+ (game.gm.getLevel() + 1 )+" is loading",game.camera.viewportWidth / 8,game.camera.viewportHeight * 0.75f);
+        game.showcard.draw(game.batch,"Level "+ assign +" is loading",game.camera.viewportWidth / 8,game.camera.viewportHeight * 0.75f);
         game.batch.end();
     }
 
@@ -161,7 +159,13 @@ public class LevelLoading implements Screen {
         game.manager.load("sounds/jump.wav", Sound.class);
         //game.manager.load("sounds/owldead.wav", Sound.class);
         game.manager.load("sounds/sword.wav", Sound.class);
-        switch (game.gm.getLevel()){
+        int assign;
+        if(levelScreenNo == -1){
+            assign = game.gm.getLevel();
+        }else{
+            assign = levelScreenNo;
+        }
+        switch (assign){
 
             case 0:
                 game.manager.load("maps/World1Level1.tmx", TiledMap.class);
@@ -183,5 +187,6 @@ public class LevelLoading implements Screen {
                 game.manager.load("maps/World1Level1.tmx", TiledMap.class);
                 break;
         }
+
     }
 }
