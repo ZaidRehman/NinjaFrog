@@ -6,18 +6,14 @@ package com.onmakers.ninjafrog.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -41,7 +37,6 @@ public class LevelScreen implements Screen {
 
     private  Stage stage;
     private  Skin skin;
-    private Batch batch;
     OrthographicCamera camera;
     Viewport viewport;
     private static final float SCALE = 1f;
@@ -63,8 +58,6 @@ public class LevelScreen implements Screen {
         w = Gdx.graphics.getWidth();
         h = Gdx.graphics.getHeight();
         this.stage = new Stage(new FitViewport(w,h));
-        this.batch = new SpriteBatch();
-        //this.skin=new Skin();
     }
 
 
@@ -79,17 +72,8 @@ public class LevelScreen implements Screen {
         camera.update();
         viewport = new FillViewport(V_WIDTH / SCALE, V_Height / SCALE, camera);
         viewport.apply();
-//
-//        game.manager.load("skin/glassy-ui.json", TextureAtlas.class);
-//        game.manager.finishLoading();
-//        this.skin.addRegions(game.manager.get("skin/glassy-ui.json", TextureAtlas.class));
-
         stage.getViewport().apply();
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
-
-
-        //Label Style
-        Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.BLACK);
 
         gs = new TextureAtlas(Gdx.files.internal("images/gs/gs.atlas"));
 
@@ -171,7 +155,6 @@ public class LevelScreen implements Screen {
         camera.update();
         game.manager.update();
         stage.act(delta);
-        batch.setProjectionMatrix(camera.combined);
         tmr.setView(camera);
     }
 

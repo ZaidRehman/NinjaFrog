@@ -16,11 +16,6 @@ import com.onmakers.ninjafrog.screens.LevelScreen;
 import com.onmakers.ninjafrog.screens.LoadingScreen;
 import com.onmakers.ninjafrog.screens.MainMenu;
 import com.onmakers.ninjafrog.screens.Splash;
-import com.onmakers.ninjafrog.screens.W1L1;
-import com.onmakers.ninjafrog.screens.W1L2;
-import com.onmakers.ninjafrog.screens.W1L3;
-import com.onmakers.ninjafrog.screens.W1L4;
-import com.onmakers.ninjafrog.screens.W1L5;
 import com.onmakers.ninjafrog.utils.GamePreferences;
 
 public class NinjaFrog extends Game {
@@ -63,18 +58,6 @@ public class NinjaFrog extends Game {
         loadingScreen = new LoadingScreen(this);
         mainMenu = new MainMenu(this);
         setScreen(splash);
-        /*switch(gm.getLevel()){
-            case 0 : setScreen( new W1L1(this));
-                break;
-            case 1 : setScreen( new W1L2(this));
-                break;
-            case 2 : setScreen( new W1L3(this));
-                break;
-            case 3 : setScreen( new W1L4(this));
-                break;
-            case 4 : setScreen( new W1L5(this));
-                break;
-        }*/
 
     }
 
@@ -92,7 +75,8 @@ public class NinjaFrog extends Game {
         loadingScreen.dispose();
         levelLoading.dispose();
         splash.dispose();
-        //mainMenu.dispose();
+        levelScreen.dispose();
+        mainMenu.dispose();
     }
 
     private void initFonts(){

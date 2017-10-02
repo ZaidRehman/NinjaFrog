@@ -9,9 +9,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -64,9 +62,7 @@ import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
-import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
-import static com.onmakers.ninjafrog.utils.Constants.left;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.buttonAttack;
@@ -179,24 +175,69 @@ public class W1L1 implements Screen {
         switch (assign){
 
             case 0:
-                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                map = game.manager.get("maps/level1.tmx", TiledMap.class);
                 break;
             case 1:
-                map = game.manager.get("maps/World1Level2.tmx", TiledMap.class);
+                map = game.manager.get("maps/level2.tmx", TiledMap.class);
                 break;
             case 2:
-                map = game.manager.get("maps/World1Level3.tmx", TiledMap.class);
+                map = game.manager.get("maps/level3.tmx", TiledMap.class);
                 break;
             case 3:
-                map = game.manager.get("maps/World1Level4.tmx", TiledMap.class);
+                map = game.manager.get("maps/level4.tmx", TiledMap.class);
                 break;
             case 4:
-                map = game.manager.get("maps/World1Level5.tmx", TiledMap.class);
+                map = game.manager.get("maps/level5.tmx", TiledMap.class);
+                break;
+            case 5:
+                map = game.manager.get("maps/level6.tmx", TiledMap.class);
+                break;
+            case 6:
+                map = game.manager.get("maps/level7.tmx", TiledMap.class);
+                break;
+            case 7:
+                map = game.manager.get("maps/level8.tmx", TiledMap.class);
+                break;
+            case 8:
+                map = game.manager.get("maps/level9.tmx", TiledMap.class);
+                break;
+            case 9:
+                map = game.manager.get("maps/level10.tmx", TiledMap.class);
+                break;
+            case 10:
+                map = game.manager.get("maps/level11.tmx", TiledMap.class);
+                break;
+            case 11:
+                map = game.manager.get("maps/level12.tmx", TiledMap.class);
+                break;
+            case 12:
+                map = game.manager.get("maps/level13.tmx", TiledMap.class);
+                break;
+            case 13:
+                map = game.manager.get("maps/level14.tmx", TiledMap.class);
+                break;
+            case 14:
+                map = game.manager.get("maps/level15.tmx", TiledMap.class);
+                break;
+            case 15:
+                map = game.manager.get("maps/level16.tmx", TiledMap.class);
+                break;
+            case 16:
+                map = game.manager.get("maps/level17.tmx", TiledMap.class);
+                break;
+            case 17:
+                map = game.manager.get("maps/level18.tmx", TiledMap.class);
+                break;
+            case 18:
+                map = game.manager.get("maps/level19.tmx", TiledMap.class);
+                break;
+            case 19:
+                map = game.manager.get("maps/level20.tmx", TiledMap.class);
                 break;
 
             default:
                 game.gm.setPrefLevel(0);
-                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                map = game.manager.get("maps/level1.tmx", TiledMap.class);
                 break;
 
         }
@@ -657,16 +698,6 @@ public class W1L1 implements Screen {
         }
 
     }
-    /*public void checkEnemyAttacking(float delta){
-        for (Enemy flyingOwl :
-                flyingOwls) {
-            if (frogInRangeOfOwl(flyingOwl)) {
-
-                //flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
-                //System.out.println("frog in range of " + flyingOwl.id );
-            }
-        }
-    }*/
 
     public boolean frogInRangeOfOwl(Enemy flyingOwl){
         float posFX = frog.body.getPosition().x * PPM;
@@ -674,7 +705,7 @@ public class W1L1 implements Screen {
         float posFY = frog.body.getPosition().y* PPM;
         float posOY = flyingOwl.body.getPosition().y * PPM;
 
-        if(posFY < posOY + 200 && posFY > posOY - 200){
+        if(posFY < posOY + 300 && posFY > posOY - 300){
             if(posFX < (posOX + 500) && posFX > (posOX - 500) ){
                 return  true;
             }
@@ -755,19 +786,64 @@ public class W1L1 implements Screen {
         switch (assign){
 
             case 0:
-               game.manager.unload("maps/World1Level1.tmx");
+               game.manager.unload("maps/level1.tmx");
                 break;
             case 1:
-               game.manager.unload("maps/World1Level2.tmx");
+               game.manager.unload("maps/level2.tmx");
                 break;
             case 2:
-                game.manager.unload("maps/World1Level3.tmx");
+                game.manager.unload("maps/level3.tmx");
                 break;
             case 3:
-                game.manager.unload("maps/World1Level4.tmx");
+                game.manager.unload("maps/level4.tmx");
                 break;
             case 4:
-                game.manager.unload("maps/World1Level5.tmx");
+                game.manager.unload("maps/level5.tmx");
+                break;
+            case 5:
+                game.manager.unload("maps/level6.tmx");
+                break;
+            case 6:
+                game.manager.unload("maps/level7.tmx");
+                break;
+            case 7:
+                game.manager.unload("maps/level8.tmx");
+                break;
+            case 8:
+                game.manager.unload("maps/level9.tmx");
+                break;
+            case 9:
+                game.manager.unload("maps/level10.tmx");
+                break;
+            case 10:
+                game.manager.unload("maps/level11.tmx");
+                break;
+            case 11:
+                game.manager.unload("maps/level12.tmx");
+                break;
+            case 12:
+                game.manager.unload("maps/level13.tmx");
+                break;
+            case 13:
+                game.manager.unload("maps/level14.tmx");
+                break;
+            case 14:
+                game.manager.unload("maps/level15.tmx");
+                break;
+            case 15:
+                game.manager.unload("maps/level16.tmx");
+                break;
+            case 16:
+                game.manager.unload("maps/level17.tmx");
+                break;
+            case 17:
+                game.manager.unload("maps/level18.tmx");
+                break;
+            case 18:
+                game.manager.unload("maps/level19.tmx");
+                break;
+            case 19:
+                game.manager.unload("maps/level20.tmx");
                 break;
         }
 
