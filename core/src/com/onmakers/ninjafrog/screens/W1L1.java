@@ -6,27 +6,29 @@ package com.onmakers.ninjafrog.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -36,7 +38,6 @@ import com.onmakers.ninjafrog.actors.CoinCell;
 import com.onmakers.ninjafrog.actors.FrogLivesCell;
 import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
-import com.onmakers.ninjafrog.entities.Key;
 import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.entities.PlayerFoot;
 import com.onmakers.ninjafrog.entities.PlayerSword;
@@ -64,9 +65,7 @@ import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
 import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
 import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
-import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.isKillingEnemy;
-import static com.onmakers.ninjafrog.utils.Constants.left;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.buttonAttack;
@@ -91,15 +90,6 @@ public class W1L1 implements Screen {
 
     //private Body frog;
     private Player frog;
-    private PlayerFoot frogFoot;
-    private PlayerSword frogSwordR;
-    private PlayerSword frogSwordL;
-
-    //body of keys and coins
-    private ArrayList<Key> keys;
-
-
-    private float w, h;
 
     //batch
     private SpriteBatch batch;
@@ -110,21 +100,20 @@ public class W1L1 implements Screen {
     private Skin skin;
     private Table table;
 
-    private Label coinLabel;
-
-    public NinjaFrog game;
-    int levelScreenNo = 0;
+    public final NinjaFrog game;
+    private int levelScreenNo = 0;
+    private boolean startedWithLevelScreen = false;
 
     //Animation
     private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog,atlasFallingFrog,atlasDeadFrog;
-    public static Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping, animFalling, animDeadFrog;
-
+    private static Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping,  animDeadFrog;
+    public static Animation<TextureAtlas.AtlasRegion> animFalling;
 
     //Game Design
     private TextureAtlas gs;
 
     //Particle effect
-    List<ParticleEffect> peList;
+    private List<ParticleEffect> peList;
 
     //Sound
     public static Sound frogDead,sword,frogJump,frogHurt;
@@ -136,6 +125,9 @@ public class W1L1 implements Screen {
     public W1L1(NinjaFrog game, int level) {
         this.game = game;
         levelScreenNo = level;
+        if(level != -1){
+            startedWithLevelScreen = true;
+        }
         //Sounds
         frogDead = game.manager.get("sounds/dead.wav",Sound.class);
         frogHurt = game.manager.get("sounds/hurt.wav",Sound.class);
@@ -147,6 +139,12 @@ public class W1L1 implements Screen {
 
     @Override
     public void show() {
+
+        PlayerFoot frogFoot;
+        PlayerSword frogSwordR;
+        PlayerSword frogSwordL;
+
+        float w, h;
 
         //initialize
         w = Gdx.graphics.getWidth();
@@ -179,24 +177,69 @@ public class W1L1 implements Screen {
         switch (assign){
 
             case 0:
-                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                map = game.manager.get("maps/level1.tmx", TiledMap.class);
                 break;
             case 1:
-                map = game.manager.get("maps/World1Level2.tmx", TiledMap.class);
+                map = game.manager.get("maps/level2.tmx", TiledMap.class);
                 break;
             case 2:
-                map = game.manager.get("maps/World1Level3.tmx", TiledMap.class);
+                map = game.manager.get("maps/level3.tmx", TiledMap.class);
                 break;
             case 3:
-                map = game.manager.get("maps/World1Level4.tmx", TiledMap.class);
+                map = game.manager.get("maps/level4.tmx", TiledMap.class);
                 break;
             case 4:
-                map = game.manager.get("maps/World1Level5.tmx", TiledMap.class);
+                map = game.manager.get("maps/level5.tmx", TiledMap.class);
+                break;
+            case 5:
+                map = game.manager.get("maps/level6.tmx", TiledMap.class);
+                break;
+            case 6:
+                map = game.manager.get("maps/level7.tmx", TiledMap.class);
+                break;
+            case 7:
+                map = game.manager.get("maps/level8.tmx", TiledMap.class);
+                break;
+            case 8:
+                map = game.manager.get("maps/level9.tmx", TiledMap.class);
+                break;
+            case 9:
+                map = game.manager.get("maps/level10.tmx", TiledMap.class);
+                break;
+            case 10:
+                map = game.manager.get("maps/level11.tmx", TiledMap.class);
+                break;
+            case 11:
+                map = game.manager.get("maps/level12.tmx", TiledMap.class);
+                break;
+            case 12:
+                map = game.manager.get("maps/level13.tmx", TiledMap.class);
+                break;
+            case 13:
+                map = game.manager.get("maps/level14.tmx", TiledMap.class);
+                break;
+            case 14:
+                map = game.manager.get("maps/level15.tmx", TiledMap.class);
+                break;
+            case 15:
+                map = game.manager.get("maps/level16.tmx", TiledMap.class);
+                break;
+            case 16:
+                map = game.manager.get("maps/level17.tmx", TiledMap.class);
+                break;
+            case 17:
+                map = game.manager.get("maps/level18.tmx", TiledMap.class);
+                break;
+            case 18:
+                map = game.manager.get("maps/level19.tmx", TiledMap.class);
+                break;
+            case 19:
+                map = game.manager.get("maps/level20.tmx", TiledMap.class);
                 break;
 
             default:
                 game.gm.setPrefLevel(0);
-                map = game.manager.get("maps/World1Level1.tmx", TiledMap.class);
+                map = game.manager.get("maps/level1.tmx", TiledMap.class);
                 break;
 
         }
@@ -214,14 +257,6 @@ public class W1L1 implements Screen {
         //batch
         batch = new SpriteBatch();
 
-        //Keys
-        keys = new ArrayList<Key>();
-        keys.add(new Key(world, "KEY0", mapPixelWidth * 0.02f, mapPixelHeight * 0.75f, 16, 16));
-        keys.add(new Key(world, "KEY1", 325, 475, 16, 16));
-        keys.add(new Key(world, "KEY2", 325, 475, 16, 16));
-        keys.add(new Key(world, "KEY3", 325, 475, 16, 16));
-        keys.add(new Key(world, "KEY4", 325, 475, 16, 16));
-
         frog = new Player(world, "FROG", 100, 360, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
         frogFoot = new PlayerFoot(world,"FROG_FOOT",100,300, FROG_BODY_WIDTH, 10);
         frogSwordR = new PlayerSword(world,"FROG_SWORD_RIGHT",100 + 300,300, FROG_BODY_WIDTH + 100, FROG_BODY_HEIGHT);
@@ -232,7 +267,7 @@ public class W1L1 implements Screen {
 
         coins.clear();
         flyingOwls.clear();
-        TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get("collision-layer").getObjects());
+        TiledObjectUtil.parseTiledObjectLayer(game,world, map.getLayers().get("collision-layer").getObjects());
 
 
         //stage
@@ -240,7 +275,7 @@ public class W1L1 implements Screen {
         gs = game.manager.get("images/gs/gs.atlas", TextureAtlas.class);
 
         //atlas = new TextureAtlas("ui/atlas.pack");
-        skin = new Skin();
+        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         //table
         table = new Table(skin);
@@ -249,32 +284,30 @@ public class W1L1 implements Screen {
         //initialize buttons
         UtilityMethods.initButtons(this,gs,w,h);
 
-        //Label Style
-        Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);
-        coinLabel = new Label((coinCounter + ""), headingStyle);
-        //buttonLeft.moveBy(-200,-200);
+//        //Label Style
+//        Label.LabelStyle headingStyle = new Label.LabelStyle(game.showcard, Color.WHITE);
+//        coinLabel = new Label((coinCounter + ""), headingStyle);
+
+        Drawable backButtonUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/left.up.png")));
+        Drawable backButtonDown = new TextureRegionDrawable(new TextureRegion(new Texture("images/button/left.down.png")));
+
+        ImageButton back = new ImageButton(backButtonUp,backButtonDown);
+        back.addListener(new ChangeListener() {
+            public void changed (ChangeListener.ChangeEvent event, Actor actor) {
+                game.setScreen(game.mainMenu);
+            }
+        });
 
         Image lives = new Image(gs.findRegion("lives"));
-        Image livesbg = new Image(gs.findRegion("icon empty"));
         Image coins = new Image(gs.findRegion("coin"));
-        Image coinsbg = new Image(gs.findRegion("icon empty"));
 
         Image empty = new Image();
-
-        livesbg.setWidth(w * 0.1f);
-        livesbg.setHeight(h *  0.15f);
-        Group coinsCount = new Group();
-        coinsCount.addActor(livesbg);
-        coinsCount.addActor(coinLabel);
-
         table.add(lives).height(h * 0.15f).width(h * 0.15f);
         table.add(new FrogLivesCell(gs.findRegion("icon empty"),deadFrogCounter+"",game.showcard)).height(h * 0.15f).width(h * 0.15f);
         table.add(coins).height(h * 0.15f).width(h * 0.15f);
         table.add(new CoinCell(gs.findRegion("icon empty"),coinCounter+"",game.showcard)).height(h * 0.15f).width(h * 0.15f).center();
-        table.add(empty).expandX();
+        table.add(back.align(Align.right)).height(h * 0.15f).width(h * 0.15f).expandX().right();
 
-       // table.row();
-        //table.add(buttonJump).colspan(2).expandY().height(h * 0.2f).bottom();
 
         Table bottomTable = new Table();
         bottomTable.add(empty).expandY().height(h * 0.55f);
@@ -577,11 +610,12 @@ public class W1L1 implements Screen {
             if(game.gm.getLevel() == 19){
                 game.gm.setPrefLevel(0);
             }else{
-                if(levelScreenNo == -1){
-                    game.gm.setPrefLevel(game.gm.getLevel() + 1);
-                }else{
-                    game.gm.setPrefLevel(game.gm.getLevel());
-                }
+                game.gm.setPrefLevel(game.gm.getLevel() + 1);
+//                if(startedWithLevelScreen){
+//                    game.gm.setPrefLevel(game.gm.getLevel());
+//                }else{
+//                    game.gm.setPrefLevel(game.gm.getLevel() + 1);
+//                }
             }
             game.setScreen(game.levelLoading);
         }
@@ -657,16 +691,6 @@ public class W1L1 implements Screen {
         }
 
     }
-    /*public void checkEnemyAttacking(float delta){
-        for (Enemy flyingOwl :
-                flyingOwls) {
-            if (frogInRangeOfOwl(flyingOwl)) {
-
-                //flyingOwl.body.applyForceToCenter(new Vector2(-10,-50),true);
-                //System.out.println("frog in range of " + flyingOwl.id );
-            }
-        }
-    }*/
 
     public boolean frogInRangeOfOwl(Enemy flyingOwl){
         float posFX = frog.body.getPosition().x * PPM;
@@ -674,7 +698,7 @@ public class W1L1 implements Screen {
         float posFY = frog.body.getPosition().y* PPM;
         float posOY = flyingOwl.body.getPosition().y * PPM;
 
-        if(posFY < posOY + 200 && posFY > posOY - 200){
+        if(posFY < posOY + 300 && posFY > posOY - 300){
             if(posFX < (posOX + 500) && posFX > (posOX - 500) ){
                 return  true;
             }
@@ -689,6 +713,7 @@ public class W1L1 implements Screen {
                     if (flyingOwl.isTouchingRSword && flyingOwl.isAlive) {
                         flyingOwl.isAlive = false;
                         flyingOwl.flyingOwlStatus="dead1";
+                        game.gm.setPrefTotalEnemyKills(game.gm.getTotalEnemyKills() + 1);
 
                     }
                 }
@@ -698,6 +723,7 @@ public class W1L1 implements Screen {
                     if (flyingOwl.isTouchingLSword && flyingOwl.isAlive) {
                         flyingOwl.isAlive = false;
                         flyingOwl.flyingOwlStatus = "dead1";
+                        game.gm.setPrefTotalEnemyKills(game.gm.getTotalEnemyKills() + 1);
                     }
                 }
             }
@@ -739,6 +765,17 @@ public class W1L1 implements Screen {
         atlasWalkingFrog.dispose();
         atlasAttackingFrog.dispose();
         atlasJumpingFrog.dispose();
+        atlasDeadFrog.dispose();
+        gs.dispose();
+        atlasFallingFrog.dispose();
+
+        //sound
+        frogHurt.dispose();
+        sword.dispose();
+        frogDead.dispose();
+        frogJump.dispose();
+
+
         for (ParticleEffect pe :
                 peList) {
             pe.dispose();
@@ -755,19 +792,64 @@ public class W1L1 implements Screen {
         switch (assign){
 
             case 0:
-               game.manager.unload("maps/World1Level1.tmx");
+               game.manager.unload("maps/level1.tmx");
                 break;
             case 1:
-               game.manager.unload("maps/World1Level2.tmx");
+               game.manager.unload("maps/level2.tmx");
                 break;
             case 2:
-                game.manager.unload("maps/World1Level3.tmx");
+                game.manager.unload("maps/level3.tmx");
                 break;
             case 3:
-                game.manager.unload("maps/World1Level4.tmx");
+                game.manager.unload("maps/level4.tmx");
                 break;
             case 4:
-                game.manager.unload("maps/World1Level5.tmx");
+                game.manager.unload("maps/level5.tmx");
+                break;
+            case 5:
+                game.manager.unload("maps/level6.tmx");
+                break;
+            case 6:
+                game.manager.unload("maps/level7.tmx");
+                break;
+            case 7:
+                game.manager.unload("maps/level8.tmx");
+                break;
+            case 8:
+                game.manager.unload("maps/level9.tmx");
+                break;
+            case 9:
+                game.manager.unload("maps/level10.tmx");
+                break;
+            case 10:
+                game.manager.unload("maps/level11.tmx");
+                break;
+            case 11:
+                game.manager.unload("maps/level12.tmx");
+                break;
+            case 12:
+                game.manager.unload("maps/level13.tmx");
+                break;
+            case 13:
+                game.manager.unload("maps/level14.tmx");
+                break;
+            case 14:
+                game.manager.unload("maps/level15.tmx");
+                break;
+            case 15:
+                game.manager.unload("maps/level16.tmx");
+                break;
+            case 16:
+                game.manager.unload("maps/level17.tmx");
+                break;
+            case 17:
+                game.manager.unload("maps/level18.tmx");
+                break;
+            case 18:
+                game.manager.unload("maps/level19.tmx");
+                break;
+            case 19:
+                game.manager.unload("maps/level20.tmx");
                 break;
         }
 

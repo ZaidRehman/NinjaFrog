@@ -1,13 +1,11 @@
 package com.onmakers.ninjafrog.screens;
 
 import com.badlogic.gdx.Gdx;
-import  com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -26,7 +24,6 @@ public class LevelLoading implements Screen {
     private  final  NinjaFrog game;
     private ShapeRenderer shapeRenderer;
     private  float progress ;
-    //OrthographicCamera camera;
     Viewport viewport;
     private static final float SCALE = 1f;
     private int levelScreenNo = -1;
@@ -51,8 +48,6 @@ public class LevelLoading implements Screen {
             }
             game.setScreen(new W1L1(game,assign));
         }
-
-
     }
 
 
@@ -64,11 +59,8 @@ public class LevelLoading implements Screen {
         queueAssets();
 
 
-        //game.camera = new OrthographicCamera();
-        //camera.setToOrtho(false, V_WIDTH / SCALE, V_Height / SCALE);
         game.camera.update();
         viewport = new FillViewport(V_WIDTH / SCALE, V_Height / SCALE, game.camera);
-        //viewport = new ScreenViewport(camera);
         viewport.apply();
     }
 
@@ -129,15 +121,9 @@ public class LevelLoading implements Screen {
     }
 
     private  void  queueAssets(){
-        //game.manager.load("images/LevelLoadingScreen.png", Texture.class);
-        //game.manager.load("images/topBar.png", Texture.class);
-       // game.manager.load("skin/glassy-ui.atlas", TextureAtlas.class);
 
-     /*   game.manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        game.manager.load("maps/lvl3final.tmx", TiledMap.class);
-        game.manager.load("images/frog.png", Texture.class);*/
         game.manager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        //game.manager.load("images/frog.png", Texture.class);
+
         game.manager.load("frogAnim/standingFrog/standingFrog.atlas",TextureAtlas.class);
         game.manager.load("frogAnim/walkingFrog/walkingFrog.atlas",TextureAtlas.class);
         game.manager.load("frogAnim/attackingFrog/attackingFrog.atlas",TextureAtlas.class);
@@ -157,7 +143,6 @@ public class LevelLoading implements Screen {
         game.manager.load("sounds/dead.wav", Sound.class);
         game.manager.load("sounds/hurt.wav", Sound.class);
         game.manager.load("sounds/jump.wav", Sound.class);
-        //game.manager.load("sounds/owldead.wav", Sound.class);
         game.manager.load("sounds/sword.wav", Sound.class);
         int assign;
         if(levelScreenNo == -1){
@@ -168,23 +153,69 @@ public class LevelLoading implements Screen {
         switch (assign){
 
             case 0:
-                game.manager.load("maps/World1Level1.tmx", TiledMap.class);
+                game.manager.load("maps/level1.tmx", TiledMap.class);
                 break;
             case 1:
-                game.manager.load("maps/World1Level2.tmx", TiledMap.class);
+                game.manager.load("maps/level2.tmx", TiledMap.class);
                 break;
             case 2:
-                game.manager.load("maps/World1Level3.tmx", TiledMap.class);
+                game.manager.load("maps/level3.tmx", TiledMap.class);
                 break;
             case 3:
-                game.manager.load("maps/World1Level4.tmx", TiledMap.class);
+                game.manager.load("maps/level4.tmx", TiledMap.class);
                 break;
             case 4:
-                game.manager.load("maps/World1Level5.tmx", TiledMap.class);
+                game.manager.load("maps/level5.tmx", TiledMap.class);
                 break;
+            case 5:
+                game.manager.load("maps/level6.tmx", TiledMap.class);
+                break;
+            case 6:
+                game.manager.load("maps/level7.tmx", TiledMap.class);
+                break;
+            case 7:
+                game.manager.load("maps/level8.tmx", TiledMap.class);
+                break;
+            case 8:
+                game.manager.load("maps/level9.tmx", TiledMap.class);
+                break;
+            case 9:
+                game.manager.load("maps/level10.tmx", TiledMap.class);
+                break;
+            case 10:
+                game.manager.load("maps/level11.tmx", TiledMap.class);
+                break;
+            case 11:
+                game.manager.load("maps/level12.tmx", TiledMap.class);
+                break;
+            case 12:
+                game.manager.load("maps/level13.tmx", TiledMap.class);
+                break;
+            case 13:
+                game.manager.load("maps/level14.tmx", TiledMap.class);
+                break;
+            case 14:
+                game.manager.load("maps/level15.tmx", TiledMap.class);
+                break;
+            case 15:
+                game.manager.load("maps/level16.tmx", TiledMap.class);
+                break;
+            case 16:
+                game.manager.load("maps/level17.tmx", TiledMap.class);
+                break;
+            case 17:
+                game.manager.load("maps/level18.tmx", TiledMap.class);
+                break;
+            case 18:
+                game.manager.load("maps/level19.tmx", TiledMap.class);
+                break;
+            case 19:
+                game.manager.load("maps/level20.tmx", TiledMap.class);
+                break;
+
             default:
                 game.gm.setPrefLevel(0);
-                game.manager.load("maps/World1Level1.tmx", TiledMap.class);
+                game.manager.load("maps/level1.tmx", TiledMap.class);
                 break;
         }
 

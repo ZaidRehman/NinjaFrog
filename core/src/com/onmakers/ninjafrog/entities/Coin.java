@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.onmakers.ninjafrog.NinjaFrog;
 
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.coinCounter;
@@ -16,7 +17,10 @@ public class Coin {
     String id;
     public boolean touched = false;
 
-    public Coin(World world, String id, float x, float y, float width, float height){
+    private final NinjaFrog game;
+
+    public Coin(NinjaFrog game,World world, String id, float x, float y, float width, float height){
+        this.game = game;
         this.world = world;
         this.id = id;
         createBoxBody(world,x,y,width,height);
@@ -53,6 +57,7 @@ public class Coin {
         touched =true;
         coinCounter ++ ;
         System.out.println(id + ": has been hit");
+        game.gm.setPrefTotalCoins(game.gm.getTotalCoins() + 1);
     }
     public boolean isTouched (){
         return touched;

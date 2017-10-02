@@ -22,10 +22,8 @@ import com.onmakers.ninjafrog.entities.Enemy;
 import com.onmakers.ninjafrog.entities.Key;
 import com.onmakers.ninjafrog.entities.Player;
 import com.onmakers.ninjafrog.handler.PlayerContactListener;
-import com.onmakers.ninjafrog.utils.TiledObjectUtil;
 
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
-import static com.onmakers.ninjafrog.utils.BodyBuilder.createBox;
 
 public class Level3 implements Screen{
 
@@ -98,10 +96,9 @@ public class Level3 implements Screen{
         frog = new Player(world, "FROG", 100, 300, 128 / 2, 192 * 0.85f / 2);
         //enemy1 = new Enemy(world, "ENEMY1", 475, 475, 16, 16);
         //enemy2 = new Enemy(world, "ENEMY2", 325, 475, 16, 16);
-        coin1 = new Coin(world, "COIN1", 475, 475, 16, 16);
         key1 = new Key(world, "KEY1", 325, 475, 16, 16);
 
-        TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get(1).getObjects());
+        //TiledObjectUtil.parseTiledObjectLayer(world, map.getLayers().get(1).getObjects());
     }
 
     @Override

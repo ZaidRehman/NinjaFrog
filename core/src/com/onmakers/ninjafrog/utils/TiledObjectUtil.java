@@ -10,19 +10,17 @@ import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.entities.Coin;
 import com.onmakers.ninjafrog.entities.Enemy;
 
 import static com.onmakers.ninjafrog.utils.Constants.BIT_FROG;
 import static com.onmakers.ninjafrog.utils.Constants.BIT_OWL;
-import static com.onmakers.ninjafrog.utils.Constants.BIT_WALL;
 import static com.onmakers.ninjafrog.utils.Constants.coins;
 import static com.onmakers.ninjafrog.utils.Constants.flyingOwls;
-import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
-import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 
 public class TiledObjectUtil {
-    public static void parseTiledObjetLayer(World world, MapObjects objects) {
+    public static void parseTiledObjectLayer(NinjaFrog game, World world, MapObjects objects) {
         int i = 0, j =0 ;
         for (MapObject object: objects ) {
             Shape shape;
@@ -34,7 +32,7 @@ public class TiledObjectUtil {
                 continue;
             }
             if(object.getProperties().containsKey("coin")){
-                createCoin(world,(PolylineMapObject) object,i);
+                createCoin(game,world,(PolylineMapObject) object,i);
                 i ++;
             }else if(object.getProperties().containsKey("flyingowl")){
                 createFlyingOwl(world,(PolylineMapObject) object,j);
@@ -72,9 +70,9 @@ public class TiledObjectUtil {
             shape.dispose();
         }
     }
-    private static void createCoin(World world,PolylineMapObject polyline,int i){
+    private static void createCoin(NinjaFrog game,World world,PolylineMapObject polyline,int i){
         float[] vertices = polyline.getPolyline().getTransformedVertices();
-        coins.add(new Coin(world, "COIN" + i, vertices[0], vertices[1], 32, 32));
+        coins.add(new Coin(game,world, "COIN" + i, vertices[0], vertices[1], 32, 32));
     }
     private  static void createFlyingOwl(World world,PolylineMapObject polyline,int j){
         float[] vertices = polyline.getPolyline().getTransformedVertices();

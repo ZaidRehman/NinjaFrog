@@ -19,8 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
 import com.onmakers.ninjafrog.tween.ActorAccessor;
@@ -131,7 +129,7 @@ public class MainMenu implements Screen{
         table.row();
         table.add(empty).height(h * 0.1f);
         table.row();
-        table.add(profileImg);
+        //table.add(profileImg);
         table.row();
         table.add(levelsImg);
         table.row();
@@ -240,7 +238,7 @@ public class MainMenu implements Screen{
         scoreImg.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-
+                game.setScreen(new ScoreScreen(game));
             }
         });
 
