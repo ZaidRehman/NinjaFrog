@@ -36,7 +36,6 @@ public class GamePreferences {
         getPrefs().putInteger(PREF_LEVEL,value).flush();
     }
 
-
     public void setPrefTotalCoins(int value){
         getPrefs().putInteger(PREF_TOTAL_COINS,value).flush();
     }

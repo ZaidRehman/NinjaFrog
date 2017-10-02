@@ -34,7 +34,6 @@ import com.onmakers.ninjafrog.entities.PlayerSword;
 import com.onmakers.ninjafrog.handler.PlayerContactListener;
 import com.onmakers.ninjafrog.utils.Constants;
 import com.onmakers.ninjafrog.utils.JointBuilder;
-import com.onmakers.ninjafrog.utils.TiledObjectUtil;
 import com.onmakers.ninjafrog.utils.UtilityMethods;
 
 import java.util.ArrayList;
@@ -161,7 +160,7 @@ public class W1L2 implements Screen {
         texCoin = new Texture("images/coin.png");
         coins = new ArrayList<Coin>();
         for (int i = 0, j = 0; i < 10; i++) {
-            coins.add(new Coin(world, "COIN" + i, mapPixelWidth * 0.02f + 100 * i, mapPixelHeight * 0.75f + 100, 32, 32));
+           // coins.add(new Coin(world, "COIN" + i, mapPixelWidth * 0.02f + 100 * i, mapPixelHeight * 0.75f + 100, 32, 32));
         }
 
         frog = new Player(world, "FROG", 100, 360, FROG_BODY_WIDTH, FROG_BODY_HEIGHT);
@@ -186,7 +185,7 @@ public class W1L2 implements Screen {
         //flyingOwls.add(new Enemy(world, "flyingOwl"+10, mapPixelWidth * 0.1f * 10, 900, 30, 30));
 
 
-        TiledObjectUtil.parseTiledObjetLayer(world, map.getLayers().get("collision-layer").getObjects());
+        //TiledObjectUtil.parseTiledObjectLayer(world, map.getLayers().get("collision-layer").getObjects());
 
 
         //stage

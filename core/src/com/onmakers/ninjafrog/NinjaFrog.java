@@ -75,7 +75,6 @@ public class NinjaFrog extends Game {
         loadingScreen.dispose();
         levelLoading.dispose();
         splash.dispose();
-        levelScreen.dispose();
         mainMenu.dispose();
     }
 

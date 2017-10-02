@@ -12,10 +12,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FillViewport;
@@ -36,12 +39,12 @@ public class LevelScreen implements Screen {
     private  final NinjaFrog game;
 
     private  Stage stage;
-    private  Skin skin;
     OrthographicCamera camera;
     Viewport viewport;
     private static final float SCALE = 1f;
     float w;
     float h;
+    private Skin skin;
 
 
     private OrthogonalTiledMapRenderer tmr;
@@ -73,9 +76,15 @@ public class LevelScreen implements Screen {
         viewport = new FillViewport(V_WIDTH / SCALE, V_Height / SCALE, camera);
         viewport.apply();
         stage.getViewport().apply();
+        gs = new TextureAtlas(Gdx.files.internal("images/gs/gs.atlas"));
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
-        gs = new TextureAtlas(Gdx.files.internal("images/gs/gs.atlas"));
+        TextButton back = new TextButton("Back",skin);
+        back.addListener(new ChangeListener() {
+            public void changed (ChangeListener.ChangeEvent event, Actor actor) {
+                game.setScreen(game.mainMenu);
+            }
+        });
 
         ls = new ArrayList<LevelCell>();
         ls.add(new LevelCell(gs.findRegion("icon empty"),0,game.showcard));
@@ -99,32 +108,34 @@ public class LevelScreen implements Screen {
         ls.add(new LevelCell(gs.findRegion("icon empty"),18,game.showcard));
         ls.add(new LevelCell(gs.findRegion("icon empty"),19,game.showcard));
 
-        table = new Table(skin);
+        table = new Table();
 
 
-        table.add(ls.get(0)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(1)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(2)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(3)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(4)).width(w * 0.18f).height(h * 0.23f).pad(10);
+        table.add(ls.get(0)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(1)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(2)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(3)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(4)).width(w * 0.18f).height(h * 0.20f).pad(10);
         table.row();
-        table.add(ls.get(5)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(6)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(7)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(8)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(9)).width(w * 0.18f).height(h * 0.23f).pad(10);
+        table.add(ls.get(5)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(6)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(7)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(8)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(9)).width(w * 0.18f).height(h * 0.20f).pad(10);
         table.row();
-        table.add(ls.get(10)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(11)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(12)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(13)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(14)).width(w * 0.18f).height(h * 0.23f).pad(10);
+        table.add(ls.get(10)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(11)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(12)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(13)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(14)).width(w * 0.18f).height(h * 0.20f).pad(10);
         table.row();
-        table.add(ls.get(15)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(16)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(17)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(18)).width(w * 0.18f).height(h * 0.23f).pad(10);
-        table.add(ls.get(19)).width(w * 0.18f).height(h * 0.23f).pad(10);
+        table.add(ls.get(15)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(16)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(17)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(18)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.add(ls.get(19)).width(w * 0.18f).height(h * 0.20f).pad(10);
+        table.row();
+        table.add(back).colspan(5);
 
 
 
