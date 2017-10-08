@@ -12,12 +12,11 @@ import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.coinCounter;
 
 public class Coin {
+    private final NinjaFrog game;
     public World world;
     public Body body;
-    String id;
     public boolean touched = false;
-
-    private final NinjaFrog game;
+    String id;
 
     public Coin(NinjaFrog game,World world, String id, float x, float y, float width, float height){
         this.game = game;
@@ -56,7 +55,7 @@ public class Coin {
         });
         touched =true;
         coinCounter ++ ;
-        System.out.println(id + ": has been hit");
+        System.out.println(id + ": has been hit " + game.gm.getTotalCoins());
         game.gm.setPrefTotalCoins(game.gm.getTotalCoins() + 1);
     }
     public boolean isTouched (){

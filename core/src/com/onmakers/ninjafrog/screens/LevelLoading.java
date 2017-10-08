@@ -21,11 +21,11 @@ import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
 public class LevelLoading implements Screen {
 
 
+    private static final float SCALE = 1f;
     private  final  NinjaFrog game;
+    Viewport viewport;
     private ShapeRenderer shapeRenderer;
     private  float progress ;
-    Viewport viewport;
-    private static final float SCALE = 1f;
     private int levelScreenNo = -1;
 
     public LevelLoading(final NinjaFrog game, int levelScreenNo) {
@@ -46,7 +46,7 @@ public class LevelLoading implements Screen {
             }else{
                 assign = levelScreenNo;
             }
-            game.setScreen(new W1L1(game,assign));
+            game.setScreen(new Level(game, assign));
         }
     }
 

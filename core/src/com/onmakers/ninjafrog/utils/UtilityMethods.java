@@ -1,6 +1,5 @@
 package com.onmakers.ninjafrog.utils;
 
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -12,15 +11,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.onmakers.ninjafrog.entities.Player;
 
-import static com.onmakers.ninjafrog.screens.W1L1.animFalling;
-import static com.onmakers.ninjafrog.screens.W1L1.frogJump;
-import static com.onmakers.ninjafrog.screens.W1L1.sword;
+import static com.onmakers.ninjafrog.screens.Level.animFalling;
+import static com.onmakers.ninjafrog.screens.Level.frogJump;
+import static com.onmakers.ninjafrog.screens.Level.sword;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_H_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.MAX_V_VELOCITY;
 import static com.onmakers.ninjafrog.utils.Constants.PPM;
 import static com.onmakers.ninjafrog.utils.Constants.action;
 import static com.onmakers.ninjafrog.utils.Constants.attackCounter;
 import static com.onmakers.ninjafrog.utils.Constants.elapsedTime;
+import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
+import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 import static com.onmakers.ninjafrog.utils.Constants.isDead;
 import static com.onmakers.ninjafrog.utils.Constants.isGrounded;
 import static com.onmakers.ninjafrog.utils.Constants.jump;
@@ -28,8 +29,6 @@ import static com.onmakers.ninjafrog.utils.Constants.left;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelHeight;
 import static com.onmakers.ninjafrog.utils.Constants.mapPixelWidth;
 import static com.onmakers.ninjafrog.utils.Constants.right;
-import static com.onmakers.ninjafrog.utils.Constants.frogDirection;
-import static com.onmakers.ninjafrog.utils.Constants.frogStatus;
 
 public class UtilityMethods {
 
