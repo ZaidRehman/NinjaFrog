@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.onmakers.ninjafrog.NinjaFrog;
-import com.onmakers.ninjafrog.actors.CoinCell;
+import com.onmakers.ninjafrog.actors.LevelCell;
 
 import static com.onmakers.ninjafrog.NinjaFrog.V_Height;
 import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
@@ -32,17 +32,14 @@ import static com.onmakers.ninjafrog.NinjaFrog.V_WIDTH;
 
 public class ScoreScreen implements Screen {
 
+    private static final float SCALE = 1f;
     private final NinjaFrog game;
-
-    private Stage stage;
-    private Skin skin;
     OrthographicCamera camera;
     Viewport viewport;
-    private static final float SCALE = 1f;
     float w;
     float h;
-
-
+    private Stage stage;
+    private Skin skin;
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
     private Table table;
@@ -89,10 +86,10 @@ public class ScoreScreen implements Screen {
         Label kills = new Label("Kills",headingStyle);
 
         table.add(score).width(w * 0.25f).height(h * 0.25f).pad(10);
-        table.add(new CoinCell(gs.findRegion("icon empty"),game.gm.getTotalCoins() + "",game.showcard)).width(w * 0.25f).height(h * 0.25f).pad(10);
+        table.add(new LevelCell(gs.findRegion("icon empty"), game.gm.getTotalCoins(), game.showcard)).width(w * 0.25f).height(h * 0.25f).pad(10);
         table.row();
         table.add(kills).width(w * 0.25f).height(h * 0.25f).pad(10);
-        table.add(new CoinCell(gs.findRegion("icon empty"),game.gm.getTotalEnemyKills() + "",game.showcard)).width(w * 0.25f).height(h * 0.25f).pad(10);
+        table.add(new LevelCell(gs.findRegion("icon empty"), game.gm.getTotalEnemyKills(), game.showcard)).width(w * 0.25f).height(h * 0.25f).pad(10);
         table.row();
         table.add(back).colspan(2);
 

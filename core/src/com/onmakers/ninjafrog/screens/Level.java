@@ -75,54 +75,42 @@ import static com.onmakers.ninjafrog.utils.UtilityMethods.buttonRight;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.cameraUpdate;
 import static com.onmakers.ninjafrog.utils.UtilityMethods.updateFrogStatus;
 
-public class W1L1 implements Screen {
+public class Level implements Screen {
 
     private static final float SCALE = 0.8f;
+    public static Animation<TextureAtlas.AtlasRegion> animFalling;
+    //Sound
+    public static Sound frogDead, sword, frogJump, frogHurt;
+    private static Animation<TextureAtlas.AtlasRegion> animStanding, animWalking, animAttacking, animJumping, animDeadFrog;
+    public final NinjaFrog game;
+    public boolean deadPlayed = false;
+    float allowChangeScreen;
+    float dc;
     private OrthographicCamera camera;
     private Viewport viewport;
-
     private OrthogonalTiledMapRenderer tmr;
     private TiledMap map;
-
     private Box2DDebugRenderer b2dr;
     private World world;
-
-
     //private Body frog;
     private Player frog;
-
     //batch
     private SpriteBatch batch;
     private TextureAtlas.AtlasRegion tex;
-
     //stage
     private Stage stage;
     private Skin skin;
     private Table table;
-
-    public final NinjaFrog game;
     private int levelScreenNo = 0;
     private boolean startedWithLevelScreen = false;
-
     //Animation
     private TextureAtlas atlasWalkingFrog,atlasStandingFrog, atlasJumpingFrog, atlasAttackingFrog,atlasFallingFrog,atlasDeadFrog;
-    private static Animation<TextureAtlas.AtlasRegion> animStanding ,animWalking, animAttacking , animJumping,  animDeadFrog;
-    public static Animation<TextureAtlas.AtlasRegion> animFalling;
-
     //Game Design
     private TextureAtlas gs;
-
     //Particle effect
     private List<ParticleEffect> peList;
 
-    //Sound
-    public static Sound frogDead,sword,frogJump,frogHurt;
-    public boolean deadPlayed = false;
-
-    float allowChangeScreen;
-
-    float dc ;
-    public W1L1(NinjaFrog game, int level) {
+    public Level(NinjaFrog game, int level) {
         this.game = game;
         levelScreenNo = level;
         if(level != -1){

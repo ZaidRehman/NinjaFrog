@@ -41,7 +41,7 @@ public class GamePreferences {
     }
 
     public void setPrefTotalEnemyKills(int value){
-        getPrefs().putInteger(PREF_TOTAL_ENEMY_KILLS,0).flush();
+        getPrefs().putInteger(PREF_TOTAL_ENEMY_KILLS, value).flush();
     }
 
     public void setPrefLives(){
